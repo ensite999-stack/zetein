@@ -11,8 +11,8 @@ export function Navbar() {
         z-50
         w-full
         border-b
-        bg-background/80
-        backdrop-blur-md
+        bg-background/90
+        backdrop-blur-xl
       "
     >
 
@@ -20,34 +20,29 @@ export function Navbar() {
         className="
           flex
           h-16
-          w-full
           items-center
           justify-between
-          px-4
-          sm:px-8
+          px-2
+          sm:px-6
         "
       >
 
         <Logo />
 
-
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4">
 
           <a
             href="/register"
             className="
               text-sm
-              font-medium
+              font-semibold
               text-foreground
-              hover:opacity-70
             "
           >
             Register
           </a>
 
-
           <NavigationSheet />
-
 
         </div>
 
