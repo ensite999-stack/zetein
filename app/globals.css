@@ -4,7 +4,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 @theme inline {
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -33,35 +35,40 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
+
   --breakpoint-xs: 375px;
+
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+
 
   @keyframes accordion-down {
     from {
       height: 0;
     }
-
     to {
       height: var(--radix-accordion-content-height);
     }
   }
+
 
   @keyframes accordion-up {
     from {
       height: var(--radix-accordion-content-height);
     }
-
     to {
       height: 0;
     }
   }
+
 }
+
 
 
 @layer base {
@@ -71,19 +78,26 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
+
     border-color: var(--color-gray-200, currentColor);
+
   }
+
 }
 
 
-/* Light Mode */
+
+/* 浅色模式 */
+
 :root {
 
   --background: hsl(190 60% 97%);
   --foreground: hsl(222 47% 11%);
 
+
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(222 47% 11%);
+
 
   --popover: hsl(0 0% 100%);
   --popover-foreground: hsl(222 47% 11%);
@@ -122,11 +136,13 @@
 
 
   --radius: 0.75rem;
+
 }
 
 
 
-/* Dark Mode */
+/* 深色模式 */
+
 .dark {
 
   --background: hsl(222 47% 8%);
@@ -174,6 +190,7 @@
 
 
   --radius: 0.75rem;
+
 }
 
 
@@ -181,37 +198,54 @@
 @layer base {
 
   * {
+
     @apply border-border outline-ring/50;
+
   }
 
 
   html {
+
     @apply scroll-smooth;
+
   }
 
 
   body {
 
-  @apply bg-background text-foreground;
+    @apply bg-background text-foreground;
 
-  min-height:100vh;
-
-  background:
-
-    radial-gradient(
-      circle at 15% 10%,
-      rgba(56,189,248,0.18),
-      transparent 35%
-    ),
-
-    radial-gradient(
-      circle at 85% 90%,
-      rgba(52,211,153,0.18),
-      transparent 35%
-    ),
-
-    var(--background);
+    min-height: 100vh;
 
 
-  background-attachment: fixed;
+    background:
+
+      radial-gradient(
+        circle at 15% 10%,
+        rgba(56,189,248,0.18),
+        transparent 35%
+      ),
+
+
+      radial-gradient(
+        circle at 85% 90%,
+        rgba(52,211,153,0.18),
+        transparent 35%
+      ),
+
+
+      var(--background);
+
+
+    background-attachment: fixed;
+
+  }
+
+
+  button {
+
+    @apply cursor-pointer;
+
+  }
+
 }
