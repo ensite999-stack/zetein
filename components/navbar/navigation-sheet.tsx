@@ -3,7 +3,6 @@
 import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-
 import {
   Sheet,
   SheetContent,
@@ -28,6 +27,9 @@ export function NavigationSheet() {
             h-12
             w-12
             rounded-xl
+            text-white
+            hover:bg-zinc-800
+            hover:text-white
           "
         >
           <Menu
@@ -43,7 +45,10 @@ export function NavigationSheet() {
 
       <SheetContent
         side="right"
-        className="w-[320px] bg-background"
+        className="
+          w-[320px]
+          bg-background
+        "
       >
 
         <div className="mt-4">
