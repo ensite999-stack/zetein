@@ -1,31 +1,41 @@
 "use client";
 
-import { Menu, Sun, Moon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+import ThemeToggle from "@/components/theme-toggle";
+
 import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 
-export function NavigationSheet() {
-  const { theme, setTheme } = useTheme();
 
+export function NavigationSheet() {
   return (
     <Sheet>
 
       <SheetTrigger asChild>
         <Button
           variant="ghost"
-          className="h-12 w-12 rounded-xl"
+          size="icon"
+          className="
+            h-12
+            w-12
+            rounded-xl
+          "
         >
           <Menu
-            className="h-8 w-8 stroke-[2.5]"
+            className="
+              h-8
+              w-8
+              stroke-[3]
+            "
           />
         </Button>
       </SheetTrigger>
@@ -33,10 +43,13 @@ export function NavigationSheet() {
 
       <SheetContent
         side="right"
-        className="w-[300px]"
+        className="w-[320px] bg-background"
       >
 
-        <Logo />
+        <div className="mt-4">
+          <Logo />
+        </div>
+
 
         <NavMenu
           orientation="vertical"
@@ -44,30 +57,23 @@ export function NavigationSheet() {
         />
 
 
-        <div className="mt-10 border-t pt-6">
+        <div
+          className="
+            mt-10
+            flex
+            items-center
+            justify-between
+            border-t
+            pt-6
+          "
+        >
 
-          <button
-            onClick={() =>
-              setTheme(
-                theme === "dark"
-                  ? "light"
-                  : "dark"
-              )
-            }
-            className="flex w-full items-center gap-3 text-sm"
-          >
+          <span className="text-sm text-muted-foreground">
+            Theme
+          </span>
 
-            {theme === "dark" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
 
-            {theme === "dark"
-              ? "Light Mode"
-              : "Dark Mode"}
-
-          </button>
+          <ThemeToggle />
 
         </div>
 
