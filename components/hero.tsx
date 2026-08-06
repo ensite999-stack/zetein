@@ -1,10 +1,8 @@
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-
 export default function Hero() {
   return (
     <section className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center">
-      <h1 className="text-5xl font-bold tracking-tight">
+
+      <h1 className="text-5xl font-bold">
         Zetein
       </h1>
 
@@ -13,19 +11,22 @@ export default function Hero() {
       </p>
 
       <div className="mt-10 flex w-full max-w-xl gap-3">
-        <Input
+        <input
           placeholder="Search your domain..."
-          className="h-12"
+          className="h-12 flex-1 rounded-md border px-4"
         />
 
-        <Button className="h-12">
+        <button
+          className="h-12 rounded-md bg-black px-6 text-white"
+        >
           Search
-        </Button>
+        </button>
       </div>
 
       <p className="mt-6 text-sm text-muted-foreground">
         Fast. Simple. Private.
       </p>
+
     </section>
   );
 }
