@@ -2,17 +2,27 @@ import Image from "next/image";
 
 export function Logo() {
   return (
-    <Image
-      src="/zetein-logo.png"
-      alt="Zetein"
-      width={100}
-      height={35}
-      className="
-        h-8
-        w-auto
-        object-contain
-      "
-      priority
-    />
+    <div className="flex items-center gap-3">
+
+      <Image
+        src="/zetein-logo.jpg"
+        alt="Zetein"
+        width={42}
+        height={42}
+        className="h-10 w-10 object-contain"
+        priority
+      />
+
+      <span
+        className="
+          text-xl
+          font-semibold
+          text-foreground
+        "
+      >
+        Zetein
+      </span>
+
+    </div>
   );
 }
