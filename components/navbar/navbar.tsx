@@ -1,16 +1,36 @@
 import { Logo } from "./logo";
 import { NavigationSheet } from "./navigation-sheet";
 
+
 export function Navbar() {
   return (
-    <header className="w-full border-b bg-white">
-      <div className="flex h-16 items-center justify-between px-5">
+    <header
+      className="
+      w-full
+      border-b
+      bg-background
+      "
+    >
+
+      <div
+        className="
+        flex
+        h-16
+        w-full
+        items-center
+        justify-between
+        px-4
+        sm:px-6
+        lg:px-8
+        "
+      >
 
         <Logo />
 
         <NavigationSheet />
 
       </div>
+
     </header>
   );
 }
