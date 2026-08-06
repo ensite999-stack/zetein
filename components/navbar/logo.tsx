@@ -5,8 +5,8 @@ export function Logo() {
     <Image
       src="/zetein-logo.png"
       alt="Zetein"
-      width={130}
-      height={40}
+      width={100}
+      height={35}
       className="object-contain"
     />
   );
