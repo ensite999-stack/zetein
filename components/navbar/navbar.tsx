@@ -1,124 +1,261 @@
 "use client";
 
-import { useEffect, useState } from "react";
 
-import { Logo } from "./logo";
-import { NavigationSheet } from "./navigation-sheet";
-
-
-export function Navbar() {
-
-  const [scrolled, setScrolled] = useState(false);
+import Image from "next/image";
+import { Menu } from "lucide-react";
 
 
-  useEffect(() => {
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 
-    return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
-    };
+import ThemeToggle from "@/components/theme-toggle";
 
-  }, []);
 
+
+export default function Navbar() {
 
 
   return (
+
     <header
-      className={`
-        fixed
-        top-0
-        left-0
-        z-50
-        w-full
+      className="
+      fixed
+      top-0
+      left-0
+      z-50
 
-        transition-all
-        duration-300
+      w-full
 
-        ${
-          scrolled
-            ? `
-              bg-background/70
-              backdrop-blur-xl
-              shadow-sm
-              border-b
-              border-border
-            `
-            :
-              `
-              bg-transparent
-              border-transparent
-            `
-        }
-      `}
+      "
     >
 
-      <div
+
+      <nav
+
         className="
-          flex
-          h-16
-          w-full
-          items-center
-          justify-between
+        flex
+        h-20
 
-          px-3
+        items-center
+        justify-between
 
-          sm:px-6
 
-          lg:px-10
+        px-5
+        sm:px-10
+
+
+        bg-background/40
+
+        backdrop-blur-xl
+
+
+        border-b
+
+        border-white/20
+
+
+        shadow-sm
+
         "
+
       >
+
+
 
         {/* Logo */}
 
-        <Logo />
-
-
         <div
           className="
-            flex
-            items-center
-            gap-4
+          flex
+          items-center
+          gap-2
           "
         >
 
-          {/* 注册 */}
 
-          <a
-            href="/register"
+          <Image
+
+            src="/zetein-logo.jpg"
+
+            alt="Zetein"
+
+            width={42}
+
+            height={42}
+
             className="
-              text-sm
-              font-semibold
-              text-foreground
-              transition
-              hover:opacity-70
+            object-contain
             "
+
+          />
+
+
+          <span
+
+            className="
+            text-2xl
+            font-bold
+            tracking-tight
+            "
+
           >
-            Register
-          </a>
 
+            Zetein
 
-          {/* 菜单 */}
+          </span>
 
-          <NavigationSheet />
 
         </div>
 
 
-      </div>
+
+
+
+        {/* Desktop Register */}
+
+        <div
+
+          className="
+          hidden
+          md:flex
+
+          items-center
+
+          gap-8
+
+          "
+
+        >
+
+
+          <a
+
+            href="/register"
+
+            className="
+            text-lg
+            font-semibold
+            "
+
+          >
+
+            Register
+
+          </a>
+
+
+        </div>
+
+
+
+
+
+
+        {/* Mobile Menu */}
+
+
+        <Sheet>
+
+
+          <SheetTrigger asChild>
+
+
+            <button
+
+              className="
+
+              flex
+
+              h-14
+              w-14
+
+
+              items-center
+              justify-center
+
+
+              rounded-2xl
+
+
+              border
+
+
+              bg-background/60
+
+
+              backdrop-blur-xl
+
+
+              shadow-md
+
+
+              "
+
+            >
+
+              <Menu
+
+                size={32}
+
+                strokeWidth={3}
+
+              />
+
+            </button>
+
+
+          </SheetTrigger>
+
+
+
+
+          <SheetContent>
+
+
+            <div
+              className="
+              mt-10
+              flex
+              flex-col
+              gap-8
+              text-xl
+              font-semibold
+              "
+            >
+
+
+              <a href="/login">
+                Login
+              </a>
+
+
+              <a href="/about">
+                About Zetein
+              </a>
+
+
+              <ThemeToggle />
+
+
+            </div>
+
+
+          </SheetContent>
+
+
+        </Sheet>
+
+
+      </nav>
+
 
     </header>
+
+
   );
+
 }
