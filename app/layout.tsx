@@ -9,77 +9,44 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Beautiful Shadcn UI Landing Page",
+  title: "Zetein - Domain Search & Management",
   description:
-    "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+    "Search, understand, and manage your domains with Zetein. Fast, simple, and private domain tools.",
   keywords: [
-    "Shadcn UI Landing Page",
-    "Shadcn UI Blocks",
-    "Shadcn UI",
-    "Landing Page",
-    "Tailwind CSS Landing Page",
-    "Beautiful Shadcn UI Landing Page",
-    "Next.js 15 Landing Page",
-    "Simple Landing Page",
-    "Landing Page Template",
-    "Landing Page Design",
+    "domain search",
+    "domain management",
+    "domain lookup",
+    "DNS lookup",
+    "domain registrar",
+    "domain information",
   ],
   openGraph: {
     type: "website",
-    siteName: "Shadcn Landing Page",
+    siteName: "Zetein",
     locale: "en_US",
-    url: "https://shadcn-landing-page.vercel.app",
-    title: "Shadcn Landing Page",
+    url: "https://zetein.com",
+    title: "Zetein - Domain Search & Management",
     description:
-      "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+      "Fast, simple, and private domain search and management.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Shadcn UI Landing Page Preview",
+        alt: "Zetein",
       },
     ],
   },
   authors: [
     {
-      name: "Akash Moradiya",
-      url: "https://shadcnui-blocks.com",
+      name: "Zetein",
     },
   ],
-  creator: "Akash Moradiya",
+  creator: "Zetein",
   icons: [
     {
       rel: "icon",
       url: "/favicon.ico",
-    },
-    {
-      rel: "apple-touch-icon",
-      url: "/apple-touch-icon.png",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      url: "/favicon-32x32.png",
-      sizes: "32x32",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      url: "/favicon-16x16.png",
-      sizes: "16x16",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      url: "/android-chrome-192x192.png",
-      sizes: "192x192",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      url: "/android-chrome-512x512.png",
-      sizes: "512x512",
     },
   ],
   robots: {
@@ -96,8 +63,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <body
+        className={`${geistSans.className} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
           {children}
         </ThemeProvider>
       </body>
