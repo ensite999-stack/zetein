@@ -1,16 +1,21 @@
 import { Logo } from "./logo";
 import { NavigationSheet } from "./navigation-sheet";
 
+
 export function Navbar() {
   return (
     <header
       className="
+        sticky
+        top-0
+        z-50
         w-full
-        bg-slate-950
         border-b
-        border-slate-800
+        bg-background/80
+        backdrop-blur-md
       "
     >
+
       <div
         className="
           flex
@@ -19,31 +24,35 @@ export function Navbar() {
           items-center
           justify-between
           px-4
-          sm:px-6
+          sm:px-8
         "
       >
 
         <Logo />
 
-        <div className="flex items-center gap-4">
+
+        <div className="flex items-center gap-5">
 
           <a
             href="/register"
             className="
               text-sm
               font-medium
-              text-white
-              hover:text-slate-300
+              text-foreground
+              hover:opacity-70
             "
           >
             Register
           </a>
 
+
           <NavigationSheet />
+
 
         </div>
 
       </div>
+
     </header>
   );
 }
