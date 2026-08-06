@@ -3,77 +3,47 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
 
-
 export const metadata: Metadata = {
-
   title: "Zetein",
-
-  description:
-    "Find and manage your domains.",
-
-
+  description: "Search domains and manage your digital assets.",
   keywords: [
-    "Domain Search",
-    "Domain Management",
-    "DNS",
-    "Registrar",
+    "domain",
+    "domain search",
     "Zetein",
   ],
-
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
-
   icons: {
     icon: "/favicon.ico",
   },
-
-
-  openGraph: {
-
-    title: "Zetein",
-
-    description:
-      "Find and manage your domains.",
-
-    type: "website",
-
-  },
-
 };
 
-
-
-// 控制手机浏览器顶部颜色
 
 export const viewport: Viewport = {
 
-  themeColor: "#dff7f7",
+  themeColor: [
+    {
+      media: "(prefers-color-scheme: light)",
+      color: "#e8faf8",
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: "#08111f",
+    },
+  ],
 
 };
 
 
-
 export default function RootLayout({
-
   children,
-
 }: Readonly<{
-
   children: React.ReactNode;
-
 }>) {
-
 
   return (
 
@@ -83,31 +53,20 @@ export default function RootLayout({
     >
 
       <body
-        className={`
-          ${geistSans.variable}
-          antialiased
-        `}
+        className={`${geistSans.className} antialiased`}
       >
 
         <ThemeProvider
-
           attribute="class"
-
           defaultTheme="system"
-
           enableSystem
-
-          disableTransitionOnChange
-
         >
 
           {children}
 
         </ThemeProvider>
 
-
       </body>
-
 
     </html>
 
