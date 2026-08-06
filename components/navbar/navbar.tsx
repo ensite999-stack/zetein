@@ -1,33 +1,40 @@
-import { Button } from "@/components/ui/button";
-import { Logo } from "./logo";
-import { NavMenu } from "./nav-menu";
-import { NavigationSheet } from "./navigation-sheet";
-import ThemeToggle from "../theme-toggle";
+import Image from "next/image";
 
-const Navbar = () => {
+export function Navbar() {
   return (
-    <nav className="h-16 bg-background border-b border-accent">
-      <div className="h-full flex items-center justify-between max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6">
-        <Logo />
+    <header className="w-full border-b">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-        {/* Desktop Menu */}
-        <NavMenu className="hidden md:block" />
-
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <Button variant="outline" className="hidden sm:inline-flex">
-            Sign In
-          </Button>
-          <Button className="hidden xs:inline-flex">Get Started</Button>
-
-          {/* Mobile Menu */}
-          <div className="md:hidden">
-            <NavigationSheet />
-          </div>
+        {/* Logo 左侧 */}
+        <div className="flex items-center">
+          <Image
+            src="/zetein-logo.png"
+            alt="Zetein"
+            width={120}
+            height={40}
+            className="h-10 w-auto object-contain"
+          />
         </div>
-      </div>
-    </nav>
-  );
-};
 
-export default Navbar;
+
+        {/* Menu 右侧 */}
+        <nav className="flex items-center gap-6 text-sm">
+
+          <a href="/login">
+            Login
+          </a>
+
+          <a href="/register">
+            Register
+          </a>
+
+          <a href="/about">
+            About Zetein
+          </a>
+
+        </nav>
+
+      </div>
+    </header>
+  );
+}
