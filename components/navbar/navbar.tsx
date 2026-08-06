@@ -6,27 +6,28 @@ export function Navbar() {
     <header
       className="
         w-full
-        bg-zinc-950
+        bg-slate-950
         border-b
-        border-zinc-800
+        border-slate-800
       "
     >
       <div
         className="
           flex
-          h-16
+          h-14
           w-full
           items-center
           justify-between
-          px-3
-          sm:px-5
+          px-4
+          sm:px-6
         "
       >
 
-        {/* 左侧 Logo */}
+        {/* Logo */}
         <Logo />
 
-        {/* 右侧菜单 */}
+
+        {/* Menu */}
         <NavigationSheet />
 
       </div>
