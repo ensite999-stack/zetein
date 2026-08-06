@@ -10,6 +10,7 @@ const geistSans = Geist({
 });
 
 
+
 export const metadata: Metadata = {
 
   title: "Zetein",
@@ -17,8 +18,43 @@ export const metadata: Metadata = {
   description:
     "Find and manage your domains.",
 
+
+  keywords: [
+    "Domain Search",
+    "Domain Management",
+    "DNS",
+    "Registrar",
+    "Zetein",
+  ],
+
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+
+  icons: {
+    icon: "/favicon.ico",
+  },
+
+
+  openGraph: {
+
+    title: "Zetein",
+
+    description:
+      "Find and manage your domains.",
+
+    type: "website",
+
+  },
+
 };
 
+
+
+// 控制手机浏览器顶部颜色
 
 export const viewport: Viewport = {
 
@@ -27,11 +63,17 @@ export const viewport: Viewport = {
 };
 
 
+
 export default function RootLayout({
+
   children,
+
 }: Readonly<{
+
   children: React.ReactNode;
+
 }>) {
+
 
   return (
 
@@ -41,20 +83,31 @@ export default function RootLayout({
     >
 
       <body
-        className={`${geistSans.className} antialiased`}
+        className={`
+          ${geistSans.variable}
+          antialiased
+        `}
       >
 
         <ThemeProvider
+
           attribute="class"
+
           defaultTheme="system"
+
           enableSystem
+
+          disableTransitionOnChange
+
         >
 
           {children}
 
         </ThemeProvider>
 
+
       </body>
+
 
     </html>
 
