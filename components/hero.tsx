@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center">
+    <section className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
 
       <h1 className="text-5xl font-bold">
         Zetein
