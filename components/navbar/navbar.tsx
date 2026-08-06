@@ -1,16 +1,14 @@
 import { Logo } from "./logo";
-import { NavMenu } from "./nav-menu";
+import { NavigationSheet } from "./navigation-sheet";
 
 export function Navbar() {
   return (
-    <header className="w-full">
-      <div className="flex h-16 w-full items-center justify-between px-4">
+    <header className="w-full border-b bg-white">
+      <div className="flex h-16 items-center justify-between px-5">
 
-        {/* 左侧 Logo */}
         <Logo />
 
-        {/* 右侧菜单 */}
-        <NavMenu />
+        <NavigationSheet />
 
       </div>
     </header>
