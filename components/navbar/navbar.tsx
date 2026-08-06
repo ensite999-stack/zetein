@@ -14,7 +14,7 @@ export function Navbar() {
       <div
         className="
           flex
-          h-14
+          h-16
           w-full
           items-center
           justify-between
@@ -23,12 +23,25 @@ export function Navbar() {
         "
       >
 
-        {/* Logo */}
         <Logo />
 
+        <div className="flex items-center gap-4">
 
-        {/* Menu */}
-        <NavigationSheet />
+          <a
+            href="/register"
+            className="
+              text-sm
+              font-medium
+              text-white
+              hover:text-slate-300
+            "
+          >
+            Register
+          </a>
+
+          <NavigationSheet />
+
+        </div>
 
       </div>
     </header>
