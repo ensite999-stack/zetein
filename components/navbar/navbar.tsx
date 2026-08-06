@@ -3,7 +3,14 @@ import { NavigationSheet } from "./navigation-sheet";
 
 export function Navbar() {
   return (
-    <header className="w-full border-b bg-background">
+    <header
+      className="
+        w-full
+        bg-zinc-950
+        border-b
+        border-zinc-800
+      "
+    >
       <div
         className="
           flex
@@ -11,16 +18,17 @@ export function Navbar() {
           w-full
           items-center
           justify-between
-          px-4
-          sm:px-6
-          lg:px-8
+          px-3
+          sm:px-5
         "
       >
-        {/* Logo */}
+
+        {/* 左侧 Logo */}
         <Logo />
 
-        {/* Mobile Menu */}
+        {/* 右侧菜单 */}
         <NavigationSheet />
+
       </div>
     </header>
   );
