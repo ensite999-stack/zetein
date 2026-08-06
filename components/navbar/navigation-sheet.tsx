@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/sheet";
 
 import ThemeToggle from "@/components/theme-toggle";
-
 import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 
@@ -22,14 +21,16 @@ export function NavigationSheet() {
       <SheetTrigger asChild>
         <Button
           variant="ghost"
-          size="icon"
           className="
             h-12
             w-12
             rounded-xl
-            text-white
-            hover:bg-zinc-800
-            hover:text-white
+            border
+            border-border
+            bg-background
+            text-foreground
+            shadow-sm
+            hover:bg-muted
           "
         >
           <Menu
