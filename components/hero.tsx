@@ -3,7 +3,7 @@ export default function Hero() {
     <section
       className="
         flex
-        min-h-[60vh]
+        min-h-[65vh]
         w-full
         flex-col
         items-center
@@ -16,26 +16,27 @@ export default function Hero() {
 
       <h1
         className="
-          text-5xl
+          max-w-3xl
+          text-4xl
           font-bold
           tracking-tight
           sm:text-6xl
         "
       >
-        Zetein
+        Find your domain.
       </h1>
 
 
       <p
         className="
-          mt-4
+          mt-5
           max-w-xl
           text-lg
           text-muted-foreground
           sm:text-xl
         "
       >
-        Find and manage your domains.
+        Search domains and manage your digital assets.
       </p>
 
 
@@ -44,7 +45,7 @@ export default function Hero() {
           mt-10
           flex
           w-full
-          max-w-xl
+          max-w-2xl
           flex-col
           gap-3
           sm:flex-row
@@ -54,14 +55,14 @@ export default function Hero() {
         <input
           placeholder="Search your domain..."
           className="
-            h-12
+            h-14
             w-full
-            rounded-md
+            rounded-xl
             border
             border-border
             bg-background
-            px-4
-            text-foreground
+            px-5
+            text-base
             outline-none
             placeholder:text-muted-foreground
             focus:ring-2
@@ -72,15 +73,13 @@ export default function Hero() {
 
         <button
           className="
-            h-12
-            w-full
-            rounded-md
+            h-14
+            rounded-xl
             bg-primary
-            px-8
+            px-10
             text-primary-foreground
             transition-opacity
             hover:opacity-90
-            sm:w-auto
           "
         >
           Search
@@ -91,7 +90,7 @@ export default function Hero() {
 
       <p
         className="
-          mt-6
+          mt-8
           text-sm
           text-muted-foreground
         "
