@@ -7,7 +7,12 @@ export function Logo() {
       alt="Zetein"
       width={100}
       height={35}
-      className="object-contain"
+      className="
+        h-8
+        w-auto
+        object-contain
+      "
+      priority
     />
   );
 }
