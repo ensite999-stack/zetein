@@ -2,15 +2,25 @@ export default function Hero() {
   return (
     <section
       className="
+        relative
         flex
         min-h-[65vh]
         w-full
         flex-col
         items-center
         justify-center
+        overflow-hidden
         px-4
         text-center
-        sm:px-6
+
+        bg-gradient-to-br
+        from-cyan-100
+        via-sky-100
+        to-emerald-100
+
+        dark:from-slate-950
+        dark:via-cyan-950
+        dark:to-emerald-950
       "
     >
 
@@ -20,6 +30,8 @@ export default function Hero() {
           text-4xl
           font-bold
           tracking-tight
+          text-foreground
+
           sm:text-6xl
         "
       >
@@ -33,6 +45,7 @@ export default function Hero() {
           max-w-xl
           text-lg
           text-muted-foreground
+
           sm:text-xl
         "
       >
@@ -48,6 +61,7 @@ export default function Hero() {
           max-w-2xl
           flex-col
           gap-3
+
           sm:flex-row
         "
       >
@@ -60,11 +74,16 @@ export default function Hero() {
             rounded-xl
             border
             border-border
-            bg-background
+            bg-background/80
             px-5
             text-base
+            text-foreground
+            backdrop-blur
+
             outline-none
+
             placeholder:text-muted-foreground
+
             focus:ring-2
             focus:ring-primary
           "
@@ -75,15 +94,27 @@ export default function Hero() {
           className="
             h-14
             rounded-xl
-            bg-primary
+
+            bg-slate-900
             px-10
-            text-primary-foreground
-            transition-opacity
-            hover:opacity-90
+
+            font-semibold
+            text-white
+
+            shadow-lg
+
+            transition
+
+            hover:bg-slate-800
+
+            dark:bg-white
+            dark:text-black
+            dark:hover:bg-slate-200
           "
         >
           Search
         </button>
+
 
       </div>
 
