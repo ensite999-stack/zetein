@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
+import { Logo } from "./logo";
 import { NavigationSheet } from "./navigation-sheet";
 
 
-export default function Navbar() {
+export function Navbar() {
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -17,22 +17,25 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
 
+
     window.addEventListener(
       "scroll",
       handleScroll
     );
 
-    return () =>
+
+    return () => {
       window.removeEventListener(
         "scroll",
         handleScroll
       );
+    };
 
   }, []);
 
 
-  return (
 
+  return (
     <header
       className={`
         fixed
@@ -51,6 +54,7 @@ export default function Navbar() {
               backdrop-blur-xl
               shadow-sm
               border-b
+              border-border
             `
             :
               `
@@ -61,99 +65,60 @@ export default function Navbar() {
       `}
     >
 
-
       <div
         className="
-          mx-auto
           flex
-          h-20
+          h-16
           w-full
           items-center
           justify-between
 
-          px-4
+          px-3
 
-          sm:px-8
-          lg:px-12
+          sm:px-6
+
+          lg:px-10
         "
       >
 
-
         {/* Logo */}
+
+        <Logo />
+
 
         <div
           className="
             flex
             items-center
-            gap-2
+            gap-4
           "
         >
 
-          <Image
-            src="/zetein-logo.jpg"
-            alt="Zetein"
-            width={42}
-            height={42}
+          {/* 注册 */}
+
+          <a
+            href="/register"
             className="
-              h-10
-              w-10
-              object-contain
-            "
-          />
-
-
-          <span
-            className="
-              text-2xl
-              font-bold
-              tracking-tight
-            "
-          >
-            Zetein
-          </span>
-
-        </div>
-
-
-
-        {/* Desktop Register */}
-
-        <div
-          className="
-            hidden
-            md:block
-          "
-        >
-
-          <button
-            className="
-              rounded-xl
-              px-5
-              py-2
-
+              text-sm
               font-semibold
-
-              hover:bg-muted
-
+              text-foreground
               transition
+              hover:opacity-70
             "
           >
             Register
-          </button>
+          </a>
+
+
+          {/* 菜单 */}
+
+          <NavigationSheet />
 
         </div>
-
-
-
-        {/* Mobile menu */}
-
-        <NavigationSheet />
 
 
       </div>
 
-
     </header>
-
   );
 }
