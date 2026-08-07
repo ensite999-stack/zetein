@@ -1,9 +1,6 @@
 export default function Hero() {
-
   return (
-
     <main
-
       className="
       flex
       min-h-screen
@@ -14,17 +11,13 @@ export default function Hero() {
 
       justify-center
 
-
       px-4
 
       pt-20
-
       "
-
     >
 
       <section
-
         className="
         flex
 
@@ -37,16 +30,11 @@ export default function Hero() {
         items-center
 
         text-center
-
         "
-
       >
 
-
         <h1
-
           className="
-
           max-w-4xl
 
           text-5xl
@@ -62,22 +50,15 @@ export default function Hero() {
 
 
           lg:text-7xl
-
           "
-
         >
-
           Find your domain.
-
         </h1>
 
 
 
-
         <p
-
           className="
-
           mt-6
 
           max-w-2xl
@@ -90,15 +71,10 @@ export default function Hero() {
 
 
           sm:text-xl
-
           "
-
         >
-
           Search domains and manage your digital assets.
-
         </p>
-
 
 
 
@@ -106,9 +82,7 @@ export default function Hero() {
         {/* Domain Search */}
 
         <div
-
           className="
-
           mt-12
 
           flex
@@ -129,7 +103,6 @@ export default function Hero() {
 
           border
 
-
           border-border
 
 
@@ -149,91 +122,67 @@ export default function Hero() {
 
 
           focus-within:ring-primary/10
-
-
           "
-
         >
 
 
-
           <input
-
             type="text"
-
             placeholder="Search your domain..."
-
             className="
-
             h-16
 
             flex-1
 
-
             min-w-0
-
 
             bg-transparent
 
-
             px-6
 
+            pr-4
 
-            text-lg
-
+            text-base
 
             text-foreground
 
-
             outline-none
-
 
             placeholder:text-muted-foreground
 
-
             "
-
           />
-
 
 
 
           {/* Divider */}
 
           <div
-
             className="
-
             h-10
 
             w-px
 
+            shrink-0
+
             bg-border
-
             "
-
           />
-
-
 
 
 
           {/* Search Button */}
 
           <button
-
             className="
-
             h-16
 
-
             shrink-0
-
 
             bg-[#22c7d8]
 
 
-            px-8
+            px-6
 
 
             font-semibold
@@ -250,16 +199,10 @@ export default function Hero() {
 
             active:scale-95
 
-
             "
-
           >
-
             Search
-
-
           </button>
-
 
 
         </div>
@@ -267,35 +210,22 @@ export default function Hero() {
 
 
 
-
-
         <div
-
           className="
-
           mt-10
-
 
           flex
 
-
           flex-wrap
-
 
           justify-center
 
-
           gap-6
-
 
           text-sm
 
-
           text-muted-foreground
-
-
           "
-
         >
 
           <span>
@@ -316,12 +246,9 @@ export default function Hero() {
         </div>
 
 
-
       </section>
 
 
     </main>
-
   );
-
 }
