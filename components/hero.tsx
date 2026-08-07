@@ -1,116 +1,246 @@
 export default function Hero() {
+
   return (
+
     <section
+
       className="
-        flex
-        min-h-screen
-        w-full
-        flex-col
-        items-center
-        justify-center
 
-        px-5
+      flex
 
-        text-center
+      min-h-screen
+
+      w-full
+
+
+      items-center
+
+      justify-center
+
+
+      px-5
+
+
+      text-center
+
       "
+
     >
-
-      <h1
-        className="
-          text-5xl
-          font-bold
-          tracking-tight
-
-          sm:text-7xl
-        "
-      >
-        Find your domain.
-      </h1>
-
-
-      <p
-        className="
-          mt-6
-          max-w-xl
-
-          text-lg
-          text-muted-foreground
-
-          sm:text-2xl
-        "
-      >
-        Search domains and manage your digital assets.
-      </p>
-
 
 
       <div
+
         className="
-          mt-12
-          flex
-          w-full
-          max-w-2xl
-
-          flex-col
-          gap-4
-
-          sm:flex-row
+        w-full
+        max-w-5xl
         "
+
       >
 
-        <input
-          placeholder="Search your domain..."
-          className="
-            h-14
-            flex-1
 
-            rounded-xl
+        <h1
+
+          className="
+
+          text-6xl
+
+          font-bold
+
+          tracking-tight
+
+
+          text-white
+
+
+          sm:text-8xl
+
+          "
+
+        >
+
+          Find your
+
+          <br />
+
+          domain.
+
+
+        </h1>
+
+
+
+
+        <p
+
+          className="
+
+          mt-8
+
+
+          text-lg
+
+
+          text-blue-200
+
+
+          sm:text-2xl
+
+          "
+
+        >
+
+          Search domains and manage your
+
+          <br />
+
+          digital assets.
+
+
+        </p>
+
+
+
+
+
+        <div
+
+          className="
+
+          mt-12
+
+
+          flex
+
+
+          w-full
+
+
+          flex-col
+
+
+          gap-4
+
+
+          sm:flex-row
+
+
+          sm:justify-center
+
+          "
+
+        >
+
+
+
+          <input
+
+            placeholder="Search your domain..."
+
+            className="
+
+            h-16
+
+
+            rounded-2xl
+
 
             border
 
-            bg-background/50
 
-            px-5
+            border-white/20
 
-            backdrop-blur
+
+            bg-[#0b2348]
+
+
+            px-6
+
+
+            text-white
+
+
+            placeholder:text-blue-200
+
 
             outline-none
-          "
-        />
 
 
-        <button
-          className="
-            h-14
+            sm:w-[450px]
 
-            rounded-xl
+            "
 
-            bg-foreground
+          />
+
+
+
+
+
+          <button
+
+            className="
+
+            h-16
+
+
+            rounded-2xl
+
+
+            bg-white
+
 
             px-10
 
-            font-semibold
 
-            text-background
+            font-bold
+
+
+            text-[#06152f]
+
+
+            "
+
+          >
+
+            Search
+
+
+          </button>
+
+
+
+        </div>
+
+
+
+
+
+        <p
+
+          className="
+
+          mt-10
+
+
+          text-blue-200
+
+
           "
+
         >
-          Search
-        </button>
+
+          Fast. Simple. Private.
+
+
+        </p>
+
 
 
       </div>
 
 
-      <p
-        className="
-          mt-8
-          text-muted-foreground
-        "
-      >
-        Fast. Simple. Private.
-      </p>
-
-
     </section>
+
+
   );
+
 }
