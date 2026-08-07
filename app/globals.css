@@ -1,6 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@plugin 'tailwindcss-animate';
+@plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -8,243 +8,217 @@
 @theme inline {
 
   --color-background: var(--background);
+
   --color-foreground: var(--foreground);
 
   --color-card: var(--card);
+
   --color-card-foreground: var(--card-foreground);
 
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-
   --color-primary: var(--primary);
+
   --color-primary-foreground: var(--primary-foreground);
 
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-
   --color-muted: var(--muted);
+
   --color-muted-foreground: var(--muted-foreground);
 
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-
   --color-border: var(--border);
+
   --color-input: var(--input);
+
   --color-ring: var(--ring);
 
-
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-
-
-  --breakpoint-xs: 375px;
-
-
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-
-
-  @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }
-  }
-
-
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
-
 }
 
 
+/* 
+  Zetein Theme
+  Cold gray white background
+  Lake blue accent
+*/
 
-@layer base {
-
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-
-    border-color: var(--color-gray-200, currentColor);
-
-  }
-
-}
-
-
-
-/* 浅色模式 */
 
 :root {
 
-  --background: hsl(190 60% 97%);
-  --foreground: hsl(222 47% 11%);
+
+  --background: hsl(210 25% 97%);
+
+  --foreground: hsl(222 35% 12%);
 
 
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(222 47% 11%);
+  --card: hsl(210 25% 99%);
+
+  --card-foreground: hsl(222 35% 12%);
 
 
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(222 47% 11%);
+  --primary: hsl(187 75% 48%);
 
-
-  --primary: hsl(210 80% 45%);
   --primary-foreground: hsl(0 0% 100%);
 
 
-  --secondary: hsl(160 45% 94%);
-  --secondary-foreground: hsl(222 47% 11%);
+  --secondary: hsl(210 20% 92%);
+
+  --secondary-foreground: hsl(222 35% 12%);
 
 
-  --muted: hsl(190 30% 94%);
-  --muted-foreground: hsl(215 16% 45%);
+  --muted: hsl(210 20% 92%);
+
+  --muted-foreground: hsl(215 15% 45%);
 
 
-  --accent: hsl(160 50% 92%);
-  --accent-foreground: hsl(222 47% 11%);
+  --border: hsl(210 20% 86%);
+
+  --input: hsl(210 20% 86%);
 
 
-  --destructive: hsl(0 84% 60%);
-  --destructive-foreground: hsl(0 0% 98%);
+  --ring:
+
+  hsl(187 75% 48%);
 
 
-  --border: hsl(190 30% 85%);
-  --input: hsl(190 30% 85%);
-  --ring: hsl(210 80% 45%);
+  --radius: 1rem;
 
-
-  --chart-1: hsl(190 70% 45%);
-  --chart-2: hsl(160 60% 40%);
-  --chart-3: hsl(210 70% 45%);
-  --chart-4: hsl(40 80% 55%);
-  --chart-5: hsl(340 70% 55%);
-
-
-  --radius: 0.75rem;
 
 }
 
 
-
-/* 深色模式 */
+/* Dark mode */
 
 .dark {
 
-  --background: hsl(222 47% 8%);
-  --foreground: hsl(210 40% 98%);
+
+  --background:
+
+  hsl(222 35% 8%);
 
 
-  --card: hsl(222 47% 10%);
-  --card-foreground: hsl(210 40% 98%);
+  --foreground:
+
+  hsl(210 40% 96%);
 
 
-  --popover: hsl(222 47% 10%);
-  --popover-foreground: hsl(210 40% 98%);
+
+  --card:
+
+  hsl(222 35% 12%);
 
 
-  --primary: hsl(190 90% 55%);
-  --primary-foreground: hsl(222 47% 10%);
+  --card-foreground:
+
+  hsl(210 40% 96%);
 
 
-  --secondary: hsl(160 30% 15%);
-  --secondary-foreground: hsl(210 40% 98%);
+
+  --primary:
+
+  hsl(187 75% 55%);
 
 
-  --muted: hsl(222 30% 15%);
-  --muted-foreground: hsl(215 20% 65%);
+
+  --primary-foreground:
+
+  hsl(222 35% 10%);
 
 
-  --accent: hsl(160 35% 18%);
-  --accent-foreground: hsl(210 40% 98%);
+
+  --secondary:
+
+  hsl(222 25% 18%);
 
 
-  --destructive: hsl(0 60% 40%);
-  --destructive-foreground: hsl(210 40% 98%);
+
+  --secondary-foreground:
+
+  hsl(210 40% 96%);
 
 
-  --border: hsl(222 25% 20%);
-  --input: hsl(222 25% 20%);
-  --ring: hsl(190 90% 55%);
+
+  --muted:
+
+  hsl(222 25% 18%);
 
 
-  --chart-1: hsl(190 80% 50%);
-  --chart-2: hsl(160 70% 45%);
-  --chart-3: hsl(210 80% 60%);
-  --chart-4: hsl(40 80% 60%);
-  --chart-5: hsl(340 70% 60%);
+
+  --muted-foreground:
+
+  hsl(215 20% 70%);
 
 
-  --radius: 0.75rem;
+
+  --border:
+
+  hsl(222 20% 22%);
+
+
+
+  --input:
+
+  hsl(222 20% 22%);
+
+
+
+  --ring:
+
+  hsl(187 75% 55%);
+
 
 }
 
+
+
 @layer base {
 
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
 
+* {
 
-  * {
-    @apply border-border outline-ring/50;
-  }
+@apply border-border outline-ring/50;
 
-
-  html {
-
-    scroll-behavior: smooth;
-
-    background:#06152f;
-
-  }
+}
 
 
 
-  body {
+html {
 
-    min-height:100vh;
+@apply scroll-smooth;
 
-    background:#06152f;
-
-    color:white;
-
-  }
+}
 
 
 
-  .dark body {
-
-    background:#06152f;
-
-    color:white;
-
-  }
+body {
 
 
+@apply bg-background text-foreground;
 
-  button {
 
-    @apply cursor-pointer;
+min-height:100vh;
 
-  }
+
+}
+
+
+
+/* 浏览器顶部颜色适配 */
+
+::selection {
+
+
+background:#22c7d8;
+
+color:white;
+
+
+}
+
+
+button {
+
+
+@apply cursor-pointer;
+
+
+}
+
 
 }
