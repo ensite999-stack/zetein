@@ -5,40 +5,45 @@ import { ThemeProvider } from "next-themes";
 
 
 const geistSans = Geist({
+
   variable: "--font-geist-sans",
+
   subsets: ["latin"],
+
 });
 
-
-export const viewport: Viewport = {
-  themeColor: "#22c7d8",
-};
 
 
 export const metadata: Metadata = {
 
-  title: "Zetein - Find your domain",
+
+  title: "Zetein - Find Your Domain",
+
 
   description:
     "Search domains and manage your digital assets.",
 
 
   keywords: [
-    "domain",
-    "domains",
+
     "domain search",
+
+    "domain management",
+
+    "DNS",
+
+    "registrar",
+
     "Zetein",
+
   ],
 
 
-  openGraph: {
+  robots: {
 
-    type: "website",
+    index: true,
 
-    title: "Zetein - Find your domain",
-
-    description:
-      "Search domains and manage your digital assets.",
+    follow: true,
 
   },
 
@@ -53,6 +58,48 @@ export const metadata: Metadata = {
 };
 
 
+
+
+
+export const viewport: Viewport = {
+
+
+  width: "device-width",
+
+
+  initialScale: 1,
+
+
+  themeColor: [
+
+    {
+
+      media: "(prefers-color-scheme: light)",
+
+      color: "#22c7d8",
+
+    },
+
+
+    {
+
+      media: "(prefers-color-scheme: dark)",
+
+      color: "#06152f",
+
+    },
+
+
+  ],
+
+
+};
+
+
+
+
+
+
 export default function RootLayout({
 
   children,
@@ -64,48 +111,63 @@ export default function RootLayout({
 }>) {
 
 
-return (
+  return (
 
-<html
+    <html
 
-lang="en"
+      lang="en"
 
-suppressHydrationWarning
+      suppressHydrationWarning
 
->
-
-
-<body
-
-className={`${geistSans.variable} ${geistSans.className} antialiased`}
-
->
+    >
 
 
-<ThemeProvider
+      <body
 
-attribute="class"
+        className={`
 
-defaultTheme="system"
+        ${geistSans.variable}
 
-enableSystem
+        ${geistSans.className}
 
-disableTransitionOnChange
+        antialiased
 
->
+        `}
 
-
-{children}
-
-
-</ThemeProvider>
+      >
 
 
-</body>
+
+        <ThemeProvider
 
 
-</html>
+          attribute="class"
 
-);
+
+          defaultTheme="system"
+
+
+          enableSystem
+
+
+          disableTransitionOnChange
+
+
+        >
+
+
+          {children}
+
+
+        </ThemeProvider>
+
+
+
+      </body>
+
+
+    </html>
+
+  );
 
 }
