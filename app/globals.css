@@ -193,9 +193,16 @@
 
 }
 
-
-
 @layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
 
   * {
     @apply border-border outline-ring/50;
@@ -204,44 +211,21 @@
 
   html {
 
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
 
-    background:#e8faf8;
+    background:#06152f;
 
   }
 
 
-  body {
 
+  body {
 
     min-height:100vh;
 
+    background:#06152f;
 
-    background:
-
-      radial-gradient(
-        circle at 10% 10%,
-        rgba(80,220,255,0.35),
-        transparent 35%
-      ),
-
-
-      radial-gradient(
-        circle at 90% 80%,
-        rgba(90,230,170,0.35),
-        transparent 40%
-      ),
-
-
-      linear-gradient(
-        180deg,
-        #e8faf8,
-        #f5ffff
-      );
-
-
-    color:var(--foreground);
-
+    color:white;
 
   }
 
@@ -249,22 +233,9 @@
 
   .dark body {
 
+    background:#06152f;
 
-    background:
-
-      radial-gradient(
-        circle at top left,
-        rgba(0,120,160,0.35),
-        transparent 40%
-      ),
-
-
-      linear-gradient(
-        180deg,
-        #07111f,
-        #020617
-      );
-
+    color:white;
 
   }
 
@@ -275,6 +246,5 @@
     @apply cursor-pointer;
 
   }
-
 
 }
