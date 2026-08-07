@@ -1,91 +1,291 @@
 "use client";
 
-import { Menu } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+
+import {
+  Menu,
+} from "lucide-react";
+
+
 import ThemeToggle from "@/components/theme-toggle";
-import { Logo } from "./logo";
-import { NavMenu } from "./nav-menu";
 
 
-export function NavigationSheet() {
+
+export default function NavigationSheet() {
+
+
   return (
+
     <Sheet>
 
+
       <SheetTrigger asChild>
-        <Button
-          variant="ghost"
+
+
+        <button
+
+          aria-label="Open menu"
+
           className="
-            h-12
-            w-12
-            rounded-xl
-            border
-            border-border
-            bg-background
-            text-foreground
-            shadow-sm
-            hover:bg-muted
+
+          flex
+
+          h-12
+
+          w-12
+
+
+          items-center
+
+          justify-center
+
+
+          rounded-full
+
+
+          border
+
+          border-border
+
+
+          bg-background/70
+
+
+          backdrop-blur-xl
+
+
+          transition
+
+
+          hover:border-primary
+
+
           "
+
         >
+
+
           <Menu
-            className="
-              h-8
-              w-8
-              stroke-[3]
-            "
+
+            size={28}
+
+            strokeWidth={2.5}
+
           />
-        </Button>
+
+
+        </button>
+
+
       </SheetTrigger>
 
 
+
+
+
       <SheetContent
+
         side="right"
+
         className="
-          w-[320px]
-          bg-background
+
+        w-[320px]
+
+        bg-background
+
         "
+
       >
 
-        <div className="mt-4">
-          <Logo />
-        </div>
 
 
-        <NavMenu
-          orientation="vertical"
-          className="mt-12"
-        />
+        <SheetHeader>
+
+
+          <SheetTitle
+
+            className="
+
+            text-left
+
+            text-2xl
+
+            font-bold
+
+            "
+
+          >
+
+            Zetein
+
+          </SheetTitle>
+
+
+        </SheetHeader>
+
+
+
 
 
         <div
+
           className="
-            mt-10
-            flex
-            items-center
-            justify-between
-            border-t
-            pt-6
+
+          mt-10
+
+          flex
+
+          flex-col
+
+          gap-6
+
           "
+
         >
 
-          <span className="text-sm text-muted-foreground">
-            Theme
-          </span>
 
 
-          <ThemeToggle />
+          <Link
+
+            href="/login"
+
+            className="
+
+            text-lg
+
+            font-semibold
+
+
+            transition
+
+
+            hover:text-primary
+
+
+            "
+
+          >
+
+            Login
+
+          </Link>
+
+
+
+
+
+          <Link
+
+            href="/about"
+
+            className="
+
+            text-lg
+
+            font-semibold
+
+
+            transition
+
+
+            hover:text-primary
+
+
+            "
+
+          >
+
+            About Zetein
+
+          </Link>
+
+
+
+
+
+          <div
+
+            className="
+
+            mt-4
+
+            border-t
+
+            border-border
+
+            pt-6
+
+            "
+
+          >
+
+
+            <div
+
+              className="
+
+              flex
+
+              items-center
+
+              justify-between
+
+              "
+
+            >
+
+
+              <span
+
+                className="
+
+                text-sm
+
+                font-medium
+
+                text-muted-foreground
+
+                "
+
+              >
+
+                Appearance
+
+              </span>
+
+
+              <ThemeToggle />
+
+
+            </div>
+
+
+          </div>
+
+
+
 
         </div>
+
 
 
       </SheetContent>
 
+
+
     </Sheet>
+
+
   );
+
 }
