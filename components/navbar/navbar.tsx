@@ -7,91 +7,56 @@ import NavigationSheet from "./navigation-sheet";
 
 export default function Navbar() {
 
-
   return (
 
     <header
-
       className="
       fixed
       top-0
       left-0
       z-50
       w-full
-
       "
-
     >
 
-
       <nav
-
         className="
-
         flex
-
         h-20
 
-
-        w-full
-
-
         items-center
-
-
         justify-between
-
-
-
-        border-b
-
-        border-border/50
-
-
 
         bg-background/80
 
-
-
-        px-4
-
-
         backdrop-blur-xl
 
+        border-b
+        border-border/50
 
+        px-3
 
-        sm:px-8
+        sm:px-5
 
-
+        lg:px-6
 
         "
-
       >
-
 
 
         {/* Logo */}
 
-
         <Link
-
           href="/"
-
           className="
-
           flex
-
           items-center
-
 
           gap-1
 
-
+          shrink-0
           "
-
         >
-
-
 
           <Image
 
@@ -99,20 +64,14 @@ export default function Navbar() {
 
             alt="Zetein"
 
-            width={42}
+            width={44}
 
-            height={42}
+            height={44}
 
             className="
-
-            h-10
-
-            w-10
-
-
+            h-11
+            w-11
             object-contain
-
-
             "
 
             priority
@@ -120,27 +79,17 @@ export default function Navbar() {
           />
 
 
-
           <span
 
             className="
-
             text-xl
-
             font-bold
-
             tracking-tight
-
-
-            text-foreground
-
-
             "
 
           >
 
             Zetein
-
 
           </span>
 
@@ -150,22 +99,14 @@ export default function Navbar() {
 
 
 
-
-        {/* Right menu */}
-
+        {/* Right */}
 
         <div
 
           className="
-
           flex
-
           items-center
-
-
           gap-3
-
-
           "
 
         >
@@ -174,30 +115,22 @@ export default function Navbar() {
 
           {/* Register */}
 
-
           <Link
 
             href="/register"
 
             className="
 
-            hidden
-
-
             rounded-full
-
 
             bg-primary
 
-
-            px-6
-
+            px-5
 
             py-2
 
 
             text-sm
-
 
             font-semibold
 
@@ -211,15 +144,11 @@ export default function Navbar() {
             hover:opacity-90
 
 
-            md:block
-
-
             "
 
           >
 
             Register
-
 
           </Link>
 
@@ -227,8 +156,7 @@ export default function Navbar() {
 
 
 
-          {/* Hamburger */}
-
+          {/* Menu */}
 
           <NavigationSheet />
 
@@ -240,9 +168,7 @@ export default function Navbar() {
       </nav>
 
 
-
     </header>
-
 
   );
 
