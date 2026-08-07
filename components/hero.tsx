@@ -1,223 +1,240 @@
 export default function Hero() {
+
   return (
+
     <main
+
       className="
-      relative
       flex
       min-h-screen
 
       w-full
 
       items-center
+
       justify-center
 
-      overflow-hidden
 
-      px-5
+      px-4
 
-      pt-24
+      pt-20
 
-      text-center
 
       "
+
     >
-
-      {/* 星空蓝背景光晕 */}
-
-      <div
-        className="
-        absolute
-        inset-0
-
-        -z-10
-
-        bg-background
-
-        "
-      />
-
-
-      <div
-        className="
-        absolute
-
-        left-1/2
-
-        top-1/4
-
-        -z-10
-
-        h-[500px]
-
-        w-[500px]
-
-        -translate-x-1/2
-
-        rounded-full
-
-        bg-cyan-300/20
-
-        blur-3xl
-
-        "
-      />
-
 
 
       <section
+
         className="
         flex
 
         w-full
 
-        max-w-4xl
+        max-w-5xl
 
         flex-col
 
         items-center
+
+        text-center
 
         "
 
       >
 
 
+
         <h1
 
           className="
+
           max-w-4xl
+
 
           text-5xl
 
+
           font-bold
 
+
           tracking-tight
+
 
           text-foreground
 
 
-          sm:text-7xl
 
-          lg:text-8xl
+          sm:text-6xl
+
+
+          lg:text-7xl
+
 
           "
 
         >
 
-          Find your
-          <br />
-
-          domain.
+          Find your domain.
 
         </h1>
+
+
 
 
 
         <p
 
           className="
-          mt-8
+
+          mt-6
+
 
           max-w-2xl
 
+
           text-lg
 
+
           leading-relaxed
+
 
           text-muted-foreground
 
 
-          sm:text-2xl
+
+          sm:text-xl
+
 
           "
 
         >
 
-          Search domains and manage your
-          <br className="hidden sm:block" />
-
-          digital assets.
+          Search domains and manage your digital assets.
 
         </p>
 
 
 
 
+
+
+
+        {/* Search Box */}
+
+
         <div
 
           className="
+
           mt-12
+
 
           flex
 
+
           w-full
+
 
           max-w-3xl
 
+
           flex-col
 
-          gap-4
+
+          gap-3
+
 
 
           sm:flex-row
+
 
           "
 
         >
 
 
-          <input
 
-            placeholder="Search your domain..."
+          <div
 
             className="
-            h-16
 
             flex-1
 
-            rounded-2xl
-
-            border
-
-            border-border
-
-
-            bg-background/70
-
-
-            px-6
-
-
-            text-lg
-
-
-            shadow-sm
-
-
-            backdrop-blur-xl
-
-
-            outline-none
-
-
-            transition
-
-
-            focus:border-primary
-
-
-            focus:ring-2
-
-            focus:ring-primary/20
 
             "
 
-          />
+          >
+
+            <input
+
+              type="text"
+
+              placeholder="Search your domain..."
+
+              className="
+
+              h-16
+
+
+              w-full
+
+
+              rounded-2xl
+
+
+              border
+
+
+              border-border
+
+
+              bg-background
+
+
+              px-6
+
+
+              text-lg
+
+
+              shadow-sm
+
+
+              transition
+
+
+              placeholder:text-muted-foreground
+
+
+              focus:border-primary
+
+
+              focus:outline-none
+
+
+              focus:ring-4
+
+
+              focus:ring-primary/10
+
+
+              "
+
+            />
+
+          </div>
+
+
+
 
 
 
           <button
 
             className="
+
             h-16
 
 
@@ -227,10 +244,7 @@ export default function Hero() {
             bg-primary
 
 
-            px-12
-
-
-            text-lg
+            px-8
 
 
             font-semibold
@@ -239,16 +253,11 @@ export default function Hero() {
             text-primary-foreground
 
 
-            shadow-lg
-
-
-            shadow-primary/20
-
-
             transition
 
 
             hover:opacity-90
+
 
 
             "
@@ -257,38 +266,80 @@ export default function Hero() {
 
             Search
 
+
           </button>
+
 
 
         </div>
 
 
 
-        <p
+
+
+
+
+        {/* Feature */}
+
+        <div
 
           className="
+
           mt-10
+
+
+          flex
+
+
+          flex-wrap
+
+
+          justify-center
+
+
+          gap-x-6
+
+
+          gap-y-2
+
 
           text-sm
 
+
           text-muted-foreground
 
-
-          sm:text-base
 
           "
 
         >
 
-          Fast. Simple. Private.
+          <span>
+            Fast
+          </span>
 
-        </p>
+
+          <span>
+            Simple
+          </span>
+
+
+          <span>
+            Private
+          </span>
+
+
+        </div>
+
 
 
 
       </section>
 
 
+
     </main>
+
+
   );
+
 }
