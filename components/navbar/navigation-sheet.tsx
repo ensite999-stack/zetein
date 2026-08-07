@@ -1,27 +1,29 @@
 "use client";
 
-
 import Link from "next/link";
+import { Menu } from "lucide-react";
 
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
+  SheetTitle,
 } from "@/components/ui/sheet";
 
 
-import {
-  Menu,
-} from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 
-
-import ThemeToggle from "@/components/theme-toggle";
+import { useTheme } from "next-themes";
 
 
 
 export default function NavigationSheet() {
+
+
+  const {
+    setTheme
+  } = useTheme();
+
 
 
   return (
@@ -34,55 +36,35 @@ export default function NavigationSheet() {
 
         <button
 
-          aria-label="Open menu"
+          aria-label="Menu"
 
           className="
 
           flex
 
-          h-12
+          h-10
 
-          w-12
-
+          w-10
 
           items-center
 
           justify-center
 
 
-          rounded-full
-
-
-          border
-
-          border-border
-
-
-          bg-background/70
-
-
-          backdrop-blur-xl
-
-
-          transition
-
-
-          hover:border-primary
+          text-foreground
 
 
           "
 
         >
 
-
           <Menu
 
-            size={28}
+            size={30}
 
             strokeWidth={2.5}
 
           />
-
 
         </button>
 
@@ -92,67 +74,37 @@ export default function NavigationSheet() {
 
 
 
-
-      <SheetContent
-
-        side="right"
-
-        className="
-
-        w-[320px]
-
-        bg-background
-
-        "
-
-      >
+      <SheetContent>
 
 
+        <SheetTitle
+          className="
+          mt-8
+          text-2xl
+          font-bold
+          "
+        >
 
-        <SheetHeader>
+          Zetein
 
-
-          <SheetTitle
-
-            className="
-
-            text-left
-
-            text-2xl
-
-            font-bold
-
-            "
-
-          >
-
-            Zetein
-
-          </SheetTitle>
-
-
-        </SheetHeader>
-
-
+        </SheetTitle>
 
 
 
         <div
 
           className="
-
           mt-10
 
           flex
 
           flex-col
 
-          gap-6
+          gap-7
 
           "
 
         >
-
 
 
           <Link
@@ -160,18 +112,8 @@ export default function NavigationSheet() {
             href="/login"
 
             className="
-
             text-lg
-
             font-semibold
-
-
-            transition
-
-
-            hover:text-primary
-
-
             "
 
           >
@@ -183,24 +125,13 @@ export default function NavigationSheet() {
 
 
 
-
           <Link
 
             href="/about"
 
             className="
-
             text-lg
-
             font-semibold
-
-
-            transition
-
-
-            hover:text-primary
-
-
             "
 
           >
@@ -216,55 +147,95 @@ export default function NavigationSheet() {
           <div
 
             className="
-
-            mt-4
-
+            mt-5
             border-t
-
-            border-border
-
             pt-6
-
             "
 
           >
+
+            <p
+
+              className="
+              mb-4
+              text-sm
+              text-muted-foreground
+              "
+
+            >
+
+              Appearance
+
+            </p>
+
 
 
             <div
 
               className="
-
               flex
-
-              items-center
-
-              justify-between
-
+              gap-3
               "
 
             >
 
 
-              <span
+              <button
+
+                onClick={() => setTheme("light")}
 
                 className="
+                flex
+                items-center
+                gap-2
 
-                text-sm
+                rounded-xl
 
-                font-medium
+                border
 
-                text-muted-foreground
+                px-4
+
+                py-3
 
                 "
 
               >
 
-                Appearance
+                <Sun size={18}/>
 
-              </span>
+                Light
+
+              </button>
 
 
-              <ThemeToggle />
+
+
+              <button
+
+                onClick={() => setTheme("dark")}
+
+                className="
+                flex
+                items-center
+                gap-2
+
+                rounded-xl
+
+                border
+
+                px-4
+
+                py-3
+
+                "
+
+              >
+
+                <Moon size={18}/>
+
+                Dark
+
+              </button>
 
 
             </div>
@@ -273,18 +244,13 @@ export default function NavigationSheet() {
           </div>
 
 
-
-
         </div>
-
 
 
       </SheetContent>
 
 
-
     </Sheet>
-
 
   );
 
