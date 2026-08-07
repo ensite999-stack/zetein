@@ -1,254 +1,195 @@
-export default function Hero() {
-  return (
-    <main
-      className="
-      flex
-      min-h-screen
+export default function Hero(){
 
-      w-full
 
-      items-center
+return (
 
-      justify-center
+<section
 
-      px-4
+className="
+min-h-screen
 
-      pt-20
-      "
-    >
+flex
+flex-col
+items-center
+justify-center
 
-      <section
-        className="
-        flex
+px-5
 
-        w-full
+pt-20
 
-        max-w-5xl
+text-center
+"
 
-        flex-col
+>
 
-        items-center
 
-        text-center
-        "
-      >
 
-        <h1
-          className="
-          max-w-4xl
+<h1
 
-          text-5xl
+className="
+max-w-4xl
 
-          font-bold
+text-5xl
+font-bold
+tracking-tight
 
-          tracking-tight
+text-white
 
-          text-foreground
+sm:text-7xl
+"
 
+>
 
-          sm:text-6xl
+Find your domain.
 
+</h1>
 
-          lg:text-7xl
-          "
-        >
-          Find your domain.
-        </h1>
 
 
+<p
 
-        <p
-          className="
-          mt-6
+className="
+mt-6
 
-          max-w-2xl
+max-w-xl
 
-          text-lg
+text-lg
 
-          leading-relaxed
+leading-relaxed
 
-          text-muted-foreground
+text-white/50
 
+sm:text-xl
+"
 
-          sm:text-xl
-          "
-        >
-          Search domains and manage your digital assets.
-        </p>
+>
 
+Search domains and manage your digital assets.
 
+</p>
 
 
-        {/* Domain Search */}
 
-        <div
-          className="
-          mt-12
 
-          flex
+<div
 
-          w-full
+className="
+mt-12
 
-          max-w-3xl
+flex
 
+w-full
 
-          items-center
+max-w-2xl
 
+overflow-hidden
 
-          overflow-hidden
+rounded-2xl
 
+border
 
-          rounded-2xl
+border-white/10
 
+bg-white/[0.04]
 
-          border
+backdrop-blur-xl
 
-          border-border
+"
 
+>
 
-          bg-background
 
+<input
 
-          shadow-sm
+placeholder="Search your domain..."
 
+className="
+h-16
 
-          transition
+flex-1
 
+bg-transparent
 
-          focus-within:border-primary
+px-6
 
+text-white
 
-          focus-within:ring-4
+placeholder:text-white/40
 
+outline-none
 
-          focus-within:ring-primary/10
-          "
-        >
+"
 
+/>
 
-          <input
-            type="text"
-            placeholder="Search your domain..."
-            className="
-            h-16
 
-            flex-1
 
-            min-w-0
+<button
 
-            bg-transparent
+className="
+h-16
 
-            px-6
+px-8
 
-            pr-4
+bg-[#12CFE3]
 
-            text-base
+font-semibold
 
-            text-foreground
+text-[#001014]
 
-            outline-none
+hover:opacity-90
 
-            placeholder:text-muted-foreground
+"
 
-            "
-          />
+>
 
+Search
 
+</button>
 
-          {/* Divider */}
 
-          <div
-            className="
-            h-10
 
-            w-px
+</div>
 
-            shrink-0
 
-            bg-border
-            "
-          />
 
+<div
 
+className="
+mt-10
 
-          {/* Search Button */}
+flex
 
-          <button
-            className="
-            h-16
+gap-10
 
-            shrink-0
+text-sm
 
-            bg-[#22c7d8]
+text-white/40
+"
 
+>
 
-            px-6
+<span>
+Fast
+</span>
 
 
-            font-semibold
+<span>
+Simple
+</span>
 
 
-            text-white
+<span>
+Private
+</span>
 
 
-            transition
+</div>
 
 
-            hover:bg-[#1bb4c4]
 
+</section>
 
-            active:scale-95
+)
 
-            "
-          >
-            Search
-          </button>
-
-
-        </div>
-
-
-
-
-        <div
-          className="
-          mt-10
-
-          flex
-
-          flex-wrap
-
-          justify-center
-
-          gap-6
-
-          text-sm
-
-          text-muted-foreground
-          "
-        >
-
-          <span>
-            Fast
-          </span>
-
-
-          <span>
-            Simple
-          </span>
-
-
-          <span>
-            Private
-          </span>
-
-
-        </div>
-
-
-      </section>
-
-
-    </main>
-  );
 }
