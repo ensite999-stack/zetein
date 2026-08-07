@@ -5,220 +5,62 @@
 @custom-variant dark (&:is(.dark *));
 
 
-@theme inline {
-
-  --color-background: var(--background);
-
-  --color-foreground: var(--foreground);
-
-  --color-card: var(--card);
-
-  --color-card-foreground: var(--card-foreground);
-
-  --color-primary: var(--primary);
-
-  --color-primary-foreground: var(--primary-foreground);
-
-  --color-muted: var(--muted);
-
-  --color-muted-foreground: var(--muted-foreground);
-
-  --color-border: var(--border);
-
-  --color-input: var(--input);
-
-  --color-ring: var(--ring);
-
-}
-
-
-/* 
-  Zetein Theme
-  Cold gray white background
-  Lake blue accent
-*/
-
-
 :root {
+  --background: #0B0E14;
+  --foreground: #F5F7FA;
 
+  --card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
 
-  --background: hsl(210 25% 97%);
+  --primary: #12CFE3;
+  --primary-foreground:#001014;
 
-  --foreground: hsl(222 35% 12%);
+  --muted-foreground:#94A3B8;
 
-
-  --card: hsl(210 25% 99%);
-
-  --card-foreground: hsl(222 35% 12%);
-
-
-  --primary: hsl(187 75% 48%);
-
-  --primary-foreground: hsl(0 0% 100%);
-
-
-  --secondary: hsl(210 20% 92%);
-
-  --secondary-foreground: hsl(222 35% 12%);
-
-
-  --muted: hsl(210 20% 92%);
-
-  --muted-foreground: hsl(215 15% 45%);
-
-
-  --border: hsl(210 20% 86%);
-
-  --input: hsl(210 20% 86%);
-
-
-  --ring:
-
-  hsl(187 75% 48%);
-
-
-  --radius: 1rem;
-
-
+  --radius:16px;
 }
-
-
-/* Dark mode */
-
-.dark {
-
-
-  --background:
-
-  hsl(222 35% 8%);
-
-
-  --foreground:
-
-  hsl(210 40% 96%);
-
-
-
-  --card:
-
-  hsl(222 35% 12%);
-
-
-  --card-foreground:
-
-  hsl(210 40% 96%);
-
-
-
-  --primary:
-
-  hsl(187 75% 55%);
-
-
-
-  --primary-foreground:
-
-  hsl(222 35% 10%);
-
-
-
-  --secondary:
-
-  hsl(222 25% 18%);
-
-
-
-  --secondary-foreground:
-
-  hsl(210 40% 96%);
-
-
-
-  --muted:
-
-  hsl(222 25% 18%);
-
-
-
-  --muted-foreground:
-
-  hsl(215 20% 70%);
-
-
-
-  --border:
-
-  hsl(222 20% 22%);
-
-
-
-  --input:
-
-  hsl(222 20% 22%);
-
-
-
-  --ring:
-
-  hsl(187 75% 55%);
-
-
-}
-
-
-
-@layer base {
 
 
 * {
-
-@apply border-border outline-ring/50;
-
+  box-sizing:border-box;
 }
-
 
 
 html {
-
-@apply scroll-smooth;
-
+  scroll-behavior:smooth;
 }
-
 
 
 body {
 
+  margin:0;
 
-@apply bg-background text-foreground;
+  background:#0B0E14;
 
+  color:#F5F7FA;
 
-min-height:100vh;
-
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 
 }
 
 
+/* 全局边框 */
 
-/* 浏览器顶部颜色适配 */
+.border {
 
-::selection {
-
-
-background:#22c7d8;
-
-color:white;
-
+ border-color:rgba(255,255,255,.08);
 
 }
 
 
 button {
 
-
-@apply cursor-pointer;
-
-
-}
-
+ cursor:pointer;
 
 }
