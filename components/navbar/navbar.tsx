@@ -2,18 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "lucide-react";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import NavigationSheet from "./navigation-sheet";
+
 
 export default function Navbar() {
-
-  const [open, setOpen] = useState(false);
 
 
   return (
 
     <header
+
       className="
       fixed
       top-0
@@ -21,53 +19,79 @@ export default function Navbar() {
       z-50
       w-full
 
-      border-b
-      border-black/5
-
-      bg-background/70
-
-      backdrop-blur-xl
-
-      transition-all
-
       "
+
     >
 
+
       <nav
+
         className="
-        mx-auto
+
         flex
+
         h-20
+
 
         w-full
 
+
         items-center
+
 
         justify-between
 
+
+
+        border-b
+
+        border-border/50
+
+
+
+        bg-background/80
+
+
+
         px-4
+
+
+        backdrop-blur-xl
+
+
 
         sm:px-8
 
-        lg:px-12
+
 
         "
+
       >
+
 
 
         {/* Logo */}
 
-        <Link
-          href="/"
-          className="
-          flex
-          items-center
-          gap-2
 
-          shrink-0
+        <Link
+
+          href="/"
+
+          className="
+
+          flex
+
+          items-center
+
+
+          gap-1
+
 
           "
+
         >
+
+
 
           <Image
 
@@ -80,10 +104,14 @@ export default function Navbar() {
             height={42}
 
             className="
+
             h-10
+
             w-10
 
+
             object-contain
+
 
             "
 
@@ -92,20 +120,27 @@ export default function Navbar() {
           />
 
 
+
           <span
 
             className="
-            text-2xl
+
+            text-xl
+
             font-bold
+
             tracking-tight
 
+
             text-foreground
+
 
             "
 
           >
 
             Zetein
+
 
           </span>
 
@@ -114,109 +149,91 @@ export default function Navbar() {
 
 
 
-        {/* Desktop Register */}
+
+
+        {/* Right menu */}
+
 
         <div
+
           className="
-          hidden
+
+          flex
 
           items-center
 
-          gap-6
 
-          md:flex
+          gap-3
+
 
           "
+
         >
+
+
+
+          {/* Register */}
+
 
           <Link
 
             href="/register"
 
             className="
-            text-base
-            font-medium
 
-            text-foreground
+            hidden
+
+
+            rounded-full
+
+
+            bg-primary
+
+
+            px-6
+
+
+            py-2
+
+
+            text-sm
+
+
+            font-semibold
+
+
+            text-primary-foreground
+
 
             transition
 
-            hover:text-primary
+
+            hover:opacity-90
+
+
+            md:block
+
 
             "
+
           >
 
             Register
 
+
           </Link>
 
 
+
+
+
+          {/* Hamburger */}
+
+
+          <NavigationSheet />
+
+
         </div>
-
-
-
-        {/* Mobile Menu */}
-
-        <button
-
-          onClick={() => setOpen(!open)}
-
-          aria-label="Menu"
-
-          className="
-          flex
-
-          h-14
-
-          w-14
-
-          items-center
-
-          justify-center
-
-
-          rounded-2xl
-
-
-          border
-
-          border-border
-
-
-          bg-background/60
-
-
-          backdrop-blur-xl
-
-
-          shadow-sm
-
-
-          transition
-
-
-          hover:border-primary
-
-
-          "
-
-        >
-
-          <Menu
-
-            size={30}
-
-            strokeWidth={3}
-
-            className="
-            text-foreground
-
-            "
-
-          />
-
-
-        </button>
 
 
 
@@ -224,103 +241,8 @@ export default function Navbar() {
 
 
 
-      {/* Menu Drawer */}
-
-      <div
-
-        className={cn(
-
-          "
-          absolute
-          left-0
-          top-20
-
-          w-full
-
-          border-b
-
-          border-border
-
-          bg-background/90
-
-          backdrop-blur-xl
-
-          transition-all
-
-          duration-300
-
-          md:hidden
-
-          ",
-
-          open
-
-          ? "opacity-100 translate-y-0"
-
-          : "pointer-events-none -translate-y-5 opacity-0"
-
-        )}
-
-      >
-
-        <div
-
-          className="
-          flex
-
-          flex-col
-
-          gap-5
-
-          p-6
-
-          "
-
-        >
-
-          <Link
-
-            href="/login"
-
-            className="
-            text-lg
-            font-semibold
-
-            "
-
-          >
-
-            Login
-
-          </Link>
-
-
-
-          <Link
-
-            href="/about"
-
-            className="
-            text-lg
-            font-semibold
-
-            "
-
-          >
-
-            About Zetein
-
-          </Link>
-
-
-
-        </div>
-
-
-      </div>
-
-
     </header>
+
 
   );
 
