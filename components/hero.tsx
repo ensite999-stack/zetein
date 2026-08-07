@@ -19,11 +19,9 @@ export default function Hero() {
 
       pt-20
 
-
       "
 
     >
-
 
       <section
 
@@ -45,32 +43,25 @@ export default function Hero() {
       >
 
 
-
         <h1
 
           className="
 
           max-w-4xl
 
-
           text-5xl
-
 
           font-bold
 
-
           tracking-tight
 
-
           text-foreground
-
 
 
           sm:text-6xl
 
 
           lg:text-7xl
-
 
           "
 
@@ -83,29 +74,22 @@ export default function Hero() {
 
 
 
-
         <p
 
           className="
 
           mt-6
 
-
           max-w-2xl
-
 
           text-lg
 
-
           leading-relaxed
-
 
           text-muted-foreground
 
 
-
           sm:text-xl
-
 
           "
 
@@ -119,10 +103,7 @@ export default function Hero() {
 
 
 
-
-
-        {/* Search Box */}
-
+        {/* Domain Search */}
 
         <div
 
@@ -130,24 +111,44 @@ export default function Hero() {
 
           mt-12
 
-
           flex
 
-
           w-full
-
 
           max-w-3xl
 
 
-          flex-col
+          items-center
 
 
-          gap-3
+          overflow-hidden
 
 
+          rounded-2xl
 
-          sm:flex-row
+
+          border
+
+
+          border-border
+
+
+          bg-background
+
+
+          shadow-sm
+
+
+          transition
+
+
+          focus-within:border-primary
+
+
+          focus-within:ring-4
+
+
+          focus-within:ring-primary/10
 
 
           "
@@ -156,80 +157,68 @@ export default function Hero() {
 
 
 
-          <div
+          <input
+
+            type="text"
+
+            placeholder="Search your domain..."
 
             className="
+
+            h-16
 
             flex-1
 
 
+            min-w-0
+
+
+            bg-transparent
+
+
+            px-6
+
+
+            text-lg
+
+
+            text-foreground
+
+
+            outline-none
+
+
+            placeholder:text-muted-foreground
+
+
             "
 
-          >
-
-            <input
-
-              type="text"
-
-              placeholder="Search your domain..."
-
-              className="
-
-              h-16
+          />
 
 
-              w-full
 
 
-              rounded-2xl
+          {/* Divider */}
 
+          <div
 
-              border
+            className="
 
+            h-10
 
-              border-border
+            w-px
 
+            bg-border
 
-              bg-background
+            "
 
-
-              px-6
-
-
-              text-lg
-
-
-              shadow-sm
-
-
-              transition
-
-
-              placeholder:text-muted-foreground
-
-
-              focus:border-primary
-
-
-              focus:outline-none
-
-
-              focus:ring-4
-
-
-              focus:ring-primary/10
-
-
-              "
-
-            />
-
-          </div>
+          />
 
 
 
 
 
+          {/* Search Button */}
 
           <button
 
@@ -238,10 +227,10 @@ export default function Hero() {
             h-16
 
 
-            rounded-2xl
+            shrink-0
 
 
-            bg-primary
+            bg-[#22c7d8]
 
 
             px-8
@@ -250,14 +239,16 @@ export default function Hero() {
             font-semibold
 
 
-            text-primary-foreground
+            text-white
 
 
             transition
 
 
-            hover:opacity-90
+            hover:bg-[#1bb4c4]
 
+
+            active:scale-95
 
 
             "
@@ -278,9 +269,6 @@ export default function Hero() {
 
 
 
-
-        {/* Feature */}
-
         <div
 
           className="
@@ -297,10 +285,7 @@ export default function Hero() {
           justify-center
 
 
-          gap-x-6
-
-
-          gap-y-2
+          gap-6
 
 
           text-sm
@@ -332,13 +317,10 @@ export default function Hero() {
 
 
 
-
       </section>
 
 
-
     </main>
-
 
   );
 
