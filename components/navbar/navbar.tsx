@@ -2,7 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import NavigationSheet from "./navigation-sheet";
+import { Menu } from "lucide-react";
+
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
+import ThemeToggle from "@/components/theme-toggle";
 
 
 export default function Navbar() {
@@ -10,71 +18,93 @@ export default function Navbar() {
   return (
 
     <header
+
       className="
       fixed
+
       top-0
-      left-0
+
       z-50
+
       w-full
+
+      border-b
+
+      border-border/40
+
+      bg-background/70
+
+      backdrop-blur-xl
+
       "
+
     >
 
       <nav
+
         className="
+        mx-auto
+
         flex
+
         h-20
 
+        w-full
+
         items-center
-        justify-between
 
-        bg-background/80
 
-        backdrop-blur-xl
+        px-4
 
-        border-b
-        border-border/50
 
-        px-3
+        sm:px-6
 
-        sm:px-5
 
-        lg:px-6
+        lg:px-8
 
         "
+
       >
+
 
 
         {/* Logo */}
 
         <Link
+
           href="/"
+
           className="
           flex
+
           items-center
 
-          gap-1
+          gap-2
 
-          shrink-0
           "
+
         >
 
           <Image
 
-            src="/zetein-logo.jpg"
+            src="/zetein-logo.png"
 
             alt="Zetein"
 
-            width={44}
+            width={42}
 
-            height={44}
-
-            className="
-            h-11
-            w-11
-            object-contain
-            "
+            height={42}
 
             priority
+
+            className="
+            h-10
+
+            w-10
+
+            object-contain
+
+            "
 
           />
 
@@ -82,9 +112,14 @@ export default function Navbar() {
           <span
 
             className="
-            text-xl
+            text-2xl
+
             font-bold
+
             tracking-tight
+
+            text-foreground
+
             "
 
           >
@@ -99,50 +134,40 @@ export default function Navbar() {
 
 
 
-        {/* Right */}
+
+        {/* Desktop Register */}
 
         <div
 
           className="
-          flex
+          ml-auto
+
+          hidden
+
           items-center
-          gap-3
+
+          gap-6
+
+          md:flex
+
           "
 
         >
-
-
-
-          {/* Register */}
 
           <Link
 
             href="/register"
 
             className="
+            text-base
 
-            rounded-full
+            font-medium
 
-            bg-primary
+            text-foreground
 
-            px-5
-
-            py-2
-
-
-            text-sm
-
-            font-semibold
-
-
-            text-primary-foreground
-
+            hover:text-primary
 
             transition
-
-
-            hover:opacity-90
-
 
             "
 
@@ -153,22 +178,186 @@ export default function Navbar() {
           </Link>
 
 
+        </div>
 
 
 
-          {/* Menu */}
 
-          <NavigationSheet />
+
+        {/* Mobile Menu */}
+
+        <div
+
+          className="
+          ml-auto
+
+          flex
+
+          items-center
+
+          "
+
+        >
+
+          <Sheet>
+
+
+            <SheetTrigger asChild>
+
+              <button
+
+                className="
+                flex
+
+                h-10
+
+                w-10
+
+                items-center
+
+                justify-center
+
+                text-foreground
+
+                "
+
+              >
+
+                <Menu
+
+                  size={30}
+
+                  strokeWidth={2.5}
+
+                />
+
+              </button>
+
+
+            </SheetTrigger>
+
+
+
+
+            <SheetContent
+
+              side="right"
+
+              className="
+              w-[300px]
+
+              "
+
+            >
+
+
+              <div
+
+                className="
+                mt-10
+
+                flex
+
+                flex-col
+
+                gap-8
+
+                "
+
+              >
+
+
+                <Link
+
+                  href="/login"
+
+                  className="
+                  text-lg
+
+                  font-semibold
+
+                  "
+
+                >
+
+                  Login
+
+                </Link>
+
+
+
+                <Link
+
+                  href="/register"
+
+                  className="
+                  text-lg
+
+                  font-semibold
+
+                  "
+
+                >
+
+                  Register
+
+                </Link>
+
+
+
+
+                <div
+
+                  className="
+                  border-t
+
+                  pt-6
+
+                  "
+
+                >
+
+                  <p
+
+                    className="
+                    mb-4
+
+                    text-sm
+
+                    text-muted-foreground
+
+                    "
+
+                  >
+
+                    Theme
+
+                  </p>
+
+
+                  <ThemeToggle />
+
+
+                </div>
+
+
+              </div>
+
+
+            </SheetContent>
+
+
+          </Sheet>
 
 
         </div>
-
 
 
       </nav>
 
 
     </header>
+
 
   );
 
