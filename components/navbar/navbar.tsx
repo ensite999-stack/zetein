@@ -1,18 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Menu } from "lucide-react";
-
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-
-import ThemeToggle from "@/components/theme-toggle";
-
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
+
+  const [open, setOpen] = useState(false);
 
 
   return (
@@ -24,50 +20,53 @@ export default function Navbar() {
       left-0
       z-50
       w-full
+
+      border-b
+      border-black/5
+
+      bg-background/70
+
+      backdrop-blur-xl
+
+      transition-all
+
       "
     >
 
-
       <nav
-
         className="
+        mx-auto
         flex
         h-20
+
+        w-full
+
         items-center
+
         justify-between
 
-        px-5
-        sm:px-10
+        px-4
 
+        sm:px-8
 
-        bg-[#06152f]/90
-
-
-        backdrop-blur-xl
-
-
-        border-b
-
-        border-white/10
-
-
-        shadow-lg
+        lg:px-12
 
         "
-
       >
 
 
         {/* Logo */}
 
-        <div
-
+        <Link
+          href="/"
           className="
           flex
           items-center
-          gap-3
-          "
+          gap-2
 
+          shrink-0
+
+          "
         >
 
           <Image
@@ -76,13 +75,19 @@ export default function Navbar() {
 
             alt="Zetein"
 
-            width={45}
+            width={42}
 
-            height={45}
+            height={42}
 
             className="
+            h-10
+            w-10
+
             object-contain
+
             "
+
+            priority
 
           />
 
@@ -92,7 +97,10 @@ export default function Navbar() {
             className="
             text-2xl
             font-bold
-            text-white
+            tracking-tight
+
+            text-foreground
+
             "
 
           >
@@ -102,172 +110,214 @@ export default function Navbar() {
           </span>
 
 
-        </div>
+        </Link>
 
 
 
-
-
-        {/* Register */}
+        {/* Desktop Register */}
 
         <div
-
           className="
           hidden
-          md:flex
-          "
 
+          items-center
+
+          gap-6
+
+          md:flex
+
+          "
         >
 
-          <button
+          <Link
+
+            href="/register"
 
             className="
-            rounded-full
+            text-base
+            font-medium
 
-            bg-white
+            text-foreground
 
-            px-7
+            transition
 
-            py-2
-
-            font-semibold
-
-            text-[#06152f]
+            hover:text-primary
 
             "
-
           >
 
             Register
 
-          </button>
+          </Link>
 
 
         </div>
 
 
 
+        {/* Mobile Menu */}
+
+        <button
+
+          onClick={() => setOpen(!open)}
+
+          aria-label="Menu"
+
+          className="
+          flex
+
+          h-14
+
+          w-14
+
+          items-center
+
+          justify-center
 
 
-        {/* Menu */}
-
-        <Sheet>
+          rounded-2xl
 
 
-          <SheetTrigger asChild>
+          border
+
+          border-border
 
 
-            <button
-
-              className="
-
-              flex
-
-              h-14
-
-              w-14
+          bg-background/60
 
 
-              items-center
-
-              justify-center
+          backdrop-blur-xl
 
 
-              rounded-2xl
+          shadow-sm
 
 
-              border
-
-              border-white/20
+          transition
 
 
-              bg-white/10
+          hover:border-primary
 
 
-              text-white
+          "
 
+        >
 
-              shadow-xl
+          <Menu
 
+            size={30}
 
-              backdrop-blur-xl
-
-
-              "
-
-            >
-
-              <Menu
-
-                size={34}
-
-                strokeWidth={3}
-
-              />
-
-
-            </button>
-
-
-          </SheetTrigger>
-
-
-
-
-
-          <SheetContent
+            strokeWidth={3}
 
             className="
-            bg-[#06152f]
-            text-white
-            border-white/10
+            text-foreground
+
+            "
+
+          />
+
+
+        </button>
+
+
+
+      </nav>
+
+
+
+      {/* Menu Drawer */}
+
+      <div
+
+        className={cn(
+
+          "
+          absolute
+          left-0
+          top-20
+
+          w-full
+
+          border-b
+
+          border-border
+
+          bg-background/90
+
+          backdrop-blur-xl
+
+          transition-all
+
+          duration-300
+
+          md:hidden
+
+          ",
+
+          open
+
+          ? "opacity-100 translate-y-0"
+
+          : "pointer-events-none -translate-y-5 opacity-0"
+
+        )}
+
+      >
+
+        <div
+
+          className="
+          flex
+
+          flex-col
+
+          gap-5
+
+          p-6
+
+          "
+
+        >
+
+          <Link
+
+            href="/login"
+
+            className="
+            text-lg
+            font-semibold
+
             "
 
           >
 
+            Login
 
-            <div
-
-              className="
-              mt-12
-              flex
-              flex-col
-              gap-8
-              text-xl
-              font-semibold
-              "
-
-            >
-
-              <a href="/login">
-
-                Login
-
-              </a>
+          </Link>
 
 
 
-              <a href="/about">
+          <Link
 
-                About Zetein
+            href="/about"
 
-              </a>
+            className="
+            text-lg
+            font-semibold
 
+            "
 
+          >
 
-              <ThemeToggle />
+            About Zetein
 
-
-            </div>
-
-
-          </SheetContent>
-
-
-        </Sheet>
+          </Link>
 
 
-      </nav>
+
+        </div>
+
+
+      </div>
 
 
     </header>
