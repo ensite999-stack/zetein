@@ -3,73 +3,109 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
 
-export const metadata: Metadata = {
-  title: "Zetein",
-  description: "Search domains and manage your digital assets.",
-  keywords: [
-    "domain",
-    "domain search",
-    "Zetein",
-  ],
-  icons: {
-    icon: "/favicon.ico",
-  },
+export const viewport: Viewport = {
+  themeColor: "#22c7d8",
 };
 
 
-export const viewport: Viewport = {
+export const metadata: Metadata = {
 
-  themeColor: [
-    {
-      media: "(prefers-color-scheme: light)",
-      color: "#e8faf8",
-    },
-    {
-      media: "(prefers-color-scheme: dark)",
-      color: "#08111f",
-    },
+  title: "Zetein - Find your domain",
+
+  description:
+    "Search domains and manage your digital assets.",
+
+
+  keywords: [
+    "domain",
+    "domains",
+    "domain search",
+    "Zetein",
   ],
+
+
+  openGraph: {
+
+    type: "website",
+
+    title: "Zetein - Find your domain",
+
+    description:
+      "Search domains and manage your digital assets.",
+
+  },
+
+
+  icons: {
+
+    icon: "/favicon.ico",
+
+  },
+
 
 };
 
 
 export default function RootLayout({
+
   children,
+
 }: Readonly<{
+
   children: React.ReactNode;
+
 }>) {
 
-  return (
 
-    <html
-      lang="en"
-      suppressHydrationWarning
-    >
+return (
 
-      <body
-        className={`${geistSans.className} antialiased`}
-      >
+<html
 
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
+lang="en"
 
-          {children}
+suppressHydrationWarning
 
-        </ThemeProvider>
+>
 
-      </body>
 
-    </html>
+<body
 
-  );
+className={`${geistSans.variable} ${geistSans.className} antialiased`}
+
+>
+
+
+<ThemeProvider
+
+attribute="class"
+
+defaultTheme="system"
+
+enableSystem
+
+disableTransitionOnChange
+
+>
+
+
+{children}
+
+
+</ThemeProvider>
+
+
+</body>
+
+
+</html>
+
+);
 
 }
