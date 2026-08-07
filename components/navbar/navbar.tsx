@@ -1,6 +1,5 @@
 "use client";
 
-
 import Image from "next/image";
 
 
@@ -15,34 +14,35 @@ top-0
 left-0
 z-50
 w-full
+
 border-b
 border-white/10
-bg-[#0B0E14]/80
+
+bg-[#0B0E14]/90
+
 backdrop-blur-xl
 "
 >
 
 
 <nav
+
 className="
 flex
 h-20
+
 items-center
 justify-between
+
 px-5
-md:px-8
 "
+
 >
 
 
-{/* Logo */}
+{/* logo */}
 
-<div
-className="
-flex
-items-center
-"
->
+<div>
 
 <Image
 
@@ -50,11 +50,15 @@ src="/zetein-logo.png"
 
 alt="Zetein"
 
-width={42}
+width={48}
 
-height={42}
+height={48}
+
+priority
 
 className="
+h-12
+w-12
 object-contain
 "
 
@@ -64,77 +68,82 @@ object-contain
 
 
 
-{/* Right */}
-
-<div
-className="
-flex
-items-center
-gap-8
-"
->
-
-
-<button
-className="
-hidden
-md:block
-
-text-sm
-text-white/80
-
-hover:text-white
-"
->
-Register
-</button>
-
-
+{/* menu */}
 
 <button
 
 className="
 flex
-h-10
-w-10
+
 flex-col
-justify-center
-gap-1.5
+
+gap-2
+
+p-2
 
 "
+
+aria-label="menu"
 
 >
 
 
 <span
+
 className="
-h-[2px]
-w-6
+block
+
+h-[3px]
+
+w-9
+
+rounded-full
+
 bg-white
+
 "
+
 />
 
-<span
-className="
-h-[2px]
-w-6
-bg-white
-"
-/>
 
 <span
+
 className="
-h-[2px]
-w-6
+block
+
+h-[3px]
+
+w-9
+
+rounded-full
+
 bg-white
+
 "
+
+/>
+
+
+<span
+
+className="
+block
+
+h-[3px]
+
+w-9
+
+rounded-full
+
+bg-white
+
+"
+
 />
 
 
 </button>
 
-
-</div>
 
 
 </nav>
