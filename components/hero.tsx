@@ -1,38 +1,81 @@
 export default function Hero() {
-
   return (
-
-    <section
-
+    <main
       className="
-
+      relative
       flex
-
       min-h-screen
 
       w-full
 
-
       items-center
-
       justify-center
 
+      overflow-hidden
 
       px-5
 
+      pt-24
 
       text-center
 
       "
-
     >
+
+      {/* 星空蓝背景光晕 */}
+
+      <div
+        className="
+        absolute
+        inset-0
+
+        -z-10
+
+        bg-background
+
+        "
+      />
 
 
       <div
-
         className="
+        absolute
+
+        left-1/2
+
+        top-1/4
+
+        -z-10
+
+        h-[500px]
+
+        w-[500px]
+
+        -translate-x-1/2
+
+        rounded-full
+
+        bg-cyan-300/20
+
+        blur-3xl
+
+        "
+      />
+
+
+
+      <section
+        className="
+        flex
+
         w-full
-        max-w-5xl
+
+        max-w-4xl
+
+        flex-col
+
+        items-center
+
         "
 
       >
@@ -41,46 +84,46 @@ export default function Hero() {
         <h1
 
           className="
+          max-w-4xl
 
-          text-6xl
+          text-5xl
 
           font-bold
 
           tracking-tight
 
+          text-foreground
 
-          text-white
 
+          sm:text-7xl
 
-          sm:text-8xl
+          lg:text-8xl
 
           "
 
         >
 
           Find your
-
           <br />
 
           domain.
 
-
         </h1>
-
 
 
 
         <p
 
           className="
-
           mt-8
 
+          max-w-2xl
 
           text-lg
 
+          leading-relaxed
 
-          text-blue-200
+          text-muted-foreground
 
 
           sm:text-2xl
@@ -90,14 +133,11 @@ export default function Hero() {
         >
 
           Search domains and manage your
-
-          <br />
+          <br className="hidden sm:block" />
 
           digital assets.
 
-
         </p>
-
 
 
 
@@ -105,31 +145,24 @@ export default function Hero() {
         <div
 
           className="
-
           mt-12
-
 
           flex
 
-
           w-full
 
+          max-w-3xl
 
           flex-col
-
 
           gap-4
 
 
           sm:flex-row
 
-
-          sm:justify-center
-
           "
 
         >
-
 
 
           <input
@@ -137,35 +170,44 @@ export default function Hero() {
             placeholder="Search your domain..."
 
             className="
-
             h-16
 
+            flex-1
 
             rounded-2xl
 
-
             border
 
+            border-border
 
-            border-white/20
 
-
-            bg-[#0b2348]
+            bg-background/70
 
 
             px-6
 
 
-            text-white
+            text-lg
 
 
-            placeholder:text-blue-200
+            shadow-sm
+
+
+            backdrop-blur-xl
 
 
             outline-none
 
 
-            sm:w-[450px]
+            transition
+
+
+            focus:border-primary
+
+
+            focus:ring-2
+
+            focus:ring-primary/20
 
             "
 
@@ -173,28 +215,40 @@ export default function Hero() {
 
 
 
-
-
           <button
 
             className="
-
             h-16
 
 
             rounded-2xl
 
 
-            bg-white
+            bg-primary
 
 
-            px-10
+            px-12
 
 
-            font-bold
+            text-lg
 
 
-            text-[#06152f]
+            font-semibold
+
+
+            text-primary-foreground
+
+
+            shadow-lg
+
+
+            shadow-primary/20
+
+
+            transition
+
+
+            hover:opacity-90
 
 
             "
@@ -203,26 +257,24 @@ export default function Hero() {
 
             Search
 
-
           </button>
-
 
 
         </div>
 
 
 
-
-
         <p
 
           className="
-
           mt-10
 
+          text-sm
 
-          text-blue-200
+          text-muted-foreground
 
+
+          sm:text-base
 
           "
 
@@ -230,17 +282,13 @@ export default function Hero() {
 
           Fast. Simple. Private.
 
-
         </p>
 
 
 
-      </div>
+      </section>
 
 
-    </section>
-
-
+    </main>
   );
-
 }
