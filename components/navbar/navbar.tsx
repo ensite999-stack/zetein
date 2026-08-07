@@ -1,9 +1,7 @@
 "use client";
 
-
 import Image from "next/image";
 import { Menu } from "lucide-react";
-
 
 import {
   Sheet,
@@ -11,9 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-
 import ThemeToggle from "@/components/theme-toggle";
-
 
 
 export default function Navbar() {
@@ -27,9 +23,7 @@ export default function Navbar() {
       top-0
       left-0
       z-50
-
       w-full
-
       "
     >
 
@@ -39,43 +33,42 @@ export default function Navbar() {
         className="
         flex
         h-20
-
         items-center
         justify-between
-
 
         px-5
         sm:px-10
 
 
-        bg-background/40
+        bg-[#06152f]/90
+
 
         backdrop-blur-xl
 
 
         border-b
 
-        border-white/20
+        border-white/10
 
 
-        shadow-sm
+        shadow-lg
 
         "
 
       >
 
 
-
         {/* Logo */}
 
         <div
+
           className="
           flex
           items-center
-          gap-2
+          gap-3
           "
-        >
 
+        >
 
           <Image
 
@@ -83,9 +76,9 @@ export default function Navbar() {
 
             alt="Zetein"
 
-            width={42}
+            width={45}
 
-            height={42}
+            height={45}
 
             className="
             object-contain
@@ -99,7 +92,7 @@ export default function Navbar() {
             className="
             text-2xl
             font-bold
-            tracking-tight
+            text-white
             "
 
           >
@@ -115,37 +108,39 @@ export default function Navbar() {
 
 
 
-        {/* Desktop Register */}
+        {/* Register */}
 
         <div
 
           className="
           hidden
           md:flex
-
-          items-center
-
-          gap-8
-
           "
 
         >
 
-
-          <a
-
-            href="/register"
+          <button
 
             className="
-            text-lg
+            rounded-full
+
+            bg-white
+
+            px-7
+
+            py-2
+
             font-semibold
+
+            text-[#06152f]
+
             "
 
           >
 
             Register
 
-          </a>
+          </button>
 
 
         </div>
@@ -154,9 +149,7 @@ export default function Navbar() {
 
 
 
-
-        {/* Mobile Menu */}
-
+        {/* Menu */}
 
         <Sheet>
 
@@ -171,10 +164,12 @@ export default function Navbar() {
               flex
 
               h-14
+
               w-14
 
 
               items-center
+
               justify-center
 
 
@@ -183,14 +178,19 @@ export default function Navbar() {
 
               border
 
+              border-white/20
 
-              bg-background/60
+
+              bg-white/10
+
+
+              text-white
+
+
+              shadow-xl
 
 
               backdrop-blur-xl
-
-
-              shadow-md
 
 
               "
@@ -199,11 +199,12 @@ export default function Navbar() {
 
               <Menu
 
-                size={32}
+                size={34}
 
                 strokeWidth={3}
 
               />
+
 
             </button>
 
@@ -213,29 +214,45 @@ export default function Navbar() {
 
 
 
-          <SheetContent>
+
+          <SheetContent
+
+            className="
+            bg-[#06152f]
+            text-white
+            border-white/10
+            "
+
+          >
 
 
             <div
+
               className="
-              mt-10
+              mt-12
               flex
               flex-col
               gap-8
               text-xl
               font-semibold
               "
+
             >
 
-
               <a href="/login">
+
                 Login
+
               </a>
+
 
 
               <a href="/about">
+
                 About Zetein
+
               </a>
+
 
 
               <ThemeToggle />
@@ -254,7 +271,6 @@ export default function Navbar() {
 
 
     </header>
-
 
   );
 
