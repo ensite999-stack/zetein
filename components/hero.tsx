@@ -8,16 +8,14 @@ return (
 className="
 min-h-screen
 
-flex
-flex-col
-items-center
-justify-center
+bg-[#0B0E14]
 
 px-5
 
-pt-20
+pt-32
 
 text-center
+
 "
 
 >
@@ -27,15 +25,22 @@ text-center
 <h1
 
 className="
+mx-auto
+
 max-w-4xl
 
 text-5xl
+
 font-bold
+
+leading-tight
+
 tracking-tight
 
 text-white
 
 sm:text-7xl
+
 "
 
 >
@@ -49,6 +54,8 @@ Find your domain.
 <p
 
 className="
+mx-auto
+
 mt-6
 
 max-w-xl
@@ -57,9 +64,10 @@ text-lg
 
 leading-relaxed
 
-text-white/50
+text-white/60
 
 sm:text-xl
+
 "
 
 >
@@ -71,14 +79,16 @@ Search domains and manage your digital assets.
 
 
 
+{/* search */}
+
 <div
 
 className="
+mx-auto
+
 mt-12
 
 flex
-
-w-full
 
 max-w-2xl
 
@@ -91,8 +101,6 @@ border
 border-white/10
 
 bg-white/[0.04]
-
-backdrop-blur-xl
 
 "
 
@@ -112,6 +120,8 @@ bg-transparent
 
 px-6
 
+text-lg
+
 text-white
 
 placeholder:text-white/40
@@ -123,21 +133,18 @@ outline-none
 />
 
 
-
 <button
 
 className="
 h-16
 
-px-8
-
 bg-[#12CFE3]
+
+px-8
 
 font-semibold
 
 text-[#001014]
-
-hover:opacity-90
 
 "
 
@@ -153,6 +160,8 @@ Search
 
 
 
+{/* feature */}
+
 <div
 
 className="
@@ -160,11 +169,12 @@ mt-10
 
 flex
 
+justify-center
+
 gap-10
 
-text-sm
+text-white/50
 
-text-white/40
 "
 
 >
@@ -185,7 +195,6 @@ Private
 
 
 </div>
-
 
 
 </section>
