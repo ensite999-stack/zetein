@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageLayout from "@/components/page-layout";
 
 
 export const metadata: Metadata = {
@@ -17,122 +18,92 @@ export default function ContactPage() {
 
   return (
 
-    <main
-      className="
-      min-h-screen
-      bg-[#050505]
-      text-white
-      px-6
-      py-24
-      "
+    <PageLayout
+      title="Contact Zetein"
     >
+
 
       <div
         className="
-        mx-auto
-        max-w-4xl
+        space-y-10
         "
       >
 
 
-        <h1
-          className="
-          text-5xl
-          font-black
-          tracking-tight
-          "
-        >
-          Contact Zetein
-        </h1>
+
+        <p>
+
+          Have questions, feedback or suggestions?
+          We would like to hear from you.
+
+        </p>
 
 
 
-        <div
-          className="
-          mt-10
-          space-y-8
-          text-lg
-          leading-8
-          text-white/70
-          "
-        >
+
+        <section>
+
+          <h2
+            className="
+            text-2xl
+            font-bold
+            text-white
+            "
+          >
+            Email
+          </h2>
 
 
-          <p>
+          <p className="mt-3">
 
-            Have questions, feedback or suggestions?
-            We would like to hear from you.
+            <a
+              href="mailto:hello@zetein.xyz"
+              className="
+              text-[#22D3EE]
+              hover:underline
+              "
+            >
+              hello@zetein.xyz
+            </a>
 
           </p>
 
 
-
-          <section>
-
-            <h2
-              className="
-              text-2xl
-              font-bold
-              text-white
-              "
-            >
-              Email
-            </h2>
-
-
-            <p className="mt-3">
-
-              <a
-                href="mailto:hello@zetein.xyz"
-                className="
-                text-[#22D3EE]
-                hover:underline
-                "
-              >
-                hello@zetein.xyz
-              </a>
-
-            </p>
-
-
-          </section>
+        </section>
 
 
 
 
-          <section>
+        <section>
 
-            <h2
-              className="
-              text-2xl
-              font-bold
-              text-white
-              "
-            >
-              About Zetein
-            </h2>
-
-
-            <p className="mt-3">
-
-              Zetein focuses on helping users discover
-              meaningful .xyz domain names through a clean,
-              fast and accurate search experience.
-
-            </p>
+          <h2
+            className="
+            text-2xl
+            font-bold
+            text-white
+            "
+          >
+            About Zetein
+          </h2>
 
 
-          </section>
+          <p className="mt-3">
+
+            Zetein focuses on helping users discover
+            meaningful .xyz domain names through a clean,
+            fast and accurate search experience.
+
+          </p>
 
 
+        </section>
 
-        </div>
 
 
       </div>
 
 
-    </main>
+    </PageLayout>
 
   );
 
