@@ -492,7 +492,6 @@ export default function Home() {
 
   );
 
-}
       <Footer />
       <p>Impact-Site-Verification: 62b4f439-0d15-44f6-837d-f39c7ae70564</p>
     </main>
