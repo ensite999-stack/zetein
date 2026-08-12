@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/navbar";
+import Logo from "@/components/logo";
+import Footer from "@/components/footer";
+
 import {
   websiteSchema,
   organizationSchema,
 } from "@/app/schema";
+
 
 
 const articles = [
@@ -42,11 +45,8 @@ const articles = [
 
         <p>
           Finding the right domain often requires many
-          searches. Brands, products and projects usually
-          test multiple ideas before discovering the right
-          name.
-          Zetein simplifies this process through a focused
-          search experience.
+          searches. Zetein simplifies this process through
+          a focused search experience.
         </p>
 
 
@@ -56,8 +56,6 @@ const articles = [
 
 
         <p>
-          Domain availability is the most important part
-          of domain discovery.
           Zetein focuses on presenting clear and reliable
           information to help users make better decisions.
         </p>
@@ -70,8 +68,7 @@ const articles = [
 
         <p>
           Zetein keeps the experience focused on discovering
-          the right domain without unnecessary promotions
-          or distractions.
+          the right domain without unnecessary promotions.
         </p>
 
 
@@ -80,6 +77,7 @@ const articles = [
     ),
 
   },
+
 
 
   {
@@ -98,9 +96,9 @@ const articles = [
 
 
         <p>
-          As the internet expanded, many short and memorable
-          .com names became unavailable. New brands needed
-          more flexible options for creating digital identities.
+          Many short and memorable .com names became
+          unavailable, creating demand for flexible
+          alternatives.
         </p>
 
 
@@ -110,18 +108,14 @@ const articles = [
 
 
         <p>
-          In 2015, Google announced Alphabet, a new parent
-          company, and selected abc.xyz as its official
-          website.
+          In 2015, Google announced Alphabet and selected
+          abc.xyz as its official website.
         </p>
 
 
         <p>
-          Larry Page explained that Alphabet represents a
-          collection of letters that represent language,
-          one of humanity&apos;s most important innovations,
-          and the foundation of how Google organizes
-          information.
+          The choice demonstrated how a modern domain
+          extension could support a global technology brand.
         </p>
 
 
@@ -202,6 +196,8 @@ const articles = [
 
 
 
+
+
 export default function Home() {
 
 
@@ -243,14 +239,11 @@ export default function Home() {
 
 
 
-      <Navbar />
-
-
 
       <section
         className="
         px-6
-        pt-24
+        pt-20
         pb-24
         "
       >
@@ -264,21 +257,8 @@ export default function Home() {
         >
 
 
-          <h1
-            className="
-            text-7xl
-            font-black
-            tracking-[-0.07em]
-            md:text-9xl
-            "
-          >
 
-            Zetein
-            <span className="cursor-blink">
-              _
-            </span>
-
-          </h1>
+          <Logo />
 
 
 
@@ -318,6 +298,7 @@ export default function Home() {
           >
 
 
+
             <input
 
               placeholder="Zetein.xyz"
@@ -334,6 +315,7 @@ export default function Home() {
               "
 
             />
+
 
 
             <span
@@ -368,6 +350,7 @@ export default function Home() {
               Search
 
             </button>
+
 
 
           </div>
@@ -502,136 +485,7 @@ export default function Home() {
 
 
 
-      <footer
-        className="
-        mt-20
-        bg-black
-        px-6
-        py-16
-        "
-      >
-
-        <div
-          className="
-          mx-auto
-          max-w-4xl
-          "
-        >
-
-
-          <h2
-            className="
-            text-3xl
-            font-black
-            "
-          >
-
-            Zetein
-            <span className="cursor-blink">
-              _
-            </span>
-
-          </h2>
-
-
-
-          <div
-            className="
-            mt-10
-            flex
-            flex-col
-            gap-5
-            text-white/60
-            "
-          >
-
-
-            <a
-              href="/about"
-              className="hover:text-white transition"
-            >
-              About Zetein
-            </a>
-
-
-
-            <a
-              href="/why-zetein"
-              className="hover:text-white transition"
-            >
-              Why Choose Us
-            </a>
-
-
-
-            <a
-              href="/xyz-world"
-              className="hover:text-white transition"
-            >
-              .xyz World
-            </a>
-
-
-
-            <a
-              href="/blog"
-              className="hover:text-white transition"
-            >
-              Blog
-            </a>
-
-
-
-            <a
-              href="/privacy"
-              className="hover:text-white transition"
-            >
-              Privacy Policy
-            </a>
-
-
-
-            <a
-              href="/terms"
-              className="hover:text-white transition"
-            >
-              Terms of Use
-            </a>
-
-
-
-            <a
-              href="/contact"
-              className="hover:text-white transition"
-            >
-              Contact Us
-            </a>
-
-
-          </div>          </div>
-
-
-
-          <p
-            className="
-            mt-12
-            border-t
-            border-white/10
-            pt-6
-            text-xs
-            text-white/40
-            "
-          >
-
-            © {new Date().getFullYear()} Zetein All Rights Reserved.
-
-          </p>
-
-
-        </div>
-
-
-      </footer>
+      <Footer />
 
 
     </main>
