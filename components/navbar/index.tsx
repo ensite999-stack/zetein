@@ -35,10 +35,11 @@ export default function Navbar() {
           className="
           text-xl
           font-black
-          tracking-[-0.04em]
+          tracking-[-0.05em]
           text-white
           "
         >
+
           Zetein
           <span className="cursor-blink">
             _
