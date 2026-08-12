@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
 
-    <main className="min-h-screen bg-[#F5F1E8] text-[#171717]">
+    <main className="min-h-screen bg-[#F7F3EA] text-[#111827]">
 
 
       <Navbar />
@@ -25,18 +25,16 @@ export default function Home() {
         "
       >
 
-
         <p
           className="
-          mb-8
-          text-sm
-          tracking-[0.35em]
-          text-[#8A8175]
+          mb-10
+          font-serif
+          text-3xl
+          tracking-wide
           "
         >
-          ZĒTEIN · ζητεῖν
+          ζητεῖν
         </p>
-
 
 
         <h1
@@ -50,14 +48,11 @@ export default function Home() {
           "
         >
 
-          Find your
-          <br />
+          Explore the world of{" "}
 
-          <span className="text-[#A0004D]">
+          <span className="text-[#06B6D4]">
             .xyz
           </span>
-
-          {" "}domain
 
         </h1>
 
@@ -66,15 +61,15 @@ export default function Home() {
         <p
           className="
           mt-8
-          max-w-xl
+          max-w-2xl
           text-lg
           leading-relaxed
-          text-[#5F5A52]
+          text-[#64748B]
           "
         >
 
-          Fast and accurate domain search.
-          Discover your digital identity.
+          Discover, search and register
+          your next digital identity.
 
         </p>
 
@@ -91,19 +86,17 @@ export default function Home() {
           max-w-3xl
           overflow-hidden
           border
-          border-[#D8D0C2]
-          bg-[#FFFDF8]
+          border-[#DDD5C8]
+          bg-white
           "
         >
 
-
           <input
 
-            placeholder="Enter your name"
+            placeholder="Search your domain"
 
             className="
             flex-1
-            bg-transparent
             px-6
             py-5
             text-lg
@@ -113,34 +106,28 @@ export default function Home() {
           />
 
 
-
           <div
             className="
             flex
             items-center
             border-l
-            border-[#D8D0C2]
+            border-[#DDD5C8]
             px-5
-            text-[#8A8175]
+            text-[#64748B]
             "
           >
-
             .xyz
-
           </div>
 
 
-
           <button
-
             className="
-            bg-[#111111]
+            bg-[#06B6D4]
             px-10
             text-white
             transition
-            hover:bg-[#A0004D]
+            hover:bg-[#0891B2]
             "
-
           >
 
             SEARCH
@@ -152,51 +139,78 @@ export default function Home() {
 
 
 
+      </section>
 
-        {/* Popular */}
 
-        <div
+
+
+
+      {/* Why Zetein */}
+
+      <section
+        className="
+        mx-auto
+        max-w-6xl
+        px-6
+        py-24
+        "
+      >
+
+        <h2
           className="
-          mt-12
-          flex
-          flex-wrap
-          justify-center
-          gap-3
+          text-4xl
+          font-light
+          "
+        >
+          Why choose Zetein?
+        </h2>
+
+
+        <p
+          className="
+          mt-6
+          max-w-3xl
+          text-[#64748B]
           "
         >
 
-          {
-            [
-              "ai.xyz",
-              "future.xyz",
-              "agent.xyz",
-              "cloud.xyz",
-            ].map((domain)=>(
-              
-              <button
-                key={domain}
-                className="
-                border
-                border-[#D8D0C2]
-                bg-[#FFFDF8]
-                px-4
-                py-2
-                text-sm
-                text-[#5F5A52]
-                transition
-                hover:border-[#A0004D]
-                "
-              >
+          Zetein provides a fast, accurate and
+          advertising-free .xyz domain discovery
+          experience. We focus on making domain
+          search simple, clear and efficient.
 
-                {domain}
+        </p>
 
-              </button>
 
-            ))
-          }
+
+        <div
+          className="
+          mt-14
+          grid
+          gap-10
+          md:grid-cols-3
+          "
+        >
+
+          <Feature
+            title="Fast"
+            text="Quick domain search with a smooth experience."
+          />
+
+
+          <Feature
+            title="Accurate"
+            text="Clear availability information to help you decide."
+          />
+
+
+          <Feature
+            title="No Ads"
+            text="A clean search experience without distractions."
+          />
+
 
         </div>
-
 
 
       </section>
@@ -205,41 +219,110 @@ export default function Home() {
 
 
 
+      {/* Why XYZ */}
 
-      {/* Features */}
+      <section
+        className="
+        border-y
+        border-[#DDD5C8]
+        bg-white/40
+        px-6
+        py-24
+        "
+      >
+
+        <div className="mx-auto max-w-6xl">
+
+
+          <h2
+            className="
+            text-4xl
+            font-light
+            "
+          >
+            Why choose .xyz?
+          </h2>
+
+
+          <p
+            className="
+            mt-8
+            max-w-4xl
+            leading-relaxed
+            text-[#64748B]
+            "
+          >
+
+            .xyz is a modern top-level domain created
+            for the next generation of internet users.
+            It provides a flexible digital identity for
+            creators, developers, startups and innovative
+            companies. Unlike traditional domains,
+            .xyz is open, memorable and designed for
+            the future of the web.
+
+          </p>
+
+
+        </div>
+
+      </section>
+
+
+
+
+
+      {/* History */}
 
       <section
         className="
         mx-auto
-        grid
         max-w-6xl
-        grid-cols-1
-        gap-12
-        border-t
-        border-[#D8D0C2]
         px-6
         py-24
-        md:grid-cols-3
         "
       >
 
-
-        <Feature
-          title="Fast"
-          text="Instant domain availability checking."
-        />
-
-
-        <Feature
-          title="Accurate"
-          text="Registry based domain results."
-        />
+        <h2
+          className="
+          text-4xl
+          font-light
+          "
+        >
+          Explore .xyz history
+        </h2>
 
 
-        <Feature
-          title="Global"
-          text="Register your identity worldwide."
-        />
+        <p
+          className="
+          mt-8
+          max-w-4xl
+          leading-relaxed
+          text-[#64748B]
+          "
+        >
+
+          Launched in 2014, .xyz became one of the
+          most recognized new generation domains.
+          From early adoption by startups to growing
+          usage in artificial intelligence, Web3 and
+          emerging technologies, .xyz has developed
+          into a symbol of innovation.
+
+          <br />
+          <br />
+
+          Its advantages include wider availability,
+          flexible branding and strong relevance for
+          modern projects. However, compared with
+          traditional domains such as .com, it still
+          requires more user education and brand trust.
+
+          .xyz is not a replacement for every domain,
+          but it offers a new choice for people building
+          the future of the internet.
+
+        </p>
 
 
       </section>
@@ -255,7 +338,7 @@ export default function Home() {
         bg-[#111111]
         px-6
         py-16
-        text-[#F5F1E8]
+        text-[#F7F3EA]
         "
       >
 
@@ -266,27 +349,22 @@ export default function Home() {
             className="
             font-serif
             text-3xl
-            tracking-wide
             "
           >
             ζητεῖν
           </h2>
 
 
-
           <p
             className="
             mt-5
-            max-w-md
             text-sm
             text-white/60
             "
           >
-
-            A fast and accurate .xyz domain discovery platform.
-
+            Explore, discover and register your
+            digital identity.
           </p>
-
 
 
           <p
@@ -296,14 +374,11 @@ export default function Home() {
             text-white/40
             "
           >
-
             © 2026 Zetein
-
           </p>
 
 
         </div>
-
 
       </footer>
 
@@ -317,16 +392,13 @@ export default function Home() {
 
 
 
+
 function Feature({
-
   title,
-  text,
-
+  text
 }:{
-
   title:string;
   text:string;
-
 }) {
 
 
@@ -336,27 +408,22 @@ function Feature({
 
       <h3
         className="
-        text-3xl
+        text-2xl
         font-light
         "
       >
-
         {title}
-
       </h3>
 
 
       <p
         className="
-        mt-4
-        text-[#6B645B]
+        mt-3
+        text-[#64748B]
         "
       >
-
         {text}
-
       </p>
-
 
     </div>
 
