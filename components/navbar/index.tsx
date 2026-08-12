@@ -25,6 +25,7 @@ export default function Navbar() {
         h-20
         max-w-6xl
         items-center
+        justify-between
         px-6
         "
       >
@@ -32,13 +33,17 @@ export default function Navbar() {
         <Link
           href="/"
           className="
-          text-2xl
+          text-xl
           font-black
-          tracking-[-0.05em]
+          tracking-[-0.04em]
           text-white
           "
         >
-          Zetein_
+          Zetein
+          <span className="cursor-blink">
+            _
+          </span>
+
         </Link>
 
 
