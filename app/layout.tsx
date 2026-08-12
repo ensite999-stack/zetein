@@ -113,7 +113,6 @@ export const metadata: Metadata = {
 
 
 
-
   alternates: {
 
 
@@ -126,28 +125,25 @@ export const metadata: Metadata = {
 
 
 
-
   icons: {
 
 
     icon:
 
-      "/icon.svg",
+      "/icon.ico",
 
 
     shortcut:
 
-      "/icon.svg",
+      "/icon.ico",
 
 
     apple:
 
-      "/icon.svg",
+      "/icon.ico",
 
 
   },
-
-
 
 
 
@@ -243,6 +239,31 @@ export const metadata: Metadata = {
 
 
 
+    images: [
+
+      {
+
+        url:
+
+          "/og-image.png",
+
+        width:
+
+          1200,
+
+        height:
+
+          630,
+
+        alt:
+
+          "Zetein - Explore the world of .xyz",
+
+      },
+
+    ],
+
+
   },
 
 
@@ -269,6 +290,12 @@ export const metadata: Metadata = {
     description:
 
       "Search and discover your next .xyz domain with Zetein.",
+
+
+
+    images:
+
+      ["/og-image.png"],
 
 
   },
