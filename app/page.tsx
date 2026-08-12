@@ -2,49 +2,103 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F8FAFC] text-[#111827]">
+    <main className="min-h-screen bg-[#F5F1E8] text-[#171717]">
 
       {/* Header */}
-      <header className="flex items-center justify-between px-8 py-6">
+      <header className="fixed top-0 z-50 w-full bg-[#111111]">
 
-        <Image
-          src="/logo.png"
-          width={42}
-          height={42}
-          alt="Zetein"
-        />
+        <div className="
+          mx-auto
+          flex
+          h-20
+          max-w-7xl
+          items-center
+          justify-between
+          px-6
+        ">
 
-        <nav className="flex gap-8 text-sm text-gray-500">
-          <a href="#history">
-            History
-          </a>
+          <Image
+            src="/logo.png"
+            width={42}
+            height={42}
+            alt="Zetein"
+          />
 
-          <a href="#about">
-            About
-          </a>
-        </nav>
+
+          <nav className="
+            flex
+            gap-8
+            text-sm
+            text-white/70
+          ">
+
+            <a href="#history">
+              History
+            </a>
+
+            <a href="#about">
+              About
+            </a>
+
+          </nav>
+
+        </div>
 
       </header>
 
 
+
       {/* Hero */}
-      <section className="mx-auto flex min-h-[75vh] max-w-6xl flex-col items-center justify-center px-6 text-center">
+
+      <section
+        className="
+        flex
+        min-h-screen
+        flex-col
+        items-center
+        justify-center
+        px-6
+        pt-20
+        text-center
+        "
+      >
+
+
+        <p
+          className="
+          mb-8
+          text-xs
+          tracking-[0.4em]
+          text-[#8A8175]
+          "
+        >
+          DISCOVER YOUR DIGITAL IDENTITY
+        </p>
+
 
 
         <h1
           className="
-          text-6xl
+          max-w-5xl
+          text-5xl
           font-light
+          leading-tight
           tracking-tight
-          md:text-8xl
+          md:text-7xl
           "
         >
+
           Find your
           <br />
-          <span className="font-normal">
-            .xyz domain
+
+          <span className="text-[#A0004D]">
+            .xyz
           </span>
+
+          {" "}domain
+
         </h1>
+
 
 
         <p
@@ -52,16 +106,21 @@ export default function Home() {
           mt-8
           max-w-xl
           text-lg
-          text-gray-500
+          leading-relaxed
+          text-[#555555]
           "
         >
+
           Fast and accurate .xyz domain search.
           Discover your next digital identity.
+
         </p>
 
 
 
-        {/* Search Box */}
+
+        {/* Search */}
+
         <div
           className="
           mt-14
@@ -70,8 +129,8 @@ export default function Home() {
           max-w-3xl
           overflow-hidden
           border
-          border-gray-200
-          bg-white
+          border-[#DDD5C8]
+          bg-[#FFFDF8]
           "
         >
 
@@ -81,6 +140,7 @@ export default function Home() {
 
             className="
             flex-1
+            bg-transparent
             px-6
             py-5
             text-lg
@@ -95,13 +155,16 @@ export default function Home() {
             flex
             items-center
             border-l
-            border-gray-200
+            border-[#DDD5C8]
             px-5
-            text-gray-400
+            text-[#777]
             "
           >
+
             .xyz
+
           </div>
+
 
 
           <button
@@ -115,6 +178,7 @@ export default function Home() {
             "
 
           >
+
             SEARCH
 
           </button>
@@ -123,60 +187,93 @@ export default function Home() {
         </div>
 
 
-        {/* Features */}
+
+        {/* Popular */}
 
         <div
           className="
-          mt-24
-          grid
-          w-full
-          max-w-4xl
-          grid-cols-1
-          gap-10
-          border-t
-          border-gray-200
-          pt-10
-          md:grid-cols-3
+          mt-12
+          flex
+          flex-wrap
+          justify-center
+          gap-3
           "
         >
 
-          <div>
-            <h3 className="text-lg">
-              Fast
-            </h3>
+          {
+            [
+              "ai.xyz",
+              "future.xyz",
+              "agent.xyz",
+              "cloud.xyz"
+            ].map((item)=>(
 
-            <p className="mt-2 text-sm text-gray-500">
-              Instant domain checking.
-            </p>
-          </div>
+              <span
+                key={item}
+                className="
+                border
+                border-[#DDD5C8]
+                bg-[#FFFDF8]
+                px-4
+                py-2
+                text-sm
+                text-[#555]
+                "
+              >
 
+                {item}
 
-          <div>
-            <h3 className="text-lg">
-              Accurate
-            </h3>
+              </span>
 
-            <p className="mt-2 text-sm text-gray-500">
-              Registry based results.
-            </p>
-          </div>
-
-
-          <div>
-            <h3 className="text-lg">
-              Global
-            </h3>
-
-            <p className="mt-2 text-sm text-gray-500">
-              Register worldwide.
-            </p>
-          </div>
-
+            ))
+          }
 
         </div>
 
 
+
       </section>
+
+
+
+
+
+      {/* Features */}
+
+      <section
+        className="
+        mx-auto
+        grid
+        max-w-5xl
+        grid-cols-1
+        gap-10
+        border-t
+        border-[#DDD5C8]
+        px-6
+        py-20
+        md:grid-cols-3
+        "
+      >
+
+        <Feature
+          title="Fast"
+          text="Instant domain checking."
+        />
+
+        <Feature
+          title="Accurate"
+          text="Registry based results."
+        />
+
+        <Feature
+          title="Global"
+          text="Register worldwide."
+        />
+
+
+      </section>
+
+
 
 
 
@@ -184,44 +281,98 @@ export default function Home() {
 
       <footer
         className="
-        border-t
-        border-gray-200
-        px-8
-        py-10
-        text-sm
-        text-gray-500
+        bg-[#111111]
+        px-6
+        py-12
+        text-white
         "
       >
 
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-5xl">
 
-          <div
+          <h2
             className="
-            text-lg
-            tracking-[0.3em]
-            text-[#111111]
+            tracking-[0.35em]
             "
           >
             ZETEIN
-          </div>
+          </h2>
 
 
-          <p className="mt-4">
+          <p className="
+          mt-4
+          text-sm
+          text-white/60
+          ">
+
             Discover and register your .xyz domain.
+
           </p>
 
 
-          <p className="mt-8">
-            © 2026 Zetein. All rights reserved.
+          <p
+            className="
+            mt-8
+            text-xs
+            text-white/40
+            "
+          >
+
+            © 2026 Zetein
+
           </p>
 
 
         </div>
-
 
       </footer>
 
 
     </main>
   );
+}
+
+
+
+
+
+function Feature({
+  title,
+  text
+}:{
+  title:string;
+  text:string;
+}) {
+
+  return (
+
+    <div>
+
+      <h3
+        className="
+        text-2xl
+        font-light
+        "
+      >
+
+        {title}
+
+      </h3>
+
+
+      <p
+        className="
+        mt-3
+        text-[#666]
+        "
+      >
+
+        {text}
+
+      </p>
+
+    </div>
+
+  )
+
 }
