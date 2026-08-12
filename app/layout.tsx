@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 
 
   metadataBase:
+
     new URL("https://zetein.xyz"),
 
 
@@ -25,9 +26,11 @@ export const metadata: Metadata = {
   title: {
 
     default:
+
       "Zetein - Find Your Perfect .xyz Domain",
 
     template:
+
       "%s | Zetein",
 
   },
@@ -77,6 +80,7 @@ export const metadata: Metadata = {
     {
 
       name:
+
         "Zetein",
 
     },
@@ -86,30 +90,36 @@ export const metadata: Metadata = {
 
 
   creator:
+
     "Zetein",
 
 
 
   publisher:
+
     "Zetein",
 
 
 
   applicationName:
+
     "Zetein",
 
 
 
   category:
-    "Domain Search",
 
+    "Domain Search",
 
 
 
   alternates: {
 
+
     canonical:
+
       "https://zetein.xyz",
+
 
   },
 
@@ -121,10 +131,12 @@ export const metadata: Metadata = {
 
 
     index:
+
       true,
 
 
     follow:
+
       true,
 
 
@@ -133,22 +145,27 @@ export const metadata: Metadata = {
 
 
       index:
+
         true,
 
 
       follow:
+
         true,
 
 
-      maxImagePreview:
+      "max-image-preview":
+
         "large",
 
 
-      maxSnippet:
+      "max-snippet":
+
         -1,
 
 
-      maxVideoPreview:
+      "max-video-preview":
+
         -1,
 
 
@@ -156,6 +173,7 @@ export const metadata: Metadata = {
 
 
   },
+
 
 
 
@@ -200,7 +218,6 @@ export const metadata: Metadata = {
       "website",
 
 
-
   },
 
 
@@ -232,10 +249,7 @@ export const metadata: Metadata = {
   },
 
 
-
-
 };
-
 
 
 
@@ -261,7 +275,6 @@ export const viewport: Viewport = {
   themeColor:
 
     "#050505",
-
 
 
 };
