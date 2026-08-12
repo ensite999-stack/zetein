@@ -29,10 +29,6 @@ export const metadata: Metadata = {
     follow: true,
   },
 
-  icons: {
-    icon: "/favicon.ico",
-  },
-
 };
 
 
@@ -42,7 +38,7 @@ export const viewport: Viewport = {
 
   initialScale: 1,
 
-  themeColor: "#F5F1E8",
+  themeColor: "#111111",
 
 };
 
@@ -56,7 +52,6 @@ export default function RootLayout({
   children: React.ReactNode;
 
 }>) {
-
 
   return (
 
