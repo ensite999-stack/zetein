@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 
 
 const geistSans = Geist({
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
 
     default:
 
-      "Zetein - Find Your Perfect .xyz Domain",
+      "Zetein - Explore the world of .xyz",
 
     template:
 
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
 
   description:
 
-    "Zetein helps you discover, search and find the perfect .xyz domain name. Fast, accurate and advertising-free domain discovery.",
+    "Zetein helps you discover meaningful .xyz domain names with a fast, accurate and advertising-free domain search experience.",
 
 
 
@@ -53,19 +52,13 @@ export const metadata: Metadata = {
 
     "available xyz domains",
 
-    "find xyz domain",
+    "domain finder",
 
     "domain name search",
 
-    "domain finder",
+    "startup domains",
 
-    "best xyz domains",
-
-    "premium xyz domains",
-
-    "startup domain names",
-
-    "AI domain names",
+    "AI domains",
 
     "digital identity",
 
@@ -147,7 +140,6 @@ export const metadata: Metadata = {
 
 
 
-
   robots: {
 
 
@@ -159,7 +151,6 @@ export const metadata: Metadata = {
     follow:
 
       true,
-
 
 
     googleBot: {
@@ -199,19 +190,18 @@ export const metadata: Metadata = {
 
 
 
-
   openGraph: {
 
 
     title:
 
-      "Zetein - Find Your Perfect .xyz Domain",
+      "Zetein - Explore the world of .xyz",
 
 
 
     description:
 
-      "Discover available .xyz domains with a fast and clean domain search experience.",
+      "Discover meaningful .xyz domains with a fast and clean domain search experience.",
 
 
 
@@ -270,8 +260,6 @@ export const metadata: Metadata = {
 
 
 
-
-
   twitter: {
 
 
@@ -283,19 +271,35 @@ export const metadata: Metadata = {
 
     title:
 
-      "Zetein - Find Your Perfect .xyz Domain",
+      "Zetein - Explore the world of .xyz",
 
 
 
     description:
 
-      "Search and discover your next .xyz domain with Zetein.",
+      "Discover your next .xyz domain with Zetein.",
 
 
 
     images:
 
-      ["/og-image.png"],
+      [
+
+        "/og-image.png"
+
+      ],
+
+
+  },
+
+
+
+  other: {
+
+
+    "theme-color":
+
+      "#050505",
 
 
   },
@@ -354,8 +358,6 @@ export default function RootLayout({
 
       lang="en"
 
-      suppressHydrationWarning
-
     >
 
 
@@ -374,28 +376,7 @@ export default function RootLayout({
       >
 
 
-        <ThemeProvider
-
-
-          attribute="class"
-
-
-          defaultTheme="dark"
-
-
-          enableSystem={false}
-
-
-          disableTransitionOnChange
-
-
-        >
-
-
-          {children}
-
-
-        </ThemeProvider>
+        {children}
 
 
       </body>
