@@ -1,51 +1,14 @@
-import Image from "next/image";
+import Navbar from "@/components/navbar";
+
 
 export default function Home() {
+
   return (
+
     <main className="min-h-screen bg-[#F5F1E8] text-[#171717]">
 
-      {/* Header */}
-      <header className="fixed top-0 z-50 w-full bg-[#111111]">
 
-        <div className="
-          mx-auto
-          flex
-          h-20
-          max-w-7xl
-          items-center
-          justify-between
-          px-6
-        ">
-
-          <Image
-            src="/logo.png"
-            width={42}
-            height={42}
-            alt="Zetein"
-          />
-
-
-          <nav className="
-            flex
-            gap-8
-            text-sm
-            text-white/70
-          ">
-
-            <a href="#history">
-              History
-            </a>
-
-            <a href="#about">
-              About
-            </a>
-
-          </nav>
-
-        </div>
-
-      </header>
-
+      <Navbar />
 
 
       {/* Hero */}
@@ -58,7 +21,6 @@ export default function Home() {
         items-center
         justify-center
         px-6
-        pt-20
         text-center
         "
       >
@@ -67,12 +29,12 @@ export default function Home() {
         <p
           className="
           mb-8
-          text-xs
-          tracking-[0.4em]
+          text-sm
+          tracking-[0.35em]
           text-[#8A8175]
           "
         >
-          DISCOVER YOUR DIGITAL IDENTITY
+          ZĒTEIN · ζητεῖν
         </p>
 
 
@@ -107,12 +69,12 @@ export default function Home() {
           max-w-xl
           text-lg
           leading-relaxed
-          text-[#555555]
+          text-[#5F5A52]
           "
         >
 
-          Fast and accurate .xyz domain search.
-          Discover your next digital identity.
+          Fast and accurate domain search.
+          Discover your digital identity.
 
         </p>
 
@@ -129,14 +91,15 @@ export default function Home() {
           max-w-3xl
           overflow-hidden
           border
-          border-[#DDD5C8]
+          border-[#D8D0C2]
           bg-[#FFFDF8]
           "
         >
 
+
           <input
 
-            placeholder="Enter your domain"
+            placeholder="Enter your name"
 
             className="
             flex-1
@@ -150,14 +113,15 @@ export default function Home() {
           />
 
 
+
           <div
             className="
             flex
             items-center
             border-l
-            border-[#DDD5C8]
+            border-[#D8D0C2]
             px-5
-            text-[#777]
+            text-[#8A8175]
             "
           >
 
@@ -188,6 +152,7 @@ export default function Home() {
 
 
 
+
         {/* Popular */}
 
         <div
@@ -205,25 +170,27 @@ export default function Home() {
               "ai.xyz",
               "future.xyz",
               "agent.xyz",
-              "cloud.xyz"
-            ].map((item)=>(
-
-              <span
-                key={item}
+              "cloud.xyz",
+            ].map((domain)=>(
+              
+              <button
+                key={domain}
                 className="
                 border
-                border-[#DDD5C8]
+                border-[#D8D0C2]
                 bg-[#FFFDF8]
                 px-4
                 py-2
                 text-sm
-                text-[#555]
+                text-[#5F5A52]
+                transition
+                hover:border-[#A0004D]
                 "
               >
 
-                {item}
+                {domain}
 
-              </span>
+              </button>
 
             ))
           }
@@ -238,36 +205,40 @@ export default function Home() {
 
 
 
+
       {/* Features */}
 
       <section
         className="
         mx-auto
         grid
-        max-w-5xl
+        max-w-6xl
         grid-cols-1
-        gap-10
+        gap-12
         border-t
-        border-[#DDD5C8]
+        border-[#D8D0C2]
         px-6
-        py-20
+        py-24
         md:grid-cols-3
         "
       >
 
+
         <Feature
           title="Fast"
-          text="Instant domain checking."
+          text="Instant domain availability checking."
         />
+
 
         <Feature
           title="Accurate"
-          text="Registry based results."
+          text="Registry based domain results."
         />
+
 
         <Feature
           title="Global"
-          text="Register worldwide."
+          text="Register your identity worldwide."
         />
 
 
@@ -283,36 +254,44 @@ export default function Home() {
         className="
         bg-[#111111]
         px-6
-        py-12
-        text-white
+        py-16
+        text-[#F5F1E8]
         "
       >
 
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl">
+
 
           <h2
             className="
-            tracking-[0.35em]
+            font-serif
+            text-3xl
+            tracking-wide
             "
           >
-            ZETEIN
+            ζητεῖν
           </h2>
 
-
-          <p className="
-          mt-4
-          text-sm
-          text-white/60
-          ">
-
-            Discover and register your .xyz domain.
-
-          </p>
 
 
           <p
             className="
-            mt-8
+            mt-5
+            max-w-md
+            text-sm
+            text-white/60
+            "
+          >
+
+            A fast and accurate .xyz domain discovery platform.
+
+          </p>
+
+
+
+          <p
+            className="
+            mt-10
             text-xs
             text-white/40
             "
@@ -325,24 +304,31 @@ export default function Home() {
 
         </div>
 
+
       </footer>
 
 
     </main>
+
   );
+
 }
 
 
 
 
-
 function Feature({
+
   title,
-  text
+  text,
+
 }:{
+
   title:string;
   text:string;
+
 }) {
+
 
   return (
 
@@ -350,7 +336,7 @@ function Feature({
 
       <h3
         className="
-        text-2xl
+        text-3xl
         font-light
         "
       >
@@ -362,8 +348,8 @@ function Feature({
 
       <p
         className="
-        mt-3
-        text-[#666]
+        mt-4
+        text-[#6B645B]
         "
       >
 
@@ -371,8 +357,9 @@ function Feature({
 
       </p>
 
+
     </div>
 
-  )
+  );
 
 }
