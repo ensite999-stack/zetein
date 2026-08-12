@@ -21,22 +21,27 @@ export const websiteSchema = {
 
 
   description:
-    "Zetein helps users discover and find available .xyz domains with a fast and accurate domain search experience.",
+    "Zetein helps users discover meaningful .xyz domains with a fast, accurate and advertising-free domain search experience.",
+
+
+
+  inLanguage:
+    "en-US",
 
 
 
   potentialAction:
 
-
   {
-
 
     "@type":
       "SearchAction",
 
 
+
     target:
       "https://zetein.xyz/?q={search_term_string}",
+
 
 
     "query-input":
@@ -47,6 +52,8 @@ export const websiteSchema = {
 
 
 };
+
+
 
 
 
@@ -75,14 +82,46 @@ export const organizationSchema = {
 
 
 
+  logo:
+    "https://zetein.xyz/icon.ico",
+
+
+
   description:
-    "Zetein is a domain discovery platform focused on .xyz domain search.",
+    "Zetein is a modern .xyz domain discovery platform focused on helping users find meaningful domain names.",
 
 
 
   email:
     "hello@zetein.xyz",
 
+
+
+  contactPoint:
+
+  {
+
+    "@type":
+      "ContactPoint",
+
+
+    contactType:
+      "customer support",
+
+
+    email:
+      "hello@zetein.xyz",
+
+
+  },
+
+
+
+  sameAs:
+
+  [
+
+  ],
 
 
 };
