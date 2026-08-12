@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import PageLayout from "@/components/page-layout";
 
 
 const posts = {
@@ -97,13 +98,7 @@ const posts = {
     ],
 
 
-  },
-
-
-
-
-
-  "choose-brandable-domain-name": {
+  },  "choose-brandable-domain-name": {
 
 
     title:
@@ -303,15 +298,7 @@ export async function generateMetadata(
   };
 
 
-}
-
-
-
-
-
-
-
-export default async function BlogPost(
+}export default async function BlogPost(
 
   {
     params,
@@ -346,51 +333,18 @@ export default async function BlogPost(
 
   return (
 
-    <main
-
-      className="
-      min-h-screen
-      bg-[#050505]
-      px-6
-      pt-32
-      text-white
-      "
-
+    <PageLayout
+      title={post.title}
     >
 
 
-      <article
-
-        className="
-        mx-auto
-        max-w-4xl
-        "
-
-      >
-
-
-
-        <h1
-
-          className="
-          text-5xl
-          font-black
-          leading-tight
-          md:text-7xl
-          "
-
-        >
-
-          {post.title}
-
-        </h1>
+      <article>
 
 
 
         <p
 
           className="
-          mt-8
           text-xl
           leading-8
           text-white/60
@@ -433,6 +387,7 @@ export default async function BlogPost(
                   className="
                   text-3xl
                   font-bold
+                  text-white
                   "
 
                 >
@@ -474,8 +429,7 @@ export default async function BlogPost(
       </article>
 
 
-
-    </main>
+    </PageLayout>
 
   );
 
