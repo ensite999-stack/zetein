@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import PageLayout from "@/components/page-layout";
 
 
@@ -98,7 +99,8 @@ const posts = {
     ],
 
 
-  },  "choose-brandable-domain-name": {
+  },
+  "choose-brandable-domain-name": {
 
 
     title:
@@ -240,6 +242,24 @@ type Params = {
 
 
 
+export async function generateStaticParams() {
+
+
+  return Object.keys(posts).map((slug) => ({
+
+
+    slug,
+
+
+  }));
+
+
+}
+
+
+
+
+
 export async function generateMetadata(
 
   {
@@ -338,8 +358,78 @@ export async function generateMetadata(
     >
 
 
-      <article>
+      <Script
 
+        id="article-schema"
+
+        type="application/ld+json"
+
+        dangerouslySetInnerHTML={{
+
+          __html:
+
+            JSON.stringify({
+
+              "@context":
+                "https://schema.org",
+
+
+              "@type":
+                "Article",
+
+
+              headline:
+                post.title,
+
+
+              description:
+                post.description,
+
+
+              author: {
+
+                "@type":
+                  "Organization",
+
+                name:
+                  "Zetein",
+
+              },
+
+
+              publisher: {
+
+                "@type":
+                  "Organization",
+
+                name:
+                  "Zetein",
+
+              },
+
+
+              mainEntityOfPage: {
+
+                "@type":
+                  "WebPage",
+
+                "@id":
+                  `https://zetein.xyz/blog/${slug}`,
+
+              },
+
+
+            }),
+
+        }}
+
+      />
+
+
+
+
+
+      <article>
 
 
         <p
