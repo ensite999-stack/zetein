@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import Navbar from "@/components/navbar";
+import {
+  websiteSchema,
+  organizationSchema,
+} from "@/app/schema";
 
 
 const articles = [
@@ -10,6 +14,7 @@ const articles = [
     title: "Why Choose Zetein",
 
     content: (
+
       <div className="space-y-6">
 
         <p>
@@ -38,8 +43,8 @@ const articles = [
         <p>
           Finding the right domain often requires many
           searches. Brands, products and projects usually
-          need to test multiple ideas before discovering
-          the right name.
+          test multiple ideas before discovering the right
+          name.
           Zetein simplifies this process through a focused
           search experience.
         </p>
@@ -53,8 +58,6 @@ const articles = [
         <p>
           Domain availability is the most important part
           of domain discovery.
-          A domain can be available, registered, reserved
-          or placed under special status.
           Zetein focuses on presenting clear and reliable
           information to help users make better decisions.
         </p>
@@ -66,22 +69,16 @@ const articles = [
 
 
         <p>
-          Many domain platforms combine search with
-          promotions and advertisements.
-          Zetein believes the search experience should
-          focus on discovering the right domain instead
-          of unnecessary distractions.
+          Zetein keeps the experience focused on discovering
+          the right domain without unnecessary promotions
+          or distractions.
         </p>
 
-
-        <p>
-          Our mission is simple:
-          help people move from an idea to a meaningful
-          digital identity with less friction.
-        </p>
 
       </div>
+
     ),
+
   },
 
 
@@ -90,24 +87,22 @@ const articles = [
     title: "Why Choose .xyz",
 
     content: (
+
       <div className="space-y-6">
 
 
         <p>
-          .xyz is a modern generic top-level domain
-          launched in 2014.
-          It was created as an open namespace without
+          .xyz is a modern generic top-level domain launched
+          in 2014. It provides an open namespace without
           restrictions on industry, location or identity.
         </p>
 
 
         <p>
-          As the internet expanded, many short and
-          memorable .com names became unavailable.
-          New brands needed more flexible options
-          for creating digital identities.
+          As the internet expanded, many short and memorable
+          .com names became unavailable. New brands needed
+          more flexible options for creating digital identities.
         </p>
-
 
 
         <h3 className="text-xl text-white">
@@ -115,36 +110,29 @@ const articles = [
         </h3>
 
 
-
         <p>
-          In 2015, Google announced Alphabet,
-          a new parent company, and selected
-          <span className="text-[#22D3EE]">
-            {" "}abc.xyz{" "}
-          </span>
-          as its official website.
+          In 2015, Google announced Alphabet, a new parent
+          company, and selected abc.xyz as its official
+          website.
         </p>
 
 
-
         <p>
-          Larry Page explained that Alphabet represents
-          a collection of letters that form language,
+          Larry Page explained that Alphabet represents a
+          collection of letters that represent language,
           one of humanity&apos;s most important innovations,
           and the foundation of how Google organizes
           information.
         </p>
 
 
-
         <p>
-          The choice of abc.xyz matched the idea behind
-          Alphabet:
+          The choice of abc.xyz matched Alphabet&apos;s
+          philosophy:
           abc represents fundamental elements,
           while xyz represents openness and future
           possibilities.
         </p>
-
 
 
         <h3 className="text-xl text-white">
@@ -152,47 +140,32 @@ const articles = [
         </h3>
 
 
-
         <p>
           .xyz is not a technology-only domain.
-          It can be used by companies, creators,
-          communities, personal brands, educational
-          projects and businesses across different fields.
+          It can be used by companies, creators, communities,
+          personal brands, educational projects and
+          businesses across different fields.
         </p>
 
 
-
         <h3 className="text-xl text-white">
-          Advantages of .xyz
+          Advantages and Limitations
         </h3>
 
 
-
         <p>
-          .xyz provides a larger naming space,
-          flexible branding opportunities and a global
-          identity without geographic limitations.
-        </p>
-
-
-
-        <h3 className="text-xl text-white">
-          Limitations of .xyz
-        </h3>
-
-
-
-        <p>
-          Compared with .com, .xyz still has lower
-          general public recognition.
-          Like any domain extension, value depends on
-          the quality, meaning and memorability of the
-          name itself.
+          .xyz provides a larger naming space and more
+          branding opportunities.
+          However, compared with .com, it still has lower
+          public recognition because .com has existed for
+          decades.
         </p>
 
 
       </div>
+
     ),
+
   },
 
 
@@ -201,16 +174,15 @@ const articles = [
     title: "Explore .xyz History",
 
     content: (
+
       <div className="space-y-6">
 
 
         <p>
-          The history of domains is the history of
-          digital identity.
-          As the internet expanded, users needed more
-          flexible naming systems.
+          The history of domains is the history of digital
+          identity. As the internet expanded, users needed
+          more flexible naming systems.
         </p>
-
 
 
         <h3 className="text-xl text-white">
@@ -219,12 +191,9 @@ const articles = [
 
 
         <p>
-          .xyz was introduced in 2014 as part of
-          ICANN&apos;s New gTLD Program.
-          Its purpose was to create an open domain space
-          for everyone.
+          .xyz was introduced in 2014 as part of ICANN&apos;s
+          New gTLD Program.
         </p>
-
 
 
         <h3 className="text-xl text-white">
@@ -232,13 +201,11 @@ const articles = [
         </h3>
 
 
-
         <p>
-          .xyz gained attention because it provided
-          more naming possibilities for new brands,
-          projects and individuals.
+          .xyz gained attention because it provided more
+          naming possibilities for brands, projects and
+          individuals.
         </p>
-
 
 
         <h3 className="text-xl text-white">
@@ -246,36 +213,16 @@ const articles = [
         </h3>
 
 
-
         <p>
-          Alphabet&apos;s abc.xyz website became one of
-          the most recognized examples showing that a
-          modern domain extension could support a global
-          company.
+          Alphabet&apos;s abc.xyz website became one of the
+          most recognized examples showing that a modern
+          domain extension could support a global company.
         </p>
-
-
-
-        <p>
-          Beyond technology, .xyz is also used by
-          businesses, creators, communities and personal
-          projects worldwide.
-        </p>
-
 
 
         <h3 className="text-xl text-white">
-          The Future of .xyz
+          Future of .xyz
         </h3>
-
-
-
-        <p>
-          The growth of AI, digital services and global
-          entrepreneurship continues to increase demand
-          for flexible domain names.
-        </p>
-
 
 
         <p>
@@ -286,7 +233,9 @@ const articles = [
 
 
       </div>
+
     ),
+
   },
 
 ];
@@ -296,9 +245,12 @@ const articles = [
 export default function Home() {
 
 
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] =
+    useState<number | null>(null);
 
-  const [showEmail, setShowEmail] = useState(false);
+
+  const [showEmail, setShowEmail] =
+    useState(false);
 
 
 
@@ -311,6 +263,28 @@ export default function Home() {
       text-white
       "
     >
+
+
+      <script
+
+        type="application/ld+json"
+
+        dangerouslySetInnerHTML={{
+
+          __html:
+
+            JSON.stringify([
+
+              websiteSchema,
+
+              organizationSchema,
+
+            ]),
+
+        }}
+
+      />
+
 
 
       <Navbar />
@@ -361,7 +335,9 @@ export default function Home() {
             md:text-3xl
             "
           >
+
             Explore the world of .xyz
+
           </p>
 
 
@@ -404,8 +380,7 @@ export default function Home() {
             />
 
 
-
-            <div
+            <span
               className="
               hidden
               px-5
@@ -414,8 +389,10 @@ export default function Home() {
               md:block
               "
             >
+
               .xyz
-            </div>
+
+            </span>
 
 
 
@@ -431,7 +408,9 @@ export default function Home() {
               "
 
             >
+
               Search
+
             </button>
 
 
@@ -439,6 +418,7 @@ export default function Home() {
 
 
         </div>
+
 
       </section>
 
@@ -461,99 +441,110 @@ export default function Home() {
           "
         >
 
-        {
-          articles.map((item,index)=>(
 
-            <div
-              key={item.title}
-              className="
-              border-b
-              border-white/10
-              "
-            >
+          {
+            articles.map((item,index)=>(
 
-              <button
-
-                onClick={() =>
-                  setOpen(
-                    open === index
-                    ? null
-                    : index
-                  )
-                }
-
+              <div
+                key={item.title}
                 className="
-                flex
-                w-full
-                items-center
-                justify-between
-                py-10
-                text-left
+                border-b
+                border-white/10
                 "
-
               >
 
-                <h2
-                  className="
-                  text-2xl
-                  font-light
-                  md:text-3xl
-                  "
-                >
-                  {item.title}
-                </h2>
 
+                <button
 
-                <span
+                  type="button"
+
+                  onClick={() =>
+                    setOpen(
+                      open === index
+                      ? null
+                      : index
+                    )
+                  }
+
                   className="
                   flex
-                  h-10
-                  w-10
+                  w-full
                   items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-white/20
-                  text-2xl
+                  justify-between
+                  py-10
+                  text-left
                   "
+
                 >
-                  {
-                    open === index
-                    ? "−"
-                    : "+"
-                  }
-                </span>
 
-
-              </button>
-
-
-
-              {
-                open === index && (
-
-                  <div
+                  <h2
                     className="
-                    pb-10
-                    leading-8
-                    text-white/60
+                    text-2xl
+                    font-light
+                    md:text-3xl
                     "
                   >
 
-                    {item.content}
+                    {item.title}
 
-                  </div>
-
-                )
-              }
+                  </h2>
 
 
-            </div>
 
-          ))
-        }
+                  <span
+                    className="
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/20
+                    text-2xl
+                    "
+                  >
+
+                    {
+                      open === index
+                      ? "−"
+                      : "+"
+                    }
+
+                  </span>
+
+
+                </button>
+
+
+
+                {
+                  open === index && (
+
+                    <div
+                      className="
+                      pb-10
+                      leading-8
+                      text-white/60
+                      "
+                    >
+
+                      {item.content}
+
+                    </div>
+
+                  )
+                }
+
+
+              </div>
+
+            ))
+          }
+
 
         </div>
+
 
       </section>
 
@@ -629,11 +620,11 @@ export default function Home() {
               onClick={() =>
                 setShowEmail(!showEmail)
               }
-              className="
-              text-left
-              "
+              className="text-left"
             >
+
               Contact Us
+
             </button>
 
 
@@ -665,7 +656,9 @@ export default function Home() {
             text-white/40
             "
           >
+
             © {new Date().getFullYear()} Zetein All Rights Reserved.
+
           </p>
 
 
