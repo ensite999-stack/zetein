@@ -17,6 +17,11 @@ const geistSans = Geist({
 export const metadata: Metadata = {
 
 
+  metadataBase:
+    new URL("https://zetein.xyz"),
+
+
+
   title: {
 
     default:
@@ -31,7 +36,7 @@ export const metadata: Metadata = {
 
   description:
 
-    "Discover, search and find your perfect .xyz domain name with Zetein. Fast, accurate and advertising-free domain discovery.",
+    "Zetein helps you discover, search and find the perfect .xyz domain name. Fast, accurate and advertising-free domain discovery.",
 
 
 
@@ -43,25 +48,25 @@ export const metadata: Metadata = {
 
     "buy xyz domain",
 
-    "find xyz domain",
-
     "available xyz domains",
 
-    "best xyz domains",
+    "find xyz domain",
 
     "domain name search",
 
-    "domain discovery",
-
     "domain finder",
 
-    "startup domains",
+    "best xyz domains",
+
+    "premium xyz domains",
+
+    "startup domain names",
 
     "AI domain names",
 
     "digital identity",
 
-    "web domain search",
+    "new domain extensions",
 
   ],
 
@@ -71,7 +76,8 @@ export const metadata: Metadata = {
 
     {
 
-      name: "Zetein",
+      name:
+        "Zetein",
 
     },
 
@@ -79,58 +85,70 @@ export const metadata: Metadata = {
 
 
 
-  creator: "Zetein",
+  creator:
+    "Zetein",
 
 
 
-  publisher: "Zetein",
+  publisher:
+    "Zetein",
 
 
 
-  metadataBase:
+  applicationName:
+    "Zetein",
 
-    new URL("https://zetein.xyz"),
+
+
+  category:
+    "Domain Search",
+
 
 
 
   alternates: {
 
     canonical:
-
       "https://zetein.xyz",
 
   },
 
 
 
+
+
   robots: {
 
 
-    index: true,
+    index:
+      true,
 
-    follow: true,
+
+    follow:
+      true,
+
 
 
     googleBot: {
 
 
-      index: true,
+      index:
+        true,
 
-      follow: true,
+
+      follow:
+        true,
 
 
-      "max-image-preview":
-
+      maxImagePreview:
         "large",
 
 
-      "max-snippet":
-
+      maxSnippet:
         -1,
 
 
-      "max-video-preview":
-
+      maxVideoPreview:
         -1,
 
 
@@ -138,6 +156,7 @@ export const metadata: Metadata = {
 
 
   },
+
 
 
 
@@ -151,9 +170,11 @@ export const metadata: Metadata = {
       "Zetein - Find Your Perfect .xyz Domain",
 
 
+
     description:
 
-      "Search and discover available .xyz domains with a fast and clean domain discovery experience.",
+      "Discover available .xyz domains with a fast and clean domain search experience.",
+
 
 
     url:
@@ -161,9 +182,11 @@ export const metadata: Metadata = {
       "https://zetein.xyz",
 
 
+
     siteName:
 
       "Zetein",
+
 
 
     locale:
@@ -171,12 +194,16 @@ export const metadata: Metadata = {
       "en_US",
 
 
+
     type:
 
       "website",
 
 
+
   },
+
+
 
 
 
@@ -190,14 +217,16 @@ export const metadata: Metadata = {
       "summary_large_image",
 
 
+
     title:
 
       "Zetein - Find Your Perfect .xyz Domain",
 
 
+
     description:
 
-      "Discover your next digital identity with Zetein.",
+      "Search and discover your next .xyz domain with Zetein.",
 
 
   },
@@ -205,13 +234,9 @@ export const metadata: Metadata = {
 
 
 
-
-  category:
-
-    "Domain Search",
-
-
 };
+
+
 
 
 
@@ -238,7 +263,9 @@ export const viewport: Viewport = {
     "#050505",
 
 
+
 };
+
 
 
 
@@ -270,13 +297,16 @@ export default function RootLayout({
       <body
 
         className={`
+
         ${geistSans.variable}
+
         ${geistSans.className}
+
         antialiased
+
         `}
 
       >
-
 
 
         <ThemeProvider
@@ -303,12 +333,12 @@ export default function RootLayout({
         </ThemeProvider>
 
 
-
       </body>
 
 
     </html>
 
   );
+
 
 }
