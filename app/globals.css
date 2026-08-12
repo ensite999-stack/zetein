@@ -76,24 +76,6 @@ body {
 
 
 /*
-  Zetein_ cursor
-*/
-
-
-.cursor-blink {
-
-  display:
-    inline-block;
-
-
-  color:
-    #ffffff;
-
-
-  margin-left:
-    4px;
-
-}/*
   Smooth appearance
 */
 
@@ -103,7 +85,6 @@ body {
 
   from {
 
-
     opacity:
       0;
 
@@ -111,13 +92,11 @@ body {
     transform:
       translateY(20px);
 
-
   }
 
 
 
   to {
-
 
     opacity:
       1;
@@ -125,7 +104,6 @@ body {
 
     transform:
       translateY(0);
-
 
   }
 
@@ -159,10 +137,8 @@ body {
 
 input {
 
-
   outline:
     none;
-
 
 }
 
@@ -170,10 +146,8 @@ input {
 
 button {
 
-
   cursor:
     pointer;
-
 
 }
 
@@ -189,10 +163,8 @@ button {
 
 ::-webkit-scrollbar {
 
-
   width:
     8px;
-
 
 }
 
@@ -200,10 +172,8 @@ button {
 
 ::-webkit-scrollbar-track {
 
-
   background:
     #050505;
-
 
 }
 
@@ -211,14 +181,11 @@ button {
 
 ::-webkit-scrollbar-thumb {
 
-
   background:
     rgba(255,255,255,0.15);
 
-
   border-radius:
     999px;
-
 
 }
 
@@ -226,9 +193,7 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
 
-
   background:
     rgba(34,211,238,0.5);
-
 
 }
