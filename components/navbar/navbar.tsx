@@ -1,156 +1,106 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useState } from "react";
 
 
-export default function Navbar(){
+export default function Navbar() {
 
-return (
 
-<header
-className="
-fixed
-top-0
-left-0
-z-50
-w-full
+  const [scrolled, setScrolled] = useState(false);
 
-border-b
-border-white/10
 
-bg-[#0B0E14]/90
 
-backdrop-blur-xl
-"
->
+  useEffect(() => {
 
 
-<nav
+    const handleScroll = () => {
 
-className="
-flex
-h-20
+      setScrolled(window.scrollY > 60);
 
-items-center
-justify-between
+    };
 
-px-5
-"
 
->
+    window.addEventListener(
+      "scroll",
+      handleScroll
+    );
 
 
-{/* logo */}
+    return () => {
 
-<div>
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
 
-<Image
+    };
 
-src="/zetein-logo.png"
 
-alt="Zetein"
+  }, []);
 
-width={48}
 
-height={48}
 
-priority
+  return (
 
-className="
-h-12
-w-12
-object-contain
-"
+    <header
 
-/>
+      className={`
+        fixed
+        top-0
+        left-0
+        z-50
+        w-full
+        transition-all
+        duration-500
 
-</div>
+        ${
+          scrolled
+          ?
+          "bg-[#111111] text-[#F5F1E8] shadow-sm"
+          :
+          "bg-transparent text-[#111111]"
+        }
 
+      `}
 
+    >
 
-{/* menu */}
 
-<button
+      <div
 
-className="
-flex
+        className="
+          mx-auto
+          flex
+          h-20
+          max-w-7xl
+          items-center
+          px-8
+        "
 
-flex-col
+      >
 
-gap-2
 
-p-2
+        <div
 
-"
+          className="
+            font-serif
+            text-2xl
+            tracking-wide
+          "
 
-aria-label="menu"
+        >
 
->
+          ζητεῖν
 
+        </div>
 
-<span
 
-className="
-block
 
-h-[3px]
+      </div>
 
-w-9
 
-rounded-full
+    </header>
 
-bg-white
-
-"
-
-/>
-
-
-<span
-
-className="
-block
-
-h-[3px]
-
-w-9
-
-rounded-full
-
-bg-white
-
-"
-
-/>
-
-
-<span
-
-className="
-block
-
-h-[3px]
-
-w-9
-
-rounded-full
-
-bg-white
-
-"
-
-/>
-
-
-</button>
-
-
-
-</nav>
-
-
-</header>
-
-)
+  );
 
 }
