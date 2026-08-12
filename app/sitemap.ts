@@ -1,100 +1,118 @@
 import type { MetadataRoute } from "next";
 
 
+const posts = [
+
+  "why-xyz-domains-are-popular",
+
+  "xyz-vs-com",
+
+  "choose-brandable-domain-name",
+
+  "startup-domain-strategy",
+
+  "future-of-digital-identity",
+
+];
+
+
+
 export default function sitemap():
 
 MetadataRoute.Sitemap {
 
 
+  const baseUrl =
+
+    "https://zetein.xyz";
+
+
+
+  const pages = [
+
+    "",
+
+    "/about",
+
+    "/why-zetein",
+
+    "/xyz-world",
+
+    "/blog",
+
+    "/privacy",
+
+    "/terms",
+
+    "/contact",
+
+  ];
+
+
+
   return [
 
 
-    {
+    ...pages.map((page) => ({
 
 
       url:
-        "https://zetein.xyz",
+
+        `${baseUrl}${page}`,
 
 
       lastModified:
+
         new Date(),
 
 
       changeFrequency:
-        "weekly",
+
+        page === ""
+
+        ? "weekly"
+
+        : "monthly",
 
 
       priority:
-        1,
+
+        page === ""
+
+        ? 1
+
+        : 0.7,
 
 
-    },
+    })),
 
 
-    {
+
+
+    ...posts.map((slug) => ({
 
 
       url:
-        "https://zetein.xyz/xyz-domain",
+
+        `${baseUrl}/blog/${slug}`,
 
 
       lastModified:
+
         new Date(),
 
 
       changeFrequency:
-        "weekly",
 
-
-      priority:
-        0.9,
-
-
-    },
-
-
-    {
-
-
-      url:
-        "https://zetein.xyz/xyz-history",
-
-
-      lastModified:
-        new Date(),
-
-
-      changeFrequency:
         "monthly",
 
 
       priority:
-        0.8,
+
+        0.6,
 
 
-    },
-
-
-    {
-
-
-      url:
-        "https://zetein.xyz/guides",
-
-
-      lastModified:
-        new Date(),
-
-
-      changeFrequency:
-        "weekly",
-
-
-      priority:
-        0.8,
-
-
-    },
+    })),
 
 
   ];
