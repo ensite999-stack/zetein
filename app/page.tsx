@@ -89,7 +89,6 @@ const articles = [
 
       <div className="space-y-6">
 
-
         <p>
           .xyz is a modern generic top-level domain launched
           in 2014. It provides an open namespace without
@@ -122,42 +121,6 @@ const articles = [
           one of humanity&apos;s most important innovations,
           and the foundation of how Google organizes
           information.
-        </p>
-
-
-        <p>
-          The choice of abc.xyz matched Alphabet&apos;s
-          philosophy:
-          abc represents fundamental elements,
-          while xyz represents openness and future
-          possibilities.
-        </p>
-
-
-        <h3 className="text-xl text-white">
-          A Domain Without Industry Limits
-        </h3>
-
-
-        <p>
-          .xyz is not a technology-only domain.
-          It can be used by companies, creators, communities,
-          personal brands, educational projects and
-          businesses across different fields.
-        </p>
-
-
-        <h3 className="text-xl text-white">
-          Advantages and Limitations
-        </h3>
-
-
-        <p>
-          .xyz provides a larger naming space and more
-          branding opportunities.
-          However, compared with .com, it still has lower
-          public recognition because .com has existed for
-          decades.
         </p>
 
 
@@ -347,19 +310,19 @@ export default function Home() {
             items-center
             rounded-2xl
             border
-            border-[#22D3EE]/40
-            bg-white
+            border-white/20
+            bg-white/95
             p-2
-            shadow-[0_0_35px_rgba(34,211,238,0.35)]
+            shadow-[0_0_25px_rgba(34,211,238,0.25)]
             transition
-            hover:shadow-[0_0_55px_rgba(34,211,238,0.55)]
+            hover:shadow-[0_0_40px_rgba(34,211,238,0.35)]
             "
           >
 
 
             <input
 
-              placeholder="Search your domain name"
+              placeholder="Zetein.xyz"
 
               className="
               min-w-0
