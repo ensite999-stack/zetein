@@ -61,18 +61,21 @@ MetadataRoute.Sitemap {
         `${baseUrl}${page}`,
 
 
+
       lastModified:
 
         new Date(),
+
 
 
       changeFrequency:
 
         page === ""
 
-        ? "weekly"
+        ? ("weekly" as const)
 
-        : "monthly",
+        : ("monthly" as const),
+
 
 
       priority:
@@ -89,6 +92,7 @@ MetadataRoute.Sitemap {
 
 
 
+
     ...posts.map((slug) => ({
 
 
@@ -97,14 +101,17 @@ MetadataRoute.Sitemap {
         `${baseUrl}/blog/${slug}`,
 
 
+
       lastModified:
 
         new Date(),
 
 
+
       changeFrequency:
 
-        "monthly",
+        "monthly" as const,
+
 
 
       priority:
