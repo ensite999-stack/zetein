@@ -1,144 +1,161 @@
 "use client";
 
+
 import { useState } from "react";
 import Navbar from "@/components/navbar";
 
 
-export default function Home() {
+
+const articles = [
+
+  {
+    title:"为什么选择我们",
+    content:
+    "Zetein 专注于提供快速、准确、无广告的 .xyz 域名搜索体验。我们希望让寻找域名变得简单，让用户专注于建立自己的数字身份。"
+  },
+
+
+  {
+    title:"为什么选择 .xyz",
+    content:
+    ".xyz 是新一代通用顶级域名，为创业者、开发者、AI 项目和个人品牌提供更加自由的命名空间。相比传统域名，.xyz 拥有更多可选择的名称。"
+  },
+
+
+  {
+    title:"探索 .xyz 历史",
+    content:
+    ".xyz 于 2014 年推出，是新顶级域名的重要代表之一。随着科技、AI、Web3 和创新项目的发展，越来越多品牌开始使用 .xyz。它的优势是开放、灵活、现代，但相比 .com 仍需要更多用户认知。"
+  }
+
+];
+
+
+
+export default function Home(){
+
 
 const [open,setOpen]=useState<number|null>(null);
 
 
-const faq=[
-{
-q:"为什么选择Zetein?",
-a:"Zetein提供快速、准确、无广告的.xyz域名搜索体验，让用户更简单地找到适合自己的数字身份。"
-},
-{
-q:"为什么选择.xyz?",
-a:".xyz是面向未来互联网的新一代域名，适合AI、科技、创业项目以及个人品牌。"
-},
-{
-q:"如何注册.xyz域名?",
-a:"输入你的目标域名，查询可用状态，然后通过支持的注册商完成注册。"
-}
-];
-
 
 return (
 
-<main>
+<main
+className="
+min-h-screen
+bg-[#050505]
+text-white
+"
+>
 
 
-<Navbar/>
+<Navbar />
+
 
 
 {/* HERO */}
 
 <section
 className="
-min-h-screen
-bg-[#06B6D4]
-flex
-items-center
 px-6
-pt-20
+pt-36
+pb-24
 "
 >
 
 <div
 className="
 mx-auto
-max-w-6xl
-w-full
+max-w-5xl
+text-center
 "
 >
 
 
 <h1
 className="
-text-white
-text-6xl
-md:text-8xl
-font-bold
-tracking-tight
-max-w-4xl
+text-7xl
+font-black
+tracking-[-0.07em]
+md:text-9xl
 "
 >
 
-Explore
-<br/>
-the world of
-<span>
-.xyz
+Zetein
+<span className="cursor-blink">
+_
 </span>
 
 </h1>
 
 
+
 <p
 className="
 mt-8
-text-white/90
 text-xl
-max-w-xl
+font-light
+text-white/60
+md:text-3xl
 "
 >
 
-Discover and register your next
-digital identity.
+Explore the world of .xyz
 
 </p>
 
 
 
+
 <div
 className="
+mx-auto
 mt-12
-max-w-4xl
-bg-white
-rounded-2xl
-p-3
-shadow-xl
 flex
+max-w-3xl
+rounded-full
+bg-white
+p-2
+shadow-2xl
 "
 >
 
+
 <input
 
-placeholder="Search your domain"
+placeholder="Search your domain .xyz"
 
 className="
+min-w-0
 flex-1
+rounded-full
 px-6
-text-lg
+text-base
+text-black
 outline-none
+md:text-lg
 "
 
 />
 
 
-<div
-className="
-px-5
-flex
-items-center
-text-gray-400
-"
->
-.xyz
-</div>
-
 
 <button
+
 className="
+shrink-0
+rounded-full
 bg-black
-text-white
-rounded-xl
 px-8
+py-4
+text-white
 "
+
 >
+
 Search
+
 </button>
 
 
@@ -153,280 +170,141 @@ Search
 
 
 
-{/* WHY */}
+{/* ARTICLES */}
 
 <section
 className="
-bg-[#F8FAFC]
+border-t
+border-white/10
 px-6
-py-24
 "
 >
 
 
 <div
 className="
-max-w-6xl
 mx-auto
-"
->
-
-
-<h2
-className="
-text-5xl
-font-bold
-"
->
-Why Zetein?
-</h2>
-
-
-<div
-className="
-grid
-md:grid-cols-3
-gap-8
-mt-16
-"
->
-
-
-<Card
-title="Fast"
-text="Instant domain search experience."
-/>
-
-
-<Card
-title="Accurate"
-text="Reliable domain availability information."
-/>
-
-
-<Card
-title="No Ads"
-text="A clean search experience without distractions."
-/>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-{/* XYZ */}
-
-<section
-className="
-bg-white
-px-6
-py-24
-"
->
-
-<div
-className="
-max-w-6xl
-mx-auto
-"
->
-
-<h2
-className="
-text-5xl
-font-bold
-"
->
-Why .xyz?
-</h2>
-
-
-<p
-className="
-mt-8
-max-w-3xl
-text-xl
-leading-8
-text-gray-600
-"
->
-
-.xyz is a modern top-level domain
-built for the next generation of
-internet users. It provides more
-freedom for brands, developers
-and creators.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-{/* HISTORY */}
-
-<section
-className="
-bg-[#F8FAFC]
-px-6
-py-24
-"
->
-
-<div
-className="
-max-w-6xl
-mx-auto
-"
->
-
-<h2
-className="
-text-5xl
-font-bold
-"
->
-Explore .xyz History
-</h2>
-
-
-<p
-className="
-mt-8
 max-w-4xl
-text-gray-600
-leading-8
 "
 >
-
-.xyz launched in 2014 as one of
-the new generation domains.
-
-It gained attention from startups,
-technology companies, AI projects
-and developers.
-
-Advantages:
-more available names,
-flexible branding,
-modern identity.
-
-Challenges:
-lower recognition compared
-with .com and requires more
-brand education.
-
-</p>
-
-
-</div>
-
-</section>
-
-
-
-
-
-{/* FAQ */}
-
-<section
-className="
-bg-white
-px-6
-py-24
-"
->
-
-<div
-className="
-max-w-4xl
-mx-auto
-"
->
-
-
-<h2
-className="
-text-5xl
-font-bold
-"
->
-Questions answered
-</h2>
 
 
 {
-faq.map((item,i)=>(
+
+articles.map((item,index)=>(
+
 
 <div
-key={item.q}
+key={item.title}
 className="
 border-b
-py-6
+border-white/10
 "
 >
 
 
 <button
 
-onClick={()=>setOpen(open===i?null:i)}
+onClick={()=>
+setOpen(
+open===index
+?
+null
+:
+index
+)
+}
 
 className="
 flex
-justify-between
 w-full
-text-xl
+items-center
+justify-between
+py-10
+text-left
 "
 
 >
 
-{item.q}
 
-<span>
-+
+<h2
+className="
+text-2xl
+font-light
+md:text-3xl
+"
+>
+
+{item.title}
+
+</h2>
+
+
+
+<span
+
+className="
+flex
+h-10
+w-10
+items-center
+justify-center
+rounded-full
+border
+border-white/20
+text-2xl
+text-white/70
+"
+
+>
+
+{
+open===index
+?
+"−"
+:
+"+"
+}
+
 </span>
 
 
 </button>
 
 
+
+
 {
-open===i&&
-<p
+
+open===index &&
+
+<div
 className="
-mt-5
-text-gray-500
+pb-10
+text-base
+leading-8
+text-white/60
 "
 >
-{item.a}
-</p>
+
+{item.content}
+
+</div>
+
 }
+
 
 
 </div>
 
 
 ))
+
 }
 
 
 </div>
+
 
 </section>
 
@@ -435,70 +313,106 @@ text-gray-500
 
 
 
+{/* FOOTER */}
+
 <footer
 className="
+mt-20
 bg-black
-text-white
 px-6
 py-16
 "
 >
 
+
 <div
 className="
-max-w-6xl
 mx-auto
+max-w-4xl
 "
 >
+
 
 <h2
 className="
 text-3xl
-font-bold
+font-black
 "
 >
-Zetein_
+
+Zetein
+<span className="cursor-blink">
+_
+</span>
+
 </h2>
+
 
 
 <div
 className="
-mt-8
+mt-10
 flex
 flex-col
-gap-4
-text-white/70
+gap-5
+text-sm
+text-white/60
 "
 >
 
-<span>关于Zetein</span>
+<span>
+关于Zetein
+</span>
 
-<span>为什么选择我们</span>
-
-<span>.xyz世界</span>
-
-<span>隐私政策</span>
-
-<span>使用条款</span>
-
-<span>联系我们</span>
 
 <span>
-hello@zetein.xyz
+为什么选择我们
 </span>
+
+
+<span>
+.xyz世界
+</span>
+
+
+<span>
+隐私政策
+</span>
+
+
+<span>
+使用条款
+</span>
+
+
+<span>
+联系我们
+</span>
+
+
+<a href="mailto:hello@zetein.xyz">
+hello@zetein.xyz
+</a>
 
 
 </div>
 
 
+
+
 <p
 className="
 mt-12
-text-sm
+border-t
+border-white/10
+pt-6
+text-xs
 text-white/40
 "
 >
+
 © {new Date().getFullYear()} Zetein All Rights Reserved.
+
 </p>
 
 
@@ -508,54 +422,9 @@ text-white/40
 </footer>
 
 
+
 </main>
 
-)
-
-}
-
-
-
-function Card({
-title,
-text
-}:{
-title:string,
-text:string
-}){
-
-return(
-
-<div
-className="
-bg-white
-rounded-2xl
-p-8
-shadow-sm
-"
->
-
-<h3
-className="
-text-2xl
-font-bold
-"
->
-{title}
-</h3>
-
-<p
-className="
-mt-4
-text-gray-500
-"
->
-{text}
-</p>
-
-
-</div>
-
-)
+);
 
 }
