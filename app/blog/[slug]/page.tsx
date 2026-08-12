@@ -9,7 +9,6 @@ const posts = {
 
   "why-xyz-domains-are-popular": {
 
-
     title:
       "Why .xyz Domains Are Becoming Popular",
 
@@ -18,32 +17,45 @@ const posts = {
       "Explore why businesses, creators and modern projects are choosing .xyz domains for digital identity.",
 
 
+    date:
+      "2026-08-12",
+
+
     content: [
 
       {
+
         heading:
           "The Evolution of Domain Names",
 
+
         text:
           "The internet has changed significantly since the early days of .com, .net and .org domains. As more companies and individuals build online identities, the demand for flexible domain names continues to grow.",
+
       },
 
 
       {
+
         heading:
           "Why People Choose .xyz",
 
+
         text:
           ".xyz provides a larger naming space and allows users to create memorable digital identities. It is not limited to a specific industry and can be used by businesses, creators, communities and individuals.",
+
       },
 
 
       {
+
         heading:
           "A Modern Approach to Digital Identity",
 
+
         text:
           "Today, a domain name represents more than a website address. It represents a brand, a product and a connection between people and the digital world.",
+
       },
 
 
@@ -67,32 +79,45 @@ const posts = {
       "Compare .xyz and .com domains, including availability, branding and long-term considerations.",
 
 
+    date:
+      "2026-08-12",
+
+
     content: [
 
       {
+
         heading:
           "The Importance of Domain Choice",
 
+
         text:
           "A domain name is often the first impression of a brand. Choosing the right domain requires balancing recognition, availability and future growth.",
+
       },
 
 
       {
+
         heading:
           ".com and Its Strength",
 
+
         text:
           ".com remains the most recognized domain extension because of decades of global adoption and user familiarity.",
+
       },
 
 
       {
+
         heading:
           "Why .xyz Provides New Opportunities",
 
+
         text:
           "Many valuable .com names are already registered. .xyz provides additional naming opportunities for brands that want a modern and flexible identity.",
+
       },
 
 
@@ -111,32 +136,45 @@ const posts = {
       "Learn how to choose a memorable and valuable domain name for your brand.",
 
 
+    date:
+      "2026-08-12",
+
+
     content: [
 
       {
+
         heading:
           "Keep It Simple",
 
+
         text:
           "Strong domains are usually easy to remember, pronounce and share. Simplicity helps users recognize and return to a brand.",
+
       },
 
 
       {
+
         heading:
           "Think Long Term",
 
+
         text:
           "A domain should support future growth instead of only representing one product or short-term idea.",
+
       },
 
 
       {
+
         heading:
           "Focus on Brand Value",
 
+
         text:
           "The strongest domain names create associations, communicate identity and become part of a brand's long-term value.",
+
       },
 
 
@@ -160,23 +198,33 @@ const posts = {
       "How startups can choose domain names that support growth and brand recognition.",
 
 
+    date:
+      "2026-08-12",
+
+
     content: [
 
       {
+
         heading:
           "Choose a Flexible Name",
 
+
         text:
           "Startups often change direction as they grow. A flexible domain allows a company to expand beyond its original product.",
+
       },
 
 
       {
+
         heading:
           "Balance Availability and Branding",
 
+
         text:
           "The best domain combines availability with memorability and relevance.",
+
       },
 
 
@@ -200,23 +248,33 @@ const posts = {
       "Explore how AI, online communities and global services are changing domain identity.",
 
 
+    date:
+      "2026-08-12",
+
+
     content: [
 
       {
+
         heading:
           "A Changing Internet",
 
+
         text:
           "New technologies are creating more ways for people and businesses to establish online identities.",
+
       },
 
 
       {
+
         heading:
           "Domains Remain Important",
 
+
         text:
           "Even as technology changes, domains continue to provide simple and recognizable access points for digital experiences.",
+
       },
 
 
@@ -358,6 +416,7 @@ export async function generateMetadata(
     >
 
 
+
       <Script
 
         id="article-schema"
@@ -386,10 +445,22 @@ export async function generateMetadata(
                 post.description,
 
 
-              author: {
+              datePublished:
+                post.date,
+
+
+              dateModified:
+                post.date,
+
+
+
+              author:
+
+              {
 
                 "@type":
                   "Organization",
+
 
                 name:
                   "Zetein",
@@ -397,21 +468,44 @@ export async function generateMetadata(
               },
 
 
-              publisher: {
+
+              publisher:
+
+              {
 
                 "@type":
                   "Organization",
 
+
                 name:
                   "Zetein",
+
+
+                logo:
+
+                {
+
+                  "@type":
+                    "ImageObject",
+
+
+                  url:
+                    "https://zetein.xyz/icon.ico",
+
+                },
+
 
               },
 
 
-              mainEntityOfPage: {
+
+              mainEntityOfPage:
+
+              {
 
                 "@type":
                   "WebPage",
+
 
                 "@id":
                   `https://zetein.xyz/blog/${slug}`,
@@ -429,7 +523,105 @@ export async function generateMetadata(
 
 
 
+      <Script
+
+        id="breadcrumb-schema"
+
+        type="application/ld+json"
+
+        dangerouslySetInnerHTML={{
+
+          __html:
+
+            JSON.stringify({
+
+              "@context":
+                "https://schema.org",
+
+
+              "@type":
+                "BreadcrumbList",
+
+
+              itemListElement:
+
+              [
+
+                {
+
+                  "@type":
+                    "ListItem",
+
+
+                  position:
+                    1,
+
+
+                  name:
+                    "Home",
+
+
+                  item:
+                    "https://zetein.xyz",
+
+                },
+
+
+                {
+
+                  "@type":
+                    "ListItem",
+
+
+                  position:
+                    2,
+
+
+                  name:
+                    "Blog",
+
+
+                  item:
+                    "https://zetein.xyz/blog",
+
+                },
+
+
+                {
+
+                  "@type":
+                    "ListItem",
+
+
+                  position:
+                    3,
+
+
+                  name:
+                    post.title,
+
+
+                  item:
+                    `https://zetein.xyz/blog/${slug}`,
+
+                },
+
+
+              ],
+
+
+            }),
+
+        }}
+
+      />
+
+
+
+
+
       <article>
+
 
 
         <p
