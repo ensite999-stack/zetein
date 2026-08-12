@@ -89,6 +89,7 @@ const articles = [
 
       <div className="space-y-6">
 
+
         <p>
           .xyz is a modern generic top-level domain launched
           in 2014. It provides an open namespace without
@@ -128,14 +129,15 @@ const articles = [
 
     ),
 
-  },  {
+  },
+
+
+  {
     title: "Explore .xyz History",
 
     content: (
 
       <div className="space-y-6">
-
-
         <p>
           The history of domains is the history of digital
           identity. As the internet expanded, users needed
@@ -205,10 +207,6 @@ export default function Home() {
 
   const [open, setOpen] =
     useState<number | null>(null);
-
-
-  const [showEmail, setShowEmail] =
-    useState(false);
 
 
 
@@ -547,64 +545,70 @@ export default function Home() {
             "
           >
 
-            <span>
-              About Zetein
-            </span>
 
-
-            <span>
-              Why Choose Us
-            </span>
-
-
-            <span>
-              .xyz World
-            </span>
-
-
-            <span>
-              Blog
-            </span>
-
-
-            <span>
-              Privacy Policy
-            </span>
-
-
-            <span>
-              Terms of Use
-            </span>
-
-
-
-            <button
-              onClick={() =>
-                setShowEmail(!showEmail)
-              }
-              className="text-left"
+            <a
+              href="/about"
+              className="hover:text-white transition"
             >
+              About Zetein
+            </a>
 
+
+
+            <a
+              href="/why-zetein"
+              className="hover:text-white transition"
+            >
+              Why Choose Us
+            </a>
+
+
+
+            <a
+              href="/xyz-world"
+              className="hover:text-white transition"
+            >
+              .xyz World
+            </a>
+
+
+
+            <a
+              href="/blog"
+              className="hover:text-white transition"
+            >
+              Blog
+            </a>
+
+
+
+            <a
+              href="/privacy"
+              className="hover:text-white transition"
+            >
+              Privacy Policy
+            </a>
+
+
+
+            <a
+              href="/terms"
+              className="hover:text-white transition"
+            >
+              Terms of Use
+            </a>
+
+
+
+            <a
+              href="/contact"
+              className="hover:text-white transition"
+            >
               Contact Us
-
-            </button>
-
+            </a>
 
 
-            {
-              showEmail && (
-
-                <a
-                  href="mailto:hello@zetein.xyz"
-                >
-                  hello@zetein.xyz
-                </a>
-
-              )
-            }
-
-
-          </div>
+          </div>          </div>
 
 
 
