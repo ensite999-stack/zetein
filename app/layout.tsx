@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     "domain search",
     ".xyz",
     "Zetein",
+    "ζητεῖν",
   ],
 
   robots: {
@@ -35,17 +36,15 @@ export const metadata: Metadata = {
 };
 
 
-
 export const viewport: Viewport = {
 
   width: "device-width",
 
   initialScale: 1,
 
-  themeColor: "#111111",
+  themeColor: "#F5F1E8",
 
 };
-
 
 
 export default function RootLayout({
@@ -61,20 +60,14 @@ export default function RootLayout({
 
   return (
 
-    <html
-
-      lang="en"
-
-    >
+    <html lang="en">
 
       <body
-
         className={`
           ${geistSans.variable}
           ${geistSans.className}
           antialiased
         `}
-
       >
 
         {children}
