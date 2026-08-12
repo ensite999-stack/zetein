@@ -82,7 +82,6 @@ const articles = [
   },
 
 
-
   {
     title: "Why Choose .xyz",
 
@@ -166,11 +165,7 @@ const articles = [
 
     ),
 
-  },
-
-
-
-  {
+  },  {
     title: "Explore .xyz History",
 
     content: (
@@ -294,7 +289,7 @@ export default function Home() {
       <section
         className="
         px-6
-        pt-36
+        pt-24
         pb-24
         "
       >
@@ -420,13 +415,7 @@ export default function Home() {
         </div>
 
 
-      </section>
-
-
-
-
-
-      <section
+      </section>      <section
         className="
         border-t
         border-white/10
@@ -599,21 +588,31 @@ export default function Home() {
               About Zetein
             </span>
 
+
             <span>
               Why Choose Us
             </span>
+
 
             <span>
               .xyz World
             </span>
 
+
+            <span>
+              Blog
+            </span>
+
+
             <span>
               Privacy Policy
             </span>
 
+
             <span>
               Terms of Use
             </span>
+
 
 
             <button
