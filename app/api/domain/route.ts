@@ -97,14 +97,15 @@ export async function GET(
 
 
 
-  if (!domain.endsWith(".xyz")) {
+  const fullDomain =
+
+    domain.endsWith(".xyz")
+
+      ? domain
+
+      : `${domain}.xyz`;
 
 
-    domain =
-
-      `${domain}.xyz`;
-
-  }
 
 
 
@@ -113,17 +114,18 @@ export async function GET(
   try {
 
 
+
+    // .xyz Registry RDAP
+
     const response =
 
       await fetch(
 
-        `https://rdap.icann.org/domain/${domain}`,
+        `https://rdap.centralnic.com/xyz/domain/${fullDomain}`,
 
         {
 
-          headers:
-
-          {
+          headers: {
 
             Accept:
 
@@ -146,12 +148,16 @@ export async function GET(
 
 
 
+    // 域名不存在
+
     if (response.status === 404) {
 
 
       return NextResponse.json({
 
-        domain,
+        domain:
+
+          fullDomain,
 
 
         available:
@@ -168,6 +174,7 @@ export async function GET(
 
 
     }
+
 
 
 
@@ -206,10 +213,10 @@ export async function GET(
 
 
 
+
     const data =
 
       await response.json() as RDAPResponse;
-
 
 
 
@@ -236,6 +243,7 @@ export async function GET(
 
 
 
+
     let registrarName:
 
       string | null = null;
@@ -245,24 +253,30 @@ export async function GET(
 
 
 
+
+
+    const vcard =
+
+      registrar?.vcardArray;
+
+
+
+
+
     if (
 
-      registrar?.vcardArray
+      Array.isArray(vcard)
 
       &&
 
-      Array.isArray(
-
-        registrar.vcardArray[1]
-
-      )
+      Array.isArray(vcard[1])
 
     ) {
 
 
       const item =
 
-        registrar.vcardArray[1].find(
+        vcard[1].find(
 
           (value) =>
 
@@ -276,6 +290,8 @@ export async function GET(
 
 
 
+
+
       if (
 
         Array.isArray(item)
@@ -286,6 +302,7 @@ export async function GET(
         registrarName =
 
           String(item[3]);
+
 
       }
 
@@ -303,7 +320,10 @@ export async function GET(
     return NextResponse.json({
 
 
-      domain,
+      domain:
+
+        fullDomain,
+
 
 
       available:
@@ -356,7 +376,7 @@ export async function GET(
   }
 
 
-  catch (error) {
+  catch(error) {
 
 
 
