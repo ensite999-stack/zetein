@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 
+
 type Nameserver = {
 
   ldhName?: string;
@@ -16,6 +17,19 @@ type Entity = {
   vcardArray?: unknown[];
 
 };
+
+
+
+type DNSRecord = {
+
+  name?: string;
+
+  type?: string;
+
+  data?: string;
+
+};
+
 
 
 
@@ -41,6 +55,149 @@ type RDAPResponse = {
 
 
 
+
+
+async function getDNSRecords(
+
+  domain: string
+
+) {
+
+
+  const types = [
+
+    "A",
+
+    "AAAA",
+
+    "MX",
+
+    "TXT",
+
+    "CNAME",
+
+  ];
+
+
+
+  const records: DNSRecord[] = [];
+
+
+
+
+
+  for (const type of types) {
+
+
+    try {
+
+
+      const response =
+
+        await fetch(
+
+          `https://cloudflare-dns.com/dns-query?name=${domain}&type=${type}`,
+
+          {
+
+            headers: {
+
+              Accept:
+
+                "application/dns-json",
+
+            },
+
+
+            cache:
+
+              "no-store",
+
+          }
+
+        );
+
+
+
+
+
+      const data =
+
+        await response.json();
+
+
+
+
+
+      if (data.Answer) {
+
+
+        records.push(
+
+          ...data.Answer.map(
+
+            (item: {
+
+              name?: string;
+
+              data?: string;
+
+            }) => ({
+
+
+              name:
+
+                item.name,
+
+
+              type,
+
+
+              data:
+
+                item.data,
+
+
+            })
+
+          )
+
+        );
+
+
+      }
+
+
+
+    }
+
+    catch {
+
+
+      continue;
+
+
+    }
+
+
+  }
+
+
+
+
+  return records;
+
+
+}
+
+
+
+
+
+
+
+
+
 export async function GET(
 
   request: Request
@@ -54,9 +211,13 @@ export async function GET(
 
 
 
+
+
   let domain =
 
     searchParams.get("domain");
+
+
 
 
 
@@ -89,9 +250,14 @@ export async function GET(
 
 
 
+
+
+
   domain =
 
     domain.toLowerCase().trim();
+
+
 
 
 
@@ -111,11 +277,10 @@ export async function GET(
 
 
 
+
   try {
 
 
-
-    // .xyz Registry RDAP
 
     const response =
 
@@ -148,7 +313,6 @@ export async function GET(
 
 
 
-    // 域名不存在
 
     if (response.status === 404) {
 
@@ -174,6 +338,7 @@ export async function GET(
 
 
     }
+
 
 
 
@@ -214,9 +379,11 @@ export async function GET(
 
 
 
+
     const data =
 
       await response.json() as RDAPResponse;
+
 
 
 
@@ -244,6 +411,7 @@ export async function GET(
 
 
 
+
     let registrarName:
 
       string | null = null;
@@ -254,10 +422,11 @@ export async function GET(
 
 
 
-
     const vcard =
 
       registrar?.vcardArray;
+
+
 
 
 
@@ -291,7 +460,6 @@ export async function GET(
 
 
 
-
       if (
 
         Array.isArray(item)
@@ -308,6 +476,22 @@ export async function GET(
 
 
     }
+
+
+
+
+
+
+
+
+
+    const dnsRecords =
+
+      await getDNSRecords(
+
+        fullDomain
+
+      );
 
 
 
@@ -367,7 +551,14 @@ export async function GET(
         data.secureDNS || null,
 
 
+
+      dns:
+
+        dnsRecords,
+
+
     });
+
 
 
 
@@ -375,14 +566,13 @@ export async function GET(
 
   }
 
-
   catch(error) {
 
 
 
     console.error(
 
-      "RDAP ERROR:",
+      "DOMAIN LOOKUP ERROR",
 
       error
 
