@@ -151,6 +151,8 @@ export const metadata: Metadata = {
 
 
 
+
+
   icons:
 
 
@@ -166,26 +168,17 @@ export const metadata: Metadata = {
 
         url:
 
-          "/icon.ico",
-
-
-      },
-
-
-      {
-
-        url:
-
           "/icon.png",
-
 
         type:
 
           "image/png",
 
+        sizes:
+
+          "512x512",
 
       },
-
 
     ],
 
@@ -193,15 +186,32 @@ export const metadata: Metadata = {
 
     shortcut:
 
-
-      "/icon.ico",
+      "/icon.png",
 
 
 
     apple:
 
 
-      "/icon.png",
+    [
+
+      {
+
+        url:
+
+          "/icon.png",
+
+        type:
+
+          "image/png",
+
+        sizes:
+
+          "512x512",
+
+      },
+
+    ],
 
 
 
@@ -270,6 +280,7 @@ export const metadata: Metadata = {
 
 
   },
+
 
 
 
@@ -407,6 +418,7 @@ export const metadata: Metadata = {
 
 
   },
+
 
 
 
