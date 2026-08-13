@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 
 
-
 type Nameserver = {
 
   ldhName?: string;
@@ -20,6 +19,17 @@ type Entity = {
 
 
 
+type Event = {
+
+  eventAction?: string;
+
+  eventDate?: string;
+
+};
+
+
+
+
 type DNSRecord = {
 
   name?: string;
@@ -33,21 +43,29 @@ type DNSRecord = {
 
 
 
+
 type RDAPResponse = {
+
 
   status?: string[];
 
-  events?: unknown[];
+
+  events?: Event[];
+
 
   nameservers?: Nameserver[];
 
+
   entities?: Entity[];
+
 
   secureDNS?: {
 
     delegationSigned?: boolean;
 
+
   } | null;
+
 
 };
 
@@ -59,7 +77,7 @@ type RDAPResponse = {
 
 async function getDNSRecords(
 
-  domain: string
+  domain:string
 
 ) {
 
@@ -80,16 +98,16 @@ async function getDNSRecords(
 
 
 
-  const records: DNSRecord[] = [];
+  const records:DNSRecord[] = [];
 
 
 
 
 
-  for (const type of types) {
+  for(const type of types){
 
 
-    try {
+    try{
 
 
       const response =
@@ -100,7 +118,7 @@ async function getDNSRecords(
 
           {
 
-            headers: {
+            headers:{
 
               Accept:
 
@@ -129,33 +147,27 @@ async function getDNSRecords(
 
 
 
-      if (data.Answer) {
+      if(data.Answer){
 
 
         records.push(
 
           ...data.Answer.map(
 
-            (item: {
+            (item:{
 
-              name?: string;
+              name?:string;
 
-              data?: string;
+              data?:string;
 
-            }) => ({
+            })=>({
 
 
-              name:
-
-                item.name,
-
+              name:item.name,
 
               type,
 
-
-              data:
-
-                item.data,
+              data:item.data,
 
 
             })
@@ -171,7 +183,7 @@ async function getDNSRecords(
 
     }
 
-    catch {
+    catch{
 
 
       continue;
@@ -181,6 +193,7 @@ async function getDNSRecords(
 
 
   }
+
 
 
 
@@ -200,20 +213,18 @@ async function getDNSRecords(
 
 export async function GET(
 
-  request: Request
+  request:Request
 
-) {
+){
 
 
-  const { searchParams } =
+  const {searchParams}=
 
     new URL(request.url);
 
 
 
-
-
-  let domain =
+  let domain=
 
     searchParams.get("domain");
 
@@ -221,7 +232,7 @@ export async function GET(
 
 
 
-  if (!domain) {
+  if(!domain){
 
 
     return NextResponse.json(
@@ -251,9 +262,7 @@ export async function GET(
 
 
 
-
-
-  domain =
+  domain=
 
     domain.toLowerCase().trim();
 
@@ -261,28 +270,24 @@ export async function GET(
 
 
 
-
-
-  const fullDomain =
+  const fullDomain=
 
     domain.endsWith(".xyz")
 
-      ? domain
+    ? domain
 
-      : `${domain}.xyz`;
-
-
+    : `${domain}.xyz`;
 
 
 
 
 
 
-  try {
+
+  try{
 
 
-
-    const response =
+    const response=
 
       await fetch(
 
@@ -290,7 +295,7 @@ export async function GET(
 
         {
 
-          headers: {
+          headers:{
 
             Accept:
 
@@ -314,10 +319,11 @@ export async function GET(
 
 
 
-    if (response.status === 404) {
+    if(response.status===404){
 
 
       return NextResponse.json({
+
 
         domain:
 
@@ -345,8 +351,7 @@ export async function GET(
 
 
 
-
-    if (!response.ok) {
+    if(!response.ok){
 
 
       return NextResponse.json(
@@ -378,9 +383,7 @@ export async function GET(
 
 
 
-
-
-    const data =
+    const data=
 
       await response.json() as RDAPResponse;
 
@@ -391,11 +394,12 @@ export async function GET(
 
 
 
-    const registrar =
+
+    const registrar=
 
       data.entities?.find(
 
-        (entity) =>
+        (entity)=>
 
           entity.roles?.includes(
 
@@ -411,10 +415,9 @@ export async function GET(
 
 
 
-
     let registrarName:
 
-      string | null = null;
+      string|null=null;
 
 
 
@@ -422,7 +425,8 @@ export async function GET(
 
 
 
-    const vcard =
+
+    const vcard=
 
       registrar?.vcardArray;
 
@@ -432,7 +436,7 @@ export async function GET(
 
 
 
-    if (
+    if(
 
       Array.isArray(vcard)
 
@@ -440,34 +444,29 @@ export async function GET(
 
       Array.isArray(vcard[1])
 
-    ) {
+    ){
 
 
-      const item =
+      const item=
 
         vcard[1].find(
 
-          (value) =>
+          (value)=>
 
             Array.isArray(value)
 
             &&
 
-            value[0] === "fn"
+            value[0]==="fn"
 
         );
 
 
 
-
-      if (
-
-        Array.isArray(item)
-
-      ) {
+      if(Array.isArray(item)){
 
 
-        registrarName =
+        registrarName=
 
           String(item[3]);
 
@@ -484,8 +483,7 @@ export async function GET(
 
 
 
-
-    const dnsRecords =
+    const dns=
 
       await getDNSRecords(
 
@@ -499,9 +497,8 @@ export async function GET(
 
 
 
-
-
     return NextResponse.json({
+
 
 
       domain:
@@ -538,11 +535,15 @@ export async function GET(
 
         data.nameservers?.map(
 
-          (ns) =>
+          (ns)=>
 
             ns.ldhName || ""
 
         ) || [],
+
+
+
+      dns,
 
 
 
@@ -552,13 +553,7 @@ export async function GET(
 
 
 
-      dns:
-
-        dnsRecords,
-
-
     });
-
 
 
 
@@ -566,13 +561,11 @@ export async function GET(
 
   }
 
-  catch(error) {
+  catch(error){
 
 
 
     console.error(
-
-      "DOMAIN LOOKUP ERROR",
 
       error
 
