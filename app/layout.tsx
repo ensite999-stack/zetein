@@ -18,7 +18,6 @@ const geistSans = Geist({
 
 
 
-
 export const metadata: Metadata = {
 
 
@@ -106,10 +105,10 @@ export const metadata: Metadata = {
 
 
 
+
   creator:
 
     "Zetein",
-
 
 
 
@@ -120,9 +119,11 @@ export const metadata: Metadata = {
 
 
 
+
   applicationName:
 
     "Zetein",
+
 
 
 
@@ -153,8 +154,6 @@ export const metadata: Metadata = {
 
 
 
-
-
   icons:
 
 
@@ -170,32 +169,11 @@ export const metadata: Metadata = {
 
         url:
 
-          "/icon.png",
+          "/favicon.ico",
 
-        type:
-
-          "image/png",
-
-        sizes:
-
-          "512x512",
 
       },
 
-    ],
-
-
-
-    shortcut:
-
-      "/icon.png",
-
-
-
-    apple:
-
-
-    [
 
       {
 
@@ -203,21 +181,42 @@ export const metadata: Metadata = {
 
           "/icon.png",
 
+
         type:
 
           "image/png",
+
 
         sizes:
 
           "512x512",
 
+
       },
+
 
     ],
 
 
 
+
+    shortcut:
+
+
+      "/favicon.ico",
+
+
+
+
+    apple:
+
+
+      "/icon.png",
+
+
+
   },
+
 
 
 
@@ -282,8 +281,6 @@ export const metadata: Metadata = {
 
 
   },
-
-
 
 
 
@@ -372,7 +369,6 @@ export const metadata: Metadata = {
     ],
 
 
-
   },
 
 
@@ -413,38 +409,18 @@ export const metadata: Metadata = {
 
     [
 
-      "/og-image.png"
+      "/og-image.png",
 
     ],
 
 
-
   },
 
 
-
-
-
-
-
-  other:
-
-
-  {
-
-
-    "theme-color":
-
-      "#050505",
-
-
-  },
 
 
 
 };
-
-
 
 
 
@@ -484,17 +460,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
 
-
   children,
 
-
 }: Readonly<{
-
 
   children:
 
     React.ReactNode;
-
 
 }>) {
 
@@ -502,11 +474,7 @@ export default function RootLayout({
   return (
 
 
-    <html
-
-      lang="en"
-
-    >
+    <html lang="en">
 
 
       <body
