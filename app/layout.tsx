@@ -5,11 +5,17 @@ import "./globals.css";
 
 const geistSans = Geist({
 
-  variable: "--font-geist-sans",
+  variable:
 
-  subsets: ["latin"],
+    "--font-geist-sans",
+
+  subsets:
+
+    ["latin"],
 
 });
+
+
 
 
 
@@ -24,13 +30,17 @@ export const metadata: Metadata = {
 
   title: {
 
+
     default:
 
       "Zetein - Explore the world of .xyz",
 
+
+
     template:
 
       "%s | Zetein",
+
 
   },
 
@@ -38,19 +48,26 @@ export const metadata: Metadata = {
 
   description:
 
-    "Zetein helps you discover meaningful .xyz domain names with a fast, accurate and advertising-free domain search experience.",
+
+    "Zetein is a .xyz domain discovery platform that helps users search domain availability, explore domain information and find meaningful digital identities with fast and accurate results.",
 
 
 
-  keywords: [
+
+  keywords:
+
+
+  [
 
     "xyz domain",
 
     "xyz domain search",
 
+    "available xyz domains",
+
     "buy xyz domain",
 
-    "available xyz domains",
+    "domain availability checker",
 
     "domain finder",
 
@@ -68,7 +85,12 @@ export const metadata: Metadata = {
 
 
 
-  authors: [
+
+
+  authors:
+
+
+  [
 
     {
 
@@ -82,9 +104,11 @@ export const metadata: Metadata = {
 
 
 
+
   creator:
 
     "Zetein",
+
 
 
 
@@ -94,9 +118,11 @@ export const metadata: Metadata = {
 
 
 
+
   applicationName:
 
     "Zetein",
+
 
 
 
@@ -106,7 +132,12 @@ export const metadata: Metadata = {
 
 
 
-  alternates: {
+
+
+  alternates:
+
+
+  {
 
 
     canonical:
@@ -118,29 +149,75 @@ export const metadata: Metadata = {
 
 
 
-  icons: {
+
+
+
+  icons:
+
+
+  {
 
 
     icon:
 
-      "/icon.ico",
+
+    [
+
+      {
+
+        url:
+
+          "/icon.ico",
+
+
+      },
+
+
+      {
+
+        url:
+
+          "/icon.png",
+
+
+        type:
+
+          "image/png",
+
+
+      },
+
+
+    ],
+
 
 
     shortcut:
 
+
       "/icon.ico",
+
 
 
     apple:
 
-      "/icon.ico",
+
+      "/icon.png",
+
 
 
   },
 
 
 
-  robots: {
+
+
+
+
+  robots:
+
+
+  {
 
 
     index:
@@ -148,12 +225,17 @@ export const metadata: Metadata = {
       true,
 
 
+
     follow:
 
       true,
 
 
-    googleBot: {
+
+    googleBot:
+
+
+    {
 
 
       index:
@@ -161,9 +243,11 @@ export const metadata: Metadata = {
         true,
 
 
+
       follow:
 
         true,
+
 
 
       "max-image-preview":
@@ -171,9 +255,11 @@ export const metadata: Metadata = {
         "large",
 
 
+
       "max-snippet":
 
         -1,
+
 
 
       "max-video-preview":
@@ -190,7 +276,13 @@ export const metadata: Metadata = {
 
 
 
-  openGraph: {
+
+
+
+  openGraph:
+
+
+  {
 
 
     title:
@@ -201,7 +293,8 @@ export const metadata: Metadata = {
 
     description:
 
-      "Discover meaningful .xyz domains with a fast and clean domain search experience.",
+
+      "Search and explore .xyz domains with Zetein. Get domain availability, insights and digital identity discovery in a fast and clean experience.",
 
 
 
@@ -229,29 +322,43 @@ export const metadata: Metadata = {
 
 
 
-    images: [
+
+    images:
+
+
+    [
 
       {
+
 
         url:
 
           "/og-image.png",
 
+
+
         width:
 
           1200,
+
+
 
         height:
 
           630,
 
+
+
         alt:
 
           "Zetein - Explore the world of .xyz",
 
+
       },
 
+
     ],
+
 
 
   },
@@ -260,7 +367,14 @@ export const metadata: Metadata = {
 
 
 
-  twitter: {
+
+
+
+
+  twitter:
+
+
+  {
 
 
     card:
@@ -277,24 +391,33 @@ export const metadata: Metadata = {
 
     description:
 
-      "Discover your next .xyz domain with Zetein.",
+
+      "Explore .xyz domains, check availability and discover your next digital identity with Zetein.",
 
 
 
     images:
 
-      [
 
-        "/og-image.png"
+    [
 
-      ],
+      "/og-image.png"
+
+    ],
+
 
 
   },
 
 
 
-  other: {
+
+
+
+  other:
+
+
+  {
 
 
     "theme-color":
@@ -305,7 +428,10 @@ export const metadata: Metadata = {
   },
 
 
+
 };
+
+
 
 
 
@@ -341,18 +467,27 @@ export const viewport: Viewport = {
 
 
 
+
+
 export default function RootLayout({
+
 
   children,
 
+
 }: Readonly<{
 
-  children: React.ReactNode;
+
+  children:
+
+    React.ReactNode;
+
 
 }>) {
 
 
   return (
+
 
     <html
 
@@ -362,6 +497,7 @@ export default function RootLayout({
 
 
       <body
+
 
         className={`
 
@@ -373,6 +509,7 @@ export default function RootLayout({
 
         `}
 
+
       >
 
 
@@ -383,6 +520,7 @@ export default function RootLayout({
 
 
     </html>
+
 
   );
 
