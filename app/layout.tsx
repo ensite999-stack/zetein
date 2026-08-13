@@ -49,7 +49,8 @@ export const metadata: Metadata = {
   description:
 
 
-    "Zetein is a .xyz domain discovery platform that helps users search domain availability, explore domain information and find meaningful digital identities with fast and accurate results.",
+    "Explore the world of .xyz domains with Zetein. Discover, search, and register the perfect domain for your next idea.",
+
 
 
 
@@ -76,8 +77,6 @@ export const metadata: Metadata = {
     "startup domains",
 
     "AI domains",
-
-    "digital identity",
 
     "new domain extensions",
 
@@ -294,7 +293,7 @@ export const metadata: Metadata = {
     description:
 
 
-      "Search and explore .xyz domains with Zetein. Get domain availability, insights and digital identity discovery in a fast and clean experience.",
+      "Explore the world of .xyz domains with Zetein. Discover, search, and register the perfect domain for your next idea.",
 
 
 
@@ -392,7 +391,7 @@ export const metadata: Metadata = {
     description:
 
 
-      "Explore .xyz domains, check availability and discover your next digital identity with Zetein.",
+      "Explore the world of .xyz domains with Zetein. Discover, search, and register the perfect domain for your next idea.",
 
 
 
