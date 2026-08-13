@@ -8,6 +8,7 @@ type Nameserver = {
 };
 
 
+
 type Entity = {
 
   roles?: string[];
@@ -33,7 +34,6 @@ type RDAPResponse = {
     delegationSigned?: boolean;
 
   } | null;
-
 
 };
 
@@ -104,7 +104,6 @@ export async function GET(
 
       `${domain}.xyz`;
 
-
   }
 
 
@@ -114,11 +113,11 @@ export async function GET(
   try {
 
 
-    let response =
+    const response =
 
       await fetch(
 
-        `https://rdap.nic.xyz/domain/${domain}`,
+        `https://rdap.icann.org/domain/${domain}`,
 
         {
 
@@ -141,42 +140,6 @@ export async function GET(
 
       );
 
-
-
-
-
-    if (response.status === 404) {
-
-
-      response =
-
-        await fetch(
-
-          `https://rdap.icann.org/domain/${domain}`,
-
-          {
-
-            headers:
-
-            {
-
-              Accept:
-
-                "application/rdap+json",
-
-            },
-
-
-            cache:
-
-              "no-store",
-
-          }
-
-        );
-
-
-    }
 
 
 
@@ -210,9 +173,45 @@ export async function GET(
 
 
 
+
+    if (!response.ok) {
+
+
+      return NextResponse.json(
+
+        {
+
+          error:
+
+            "RDAP request failed",
+
+        },
+
+        {
+
+          status:
+
+            response.status,
+
+        }
+
+      );
+
+
+    }
+
+
+
+
+
+
+
     const data =
 
       await response.json() as RDAPResponse;
+
+
+
 
 
 
@@ -236,40 +235,42 @@ export async function GET(
 
 
 
-    let registrarName = null;
+
+    let registrarName:
+
+      string | null = null;
 
 
 
-
-
-    const vcard =
-
-      registrar?.vcardArray;
 
 
 
     if (
 
-      Array.isArray(vcard)
+      registrar?.vcardArray
 
       &&
 
-      Array.isArray(vcard[1])
+      Array.isArray(
+
+        registrar.vcardArray[1]
+
+      )
 
     ) {
 
 
-      const nameItem =
+      const item =
 
-        vcard[1].find(
+        registrar.vcardArray[1].find(
 
-          (item) =>
+          (value) =>
 
-            Array.isArray(item)
+            Array.isArray(value)
 
             &&
 
-            item[0] === "fn"
+            value[0] === "fn"
 
         );
 
@@ -277,19 +278,21 @@ export async function GET(
 
       if (
 
-        Array.isArray(nameItem)
+        Array.isArray(item)
 
       ) {
 
 
         registrarName =
 
-          String(nameItem[3]);
+          String(item[3]);
 
       }
 
 
     }
+
+
 
 
 
@@ -333,7 +336,7 @@ export async function GET(
 
           (ns) =>
 
-            ns.ldhName
+            ns.ldhName || ""
 
         ) || [],
 
@@ -347,9 +350,24 @@ export async function GET(
     });
 
 
+
+
+
   }
 
-  catch {
+
+  catch (error) {
+
+
+
+    console.error(
+
+      "RDAP ERROR:",
+
+      error
+
+    );
+
 
 
     return NextResponse.json(
