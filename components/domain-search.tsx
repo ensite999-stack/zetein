@@ -78,7 +78,6 @@ type DomainResult = {
 
 
 
-
 export default function DomainSearch() {
 
 
@@ -236,7 +235,7 @@ export default function DomainSearch() {
 
         flex
 
-        max-w-3xl
+        max-w-2xl
 
         items-center
 
@@ -298,7 +297,7 @@ export default function DomainSearch() {
 
 
 
-          placeholder="Search your .xyz domain"
+          placeholder="Search .xyz"
 
 
 
@@ -308,17 +307,23 @@ export default function DomainSearch() {
 
           flex-1
 
+          overflow-hidden
+
           rounded-xl
 
-          px-6
+          px-5
 
-          py-4
+          py-3
 
-          text-lg
+          text-base
 
           text-black
 
+          placeholder:text-gray-400
+
           outline-none
+
+          md:text-lg
 
           "
 
@@ -344,17 +349,25 @@ export default function DomainSearch() {
 
           className="
 
+          shrink-0
+
           rounded-xl
 
           bg-black
 
-          px-8
+          px-6
 
-          py-4
+          py-3
+
+          text-sm
 
           font-medium
 
+          whitespace-nowrap
+
           text-white
+
+          md:text-base
 
           disabled:opacity-50
 
@@ -368,7 +381,7 @@ export default function DomainSearch() {
 
             loading
 
-              ? "Searching..."
+              ? "Searching"
 
               : "Search"
 
@@ -443,7 +456,7 @@ export default function DomainSearch() {
 
             mt-8
 
-            max-w-3xl
+            max-w-2xl
 
             rounded-3xl
 
@@ -453,7 +466,7 @@ export default function DomainSearch() {
 
             bg-white/5
 
-            p-8
+            p-6
 
             text-left
 
@@ -586,17 +599,7 @@ export default function DomainSearch() {
                 <div className="mt-8">
 
 
-                  <h3
-
-                    className="
-
-                    text-xl
-
-                    font-bold
-
-                    "
-
-                  >
+                  <h3 className="text-xl font-bold">
 
                     Nameservers
 
@@ -665,22 +668,11 @@ export default function DomainSearch() {
                 <div className="mt-8">
 
 
-                  <h3
-
-                    className="
-
-                    text-xl
-
-                    font-bold
-
-                    "
-
-                  >
+                  <h3 className="text-xl font-bold">
 
                     DNS Records
 
                   </h3>
-
 
 
 
