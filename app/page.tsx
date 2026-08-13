@@ -3,8 +3,6 @@
 
 import { useState } from "react";
 
-import Logo from "@/components/logo";
-
 import Footer from "@/components/footer";
 
 import DomainSearch from "@/components/domain-search";
@@ -195,6 +193,9 @@ const articles = [
 
 
   },
+
+
+
   {
 
 
@@ -256,11 +257,6 @@ const articles = [
           individuals.
 
         </p>
-
-
-
-
-
         <h3 className="text-xl text-white">
 
           Notable Examples
@@ -316,6 +312,7 @@ const articles = [
 
 
 
+
 export default function Home() {
 
 
@@ -344,6 +341,7 @@ export default function Home() {
       "
 
     >
+
 
 
 
@@ -379,19 +377,21 @@ export default function Home() {
 
 
 
+
       <section
 
         className="
 
         px-6
 
-        pt-20
+        pt-16
 
         pb-24
 
         "
 
       >
+
 
 
 
@@ -414,7 +414,37 @@ export default function Home() {
 
 
 
-          <Logo />
+          <h1
+
+            className="
+
+            text-8xl
+
+            font-black
+
+            tracking-[-0.07em]
+
+            text-white
+
+            md:text-[10rem]
+
+            "
+
+          >
+
+
+            Zetein
+
+
+            <span>
+
+              _
+
+            </span>
+
+
+
+          </h1>
 
 
 
@@ -446,6 +476,7 @@ export default function Home() {
 
 
           </p>
+
 
 
 
@@ -516,6 +547,14 @@ export default function Home() {
 
 
       </section>
+
+
+
+
+
+
+
+
       <section
 
         className="
@@ -529,6 +568,7 @@ export default function Home() {
         "
 
       >
+
 
 
 
@@ -546,10 +586,11 @@ export default function Home() {
 
 
 
-
           {
 
+
             articles.map((item,index)=>(
+
 
 
               <div
@@ -565,7 +606,6 @@ export default function Home() {
                 "
 
               >
-
 
 
 
@@ -613,7 +653,6 @@ export default function Home() {
 
 
                 >
-
 
 
 
@@ -670,7 +709,6 @@ export default function Home() {
                   >
 
 
-
                     {
 
                       open === index
@@ -680,7 +718,6 @@ export default function Home() {
                       : "+"
 
                     }
-
 
 
                   </span>
@@ -695,10 +732,6 @@ export default function Home() {
 
 
 
-
-
-
-
                 {
 
 
@@ -707,7 +740,6 @@ export default function Home() {
 
 
                     <div
-
 
                       className="
 
@@ -723,9 +755,7 @@ export default function Home() {
                     >
 
 
-
                       {item.content}
-
 
 
                     </div>
@@ -735,7 +765,6 @@ export default function Home() {
 
 
                 }
-
 
 
 
@@ -753,19 +782,13 @@ export default function Home() {
 
 
 
-
-
-
-
         </div>
 
 
 
 
 
-
       </section>
-
 
 
 
