@@ -5,6 +5,19 @@ import { useState } from "react";
 
 
 
+type DNSRecord = {
+
+  name?: string;
+
+  type?: string;
+
+  data?: string;
+
+};
+
+
+
+
 type DomainResult = {
 
 
@@ -13,9 +26,11 @@ type DomainResult = {
     string;
 
 
+
   available?:
 
     boolean;
+
 
 
   status?:
@@ -23,14 +38,17 @@ type DomainResult = {
     string | string[];
 
 
+
   registrar?:
 
     string | null;
 
 
+
   nameservers?:
 
     string[];
+
 
 
   secureDNS?:
@@ -46,7 +64,16 @@ type DomainResult = {
     | null;
 
 
+
+  dns?:
+
+    DNSRecord[];
+
+
 };
+
+
+
 
 
 
@@ -90,10 +117,11 @@ export default function DomainSearch() {
 
     if (!domain.trim()) {
 
-
       return;
 
     }
+
+
 
 
 
@@ -108,6 +136,7 @@ export default function DomainSearch() {
 
 
     try {
+
 
 
       const response =
@@ -146,8 +175,6 @@ export default function DomainSearch() {
 
 
 
-
-
       setResult(data);
 
 
@@ -155,20 +182,19 @@ export default function DomainSearch() {
     }
 
 
-    catch (err: unknown) {
+    catch(error: unknown) {
 
 
 
       setError(
 
-        err instanceof Error
+        error instanceof Error
 
-          ? err.message
+          ? error.message
 
           : "Search failed"
 
       );
-
 
 
     }
@@ -194,7 +220,9 @@ export default function DomainSearch() {
   return (
 
 
+
     <div className="w-full">
+
 
 
 
@@ -244,7 +272,7 @@ export default function DomainSearch() {
 
 
 
-          onChange={(e) =>
+          onChange={(e)=>
 
             setDomain(
 
@@ -256,18 +284,12 @@ export default function DomainSearch() {
 
 
 
-          onKeyDown={(e) => {
+          onKeyDown={(e)=>{
 
 
-            if (
-
-              e.key === "Enter"
-
-            ) {
-
+            if(e.key === "Enter"){
 
               searchDomain();
-
 
             }
 
@@ -301,7 +323,6 @@ export default function DomainSearch() {
           "
 
 
-
         />
 
 
@@ -311,7 +332,6 @@ export default function DomainSearch() {
 
 
         <button
-
 
 
           onClick={searchDomain}
@@ -341,9 +361,7 @@ export default function DomainSearch() {
           "
 
 
-
         >
-
 
 
           {
@@ -363,6 +381,7 @@ export default function DomainSearch() {
 
 
 
+
       </div>
 
 
@@ -375,6 +394,7 @@ export default function DomainSearch() {
       {
 
         error && (
+
 
 
           <p
@@ -391,9 +411,7 @@ export default function DomainSearch() {
 
           >
 
-
             {error}
-
 
           </p>
 
@@ -419,7 +437,6 @@ export default function DomainSearch() {
 
           <div
 
-
             className="
 
             mx-auto
@@ -438,9 +455,12 @@ export default function DomainSearch() {
 
             p-8
 
+            text-left
+
             "
 
           >
+
 
 
 
@@ -449,7 +469,7 @@ export default function DomainSearch() {
 
               className="
 
-              text-2xl
+              text-3xl
 
               font-bold
 
@@ -457,9 +477,7 @@ export default function DomainSearch() {
 
             >
 
-
               {result.domain}
-
 
             </h2>
 
@@ -469,11 +487,11 @@ export default function DomainSearch() {
 
 
 
-
-            <p className="mt-4">
+            <p className="mt-5">
 
 
               Status:
+
 
               <span
 
@@ -488,7 +506,6 @@ export default function DomainSearch() {
               >
 
 
-
                 {
 
                   result.available
@@ -498,7 +515,6 @@ export default function DomainSearch() {
                     : "Registered"
 
                 }
-
 
 
               </span>
@@ -513,22 +529,31 @@ export default function DomainSearch() {
 
 
 
+
             {
 
               result.registrar && (
 
 
-                <p className="mt-4">
+                <p className="mt-5">
 
 
                   Registrar:
 
 
-                  <span className="ml-2 text-white/70">
+                  <span
 
+                    className="
+
+                    ml-2
+
+                    text-white/70
+
+                    "
+
+                  >
 
                     {result.registrar}
-
 
                   </span>
 
@@ -558,18 +583,24 @@ export default function DomainSearch() {
 
 
 
-                <div className="mt-6">
+                <div className="mt-8">
 
 
-                  <p>
+                  <h3
 
+                    className="
 
-                    Nameservers:
+                    text-xl
 
+                    font-bold
 
-                  </p>
+                    "
 
+                  >
 
+                    Nameservers
+
+                  </h3>
 
 
 
@@ -577,7 +608,7 @@ export default function DomainSearch() {
 
                     result.nameservers.map(
 
-                      (server) => (
+                      (server)=>(
 
 
                         <p
@@ -586,26 +617,150 @@ export default function DomainSearch() {
 
                           className="
 
+                          mt-2
+
                           text-white/60
 
                           "
 
                         >
 
-
                           {server}
-
 
                         </p>
 
 
                       )
 
+                    )
+
+                  }
+
+
+
+                </div>
+
+
+              )
+
+
+            }
+
+
+
+
+
+
+
+
+
+            {
+
+              result.dns &&
+
+              result.dns.length > 0 && (
+
+
+
+                <div className="mt-8">
+
+
+                  <h3
+
+                    className="
+
+                    text-xl
+
+                    font-bold
+
+                    "
+
+                  >
+
+                    DNS Records
+
+                  </h3>
+
+
+
+
+
+                  {
+
+                    result.dns.map(
+
+                      (record,index)=>(
+
+
+
+                        <div
+
+                          key={index}
+
+                          className="
+
+                          mt-4
+
+                          rounded-xl
+
+                          bg-white/5
+
+                          p-4
+
+                          "
+
+                        >
+
+
+
+                          <p
+
+                            className="
+
+                            text-[#22D3EE]
+
+                            "
+
+                          >
+
+                            {record.type}
+
+                          </p>
+
+
+
+
+                          <p
+
+                            className="
+
+                            mt-2
+
+                            break-all
+
+                            text-white/70
+
+                            "
+
+                          >
+
+                            {record.data}
+
+                          </p>
+
+
+
+                        </div>
+
+
+
+                      )
 
                     )
 
-
                   }
+
+
 
 
 
@@ -615,7 +770,10 @@ export default function DomainSearch() {
 
               )
 
+
             }
+
+
 
 
 
@@ -629,13 +787,23 @@ export default function DomainSearch() {
 
 
 
-                <p className="mt-6">
+                <p className="mt-8">
 
 
                   DNSSEC:
 
 
-                  <span className="ml-2 text-white/70">
+                  <span
+
+                    className="
+
+                    ml-2
+
+                    text-white/70
+
+                    "
+
+                  >
 
 
                     {
@@ -652,7 +820,6 @@ export default function DomainSearch() {
                   </span>
 
 
-
                 </p>
 
 
@@ -667,6 +834,7 @@ export default function DomainSearch() {
 
 
 
+
           </div>
 
 
@@ -674,6 +842,7 @@ export default function DomainSearch() {
 
 
       }
+
 
 
 
