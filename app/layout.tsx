@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
     default:
 
-      "Zetein - Explore the world of .xyz",
+      "Zetein - Explore .xyz Domains",
 
 
 
@@ -61,6 +61,8 @@ export const metadata: Metadata = {
   [
 
     "xyz domain",
+
+    "xyz domains",
 
     "xyz domain search",
 
@@ -297,7 +299,7 @@ export const metadata: Metadata = {
 
     title:
 
-      "Zetein - Explore the world of .xyz",
+      "Zetein - Explore .xyz Domains",
 
 
 
@@ -361,7 +363,7 @@ export const metadata: Metadata = {
 
         alt:
 
-          "Zetein - Explore the world of .xyz",
+          "Zetein - Explore .xyz Domains",
 
 
       },
@@ -395,7 +397,7 @@ export const metadata: Metadata = {
 
     title:
 
-      "Zetein - Explore the world of .xyz",
+      "Zetein - Explore .xyz Domains",
 
 
 
