@@ -1,41 +1,85 @@
 "use client";
 
+
 import { useState } from "react";
+
 
 
 type DomainResult = {
 
-  domain: string;
 
-  available?: boolean;
+  domain:
 
-  status?: string | string[];
+    string;
 
-  registrar?: string | null;
 
-  nameservers?: string[];
+  available?:
 
-  secureDNS?: any;
+    boolean;
+
+
+  status?:
+
+    string | string[];
+
+
+  registrar?:
+
+    string | null;
+
+
+  nameservers?:
+
+    string[];
+
+
+  secureDNS?:
+
+    {
+
+      delegationSigned?:
+
+        boolean;
+
+    }
+
+    | null;
+
 
 };
+
+
 
 
 
 export default function DomainSearch() {
 
 
-  const [domain, setDomain] = useState("");
+
+  const [domain, setDomain] =
+
+    useState("");
+
+
 
   const [loading, setLoading] =
+
     useState(false);
 
 
+
   const [result, setResult] =
+
     useState<DomainResult | null>(null);
 
 
+
   const [error, setError] =
+
     useState("");
+
+
+
 
 
 
@@ -43,7 +87,13 @@ export default function DomainSearch() {
   async function searchDomain() {
 
 
-    if (!domain) return;
+
+    if (!domain.trim()) {
+
+
+      return;
+
+    }
 
 
 
@@ -55,32 +105,46 @@ export default function DomainSearch() {
 
 
 
+
+
     try {
 
 
-      const res =
+      const response =
+
         await fetch(
 
-          `/api/domain?domain=${domain}`
+          `/api/domain?domain=${encodeURIComponent(domain)}`
 
         );
+
+
 
 
 
       const data =
-        await res.json();
+
+        await response.json();
 
 
 
-      if (data.error) {
+
+
+      if (!response.ok || data.error) {
 
 
         throw new Error(
-          data.error
+
+          data.error ||
+
+          "Lookup failed"
+
         );
 
 
       }
+
+
 
 
 
@@ -91,12 +155,20 @@ export default function DomainSearch() {
     }
 
 
-    catch(err:any) {
+    catch (err: unknown) {
+
 
 
       setError(
-        err.message
+
+        err instanceof Error
+
+          ? err.message
+
+          : "Search failed"
+
       );
+
 
 
     }
@@ -117,52 +189,85 @@ export default function DomainSearch() {
 
 
 
+
+
   return (
 
-    <div
-      className="
-      w-full
-      "
-    >
+
+    <div className="w-full">
+
+
+
 
 
       <div
+
         className="
+
+        mx-auto
+
         flex
+
+        max-w-3xl
+
         items-center
+
         rounded-2xl
+
         border
+
         border-white/20
+
         bg-white/95
+
         p-2
+
         shadow-[0_0_25px_rgba(34,211,238,0.25)]
+
+        transition
+
+        hover:shadow-[0_0_40px_rgba(34,211,238,0.35)]
+
         "
+
       >
+
+
+
 
 
         <input
 
 
+
           value={domain}
 
 
-          onChange={(e)=>
+
+          onChange={(e) =>
 
             setDomain(
+
               e.target.value
+
             )
 
           }
 
 
-          onKeyDown={(e)=>{
+
+          onKeyDown={(e) => {
 
 
-            if(
+            if (
+
               e.key === "Enter"
-            ){
+
+            ) {
+
 
               searchDomain();
+
 
             }
 
@@ -170,56 +275,92 @@ export default function DomainSearch() {
           }}
 
 
+
           placeholder="Search your .xyz domain"
 
 
+
           className="
+
           min-w-0
+
           flex-1
+
           rounded-xl
+
           px-6
+
           py-4
+
           text-lg
+
           text-black
+
           outline-none
+
           "
+
 
 
         />
 
 
 
+
+
+
+
         <button
+
 
 
           onClick={searchDomain}
 
 
+
+          disabled={loading}
+
+
+
           className="
+
           rounded-xl
+
           bg-black
+
           px-8
+
           py-4
+
           font-medium
+
           text-white
+
+          disabled:opacity-50
+
           "
 
 
+
         >
+
 
 
           {
 
             loading
 
-            ? "Searching..."
+              ? "Searching..."
 
-            : "Search"
+              : "Search"
 
           }
 
 
+
         </button>
+
+
 
 
       </div>
@@ -228,21 +369,38 @@ export default function DomainSearch() {
 
 
 
+
+
+
       {
+
         error && (
 
+
           <p
+
             className="
+
             mt-6
+
+            text-center
+
             text-red-400
+
             "
+
           >
+
 
             {error}
 
+
           </p>
 
+
         )
+
+
       }
 
 
@@ -250,64 +408,102 @@ export default function DomainSearch() {
 
 
 
+
+
+
       {
+
         result && (
+
+
 
           <div
 
+
             className="
+
+            mx-auto
+
             mt-8
+
+            max-w-3xl
+
             rounded-3xl
+
             border
+
             border-white/10
+
             bg-white/5
+
             p-8
-            text-left
+
             "
 
           >
 
 
-            <h3
+
+
+            <h2
+
               className="
+
               text-2xl
+
               font-bold
+
               "
+
             >
+
 
               {result.domain}
 
-            </h3>
+
+            </h2>
 
 
 
 
-            <p
-              className="
-              mt-4
-              "
-            >
+
+
+
+
+            <p className="mt-4">
+
 
               Status:
 
               <span
+
                 className="
+
                 ml-2
+
                 text-[#22D3EE]
+
                 "
+
               >
+
+
 
                 {
 
                   result.available
 
-                  ? "Available"
+                    ? "Available"
 
-                  : "Registered"
+                    : "Registered"
 
                 }
 
+
+
               </span>
+
+
 
             </p>
 
@@ -315,23 +511,35 @@ export default function DomainSearch() {
 
 
 
+
+
             {
+
               result.registrar && (
 
-                <p className="mt-3">
+
+                <p className="mt-4">
+
 
                   Registrar:
 
-                  <span className="ml-2">
+
+                  <span className="ml-2 text-white/70">
+
 
                     {result.registrar}
+
 
                   </span>
 
 
+
                 </p>
 
+
               )
+
+
             }
 
 
@@ -339,59 +547,142 @@ export default function DomainSearch() {
 
 
 
+
+
+
             {
+
               result.nameservers &&
+
               result.nameservers.length > 0 && (
 
-                <div className="mt-5">
+
+
+                <div className="mt-6">
 
 
                   <p>
 
+
                     Nameservers:
+
 
                   </p>
 
 
 
+
+
                   {
+
                     result.nameservers.map(
 
-                      (ns)=>(
+                      (server) => (
+
 
                         <p
-                          key={ns}
+
+                          key={server}
+
                           className="
+
                           text-white/60
+
                           "
+
                         >
 
-                          {ns}
+
+                          {server}
+
 
                         </p>
 
+
                       )
 
+
                     )
+
+
                   }
+
 
 
                 </div>
 
+
+
               )
+
             }
+
+
+
+
+
+
+
+            {
+
+              result.secureDNS && (
+
+
+
+                <p className="mt-6">
+
+
+                  DNSSEC:
+
+
+                  <span className="ml-2 text-white/70">
+
+
+                    {
+
+                      result.secureDNS.delegationSigned
+
+                        ? "Enabled"
+
+                        : "Disabled"
+
+                    }
+
+
+                  </span>
+
+
+
+                </p>
+
+
+
+              )
+
+
+            }
+
+
+
 
 
 
           </div>
 
+
         )
+
+
       }
+
+
 
 
 
     </div>
 
+
   );
+
 
 }
