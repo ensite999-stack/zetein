@@ -1,52 +1,112 @@
 import { NextResponse } from "next/server";
 
 
+type Nameserver = {
+
+  ldhName?: string;
+
+};
+
+
+type Entity = {
+
+  roles?: string[];
+
+  vcardArray?: unknown[];
+
+};
+
+
+
+type RDAPResponse = {
+
+  status?: string[];
+
+  events?: unknown[];
+
+  nameservers?: Nameserver[];
+
+  entities?: Entity[];
+
+  secureDNS?: {
+
+    delegationSigned?: boolean;
+
+  } | null;
+
+
+};
+
+
+
+
+
 export async function GET(
+
   request: Request
+
 ) {
 
 
   const { searchParams } =
+
     new URL(request.url);
 
 
 
   let domain =
+
     searchParams.get("domain");
 
 
 
   if (!domain) {
 
+
     return NextResponse.json(
 
       {
+
         error:
+
           "Domain is required",
+
       },
 
       {
+
         status:
+
           400,
+
       }
 
     );
+
 
   }
 
 
 
+
   domain =
+
     domain.toLowerCase().trim();
+
+
 
 
 
   if (!domain.endsWith(".xyz")) {
 
+
     domain =
+
       `${domain}.xyz`;
 
+
   }
+
 
 
 
@@ -55,6 +115,7 @@ export async function GET(
 
 
     let response =
+
       await fetch(
 
         `https://rdap.nic.xyz/domain/${domain}`,
@@ -66,11 +127,14 @@ export async function GET(
           {
 
             Accept:
+
               "application/rdap+json",
 
           },
 
+
           cache:
+
             "no-store",
 
         }
@@ -80,13 +144,12 @@ export async function GET(
 
 
 
-    // xyz registry 没找到
-    // 使用 ICANN fallback
 
     if (response.status === 404) {
 
 
       response =
+
         await fetch(
 
           `https://rdap.icann.org/domain/${domain}`,
@@ -98,11 +161,14 @@ export async function GET(
             {
 
               Accept:
+
                 "application/rdap+json",
 
             },
 
+
             cache:
+
               "no-store",
 
           }
@@ -111,6 +177,7 @@ export async function GET(
 
 
     }
+
 
 
 
@@ -125,10 +192,12 @@ export async function GET(
 
 
         available:
+
           true,
 
 
         status:
+
           "available",
 
 
@@ -142,7 +211,8 @@ export async function GET(
 
 
     const data =
-      await response.json();
+
+      await response.json() as RDAPResponse;
 
 
 
@@ -152,13 +222,76 @@ export async function GET(
 
       data.entities?.find(
 
-        (entity:any)=>
+        (entity) =>
 
           entity.roles?.includes(
+
             "registrar"
+
           )
 
       );
+
+
+
+
+
+    let registrarName = null;
+
+
+
+
+
+    const vcard =
+
+      registrar?.vcardArray;
+
+
+
+    if (
+
+      Array.isArray(vcard)
+
+      &&
+
+      Array.isArray(vcard[1])
+
+    ) {
+
+
+      const nameItem =
+
+        vcard[1].find(
+
+          (item) =>
+
+            Array.isArray(item)
+
+            &&
+
+            item[0] === "fn"
+
+        );
+
+
+
+      if (
+
+        Array.isArray(nameItem)
+
+      ) {
+
+
+        registrarName =
+
+          String(nameItem[3]);
+
+      }
+
+
+    }
+
+
 
 
 
@@ -171,7 +304,9 @@ export async function GET(
 
 
       available:
+
         false,
+
 
 
       status:
@@ -188,51 +323,25 @@ export async function GET(
 
       registrar:
 
-      registrar?.vcardArray?.[1]
-
-        ?.find(
-
-          (item:any)=>
-
-            item[0] === "fn"
-
-        )
-
-        ?.[3]
-
-        || null,
+        registrarName,
 
 
 
       nameservers:
 
-
         data.nameservers?.map(
 
-          (ns:any)=>
+          (ns) =>
 
             ns.ldhName
 
-        )
-
-        || [],
-
+        ) || [],
 
 
 
       secureDNS:
 
-
-        data.secureDNS
-
-        || null,
-
-
-
-
-      raw:
-
-        data,
+        data.secureDNS || null,
 
 
     });
@@ -240,8 +349,7 @@ export async function GET(
 
   }
 
-
-  catch(error) {
+  catch {
 
 
     return NextResponse.json(
@@ -249,18 +357,18 @@ export async function GET(
       {
 
         error:
+
           "Domain lookup failed",
 
       },
 
-
       {
 
         status:
+
           500,
 
       }
-
 
     );
 
