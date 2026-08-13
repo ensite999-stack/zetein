@@ -9,35 +9,31 @@ export default function robots(): MetadataRoute.Robots {
 
     rules:
 
-    [
 
-      {
-
-        userAgent:
-
-          "*",
+    {
 
 
-        allow:
+      userAgent:
 
-          "/",
-
-
-        disallow:
-
-          [
-
-            "/api/",
-
-            "/_next/",
-
-          ],
+        "*",
 
 
-      },
+      allow:
+
+        "/",
 
 
-    ],
+
+      disallow:
+
+        [
+
+          "/api/",
+
+        ],
+
+
+    },
 
 
 
