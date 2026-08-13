@@ -17,6 +17,16 @@ type DNSRecord = {
 
 
 
+type DomainEvent = {
+
+  eventAction?: string;
+
+  eventDate?: string;
+
+};
+
+
+
 
 type DomainResult = {
 
@@ -51,6 +61,18 @@ type DomainResult = {
 
 
 
+  events?:
+
+    DomainEvent[];
+
+
+
+  dns?:
+
+    DNSRecord[];
+
+
+
   secureDNS?:
 
     {
@@ -64,12 +86,6 @@ type DomainResult = {
     | null;
 
 
-
-  dns?:
-
-    DNSRecord[];
-
-
 };
 
 
@@ -78,29 +94,30 @@ type DomainResult = {
 
 
 
-export default function DomainSearch() {
+
+export default function DomainSearch(){
 
 
 
-  const [domain, setDomain] =
+  const [domain,setDomain]=
 
     useState("");
 
 
 
-  const [loading, setLoading] =
+  const [loading,setLoading]=
 
     useState(false);
 
 
 
-  const [result, setResult] =
+  const [result,setResult]=
 
-    useState<DomainResult | null>(null);
+    useState<DomainResult|null>(null);
 
 
 
-  const [error, setError] =
+  const [error,setError]=
 
     useState("");
 
@@ -110,16 +127,12 @@ export default function DomainSearch() {
 
 
 
-  async function searchDomain() {
+
+  async function searchDomain(){
 
 
 
-    if (!domain.trim()) {
-
-      return;
-
-    }
-
+    if(!domain.trim()) return;
 
 
 
@@ -133,12 +146,11 @@ export default function DomainSearch() {
 
 
 
-
-    try {
-
+    try{
 
 
-      const response =
+
+      const response=
 
         await fetch(
 
@@ -150,7 +162,7 @@ export default function DomainSearch() {
 
 
 
-      const data =
+      const data=
 
         await response.json();
 
@@ -158,7 +170,7 @@ export default function DomainSearch() {
 
 
 
-      if (!response.ok || data.error) {
+      if(!response.ok || data.error){
 
 
         throw new Error(
@@ -174,14 +186,14 @@ export default function DomainSearch() {
 
 
 
+
       setResult(data);
 
 
 
     }
 
-
-    catch(error: unknown) {
+    catch(error:unknown){
 
 
 
@@ -189,23 +201,24 @@ export default function DomainSearch() {
 
         error instanceof Error
 
-          ? error.message
+        ? error.message
 
-          : "Search failed"
+        : "Search failed"
 
       );
 
 
+
     }
 
-
-    finally {
+    finally{
 
 
       setLoading(false);
 
 
     }
+
 
 
   }
@@ -216,12 +229,11 @@ export default function DomainSearch() {
 
 
 
+
   return (
 
 
-
     <div className="w-full">
-
 
 
 
@@ -245,15 +257,11 @@ export default function DomainSearch() {
 
         border-white/20
 
-        bg-white/95
+        bg-white
 
         p-2
 
         shadow-[0_0_25px_rgba(34,211,238,0.25)]
-
-        transition
-
-        hover:shadow-[0_0_40px_rgba(34,211,238,0.35)]
 
         "
 
@@ -286,7 +294,7 @@ export default function DomainSearch() {
           onKeyDown={(e)=>{
 
 
-            if(e.key === "Enter"){
+            if(e.key==="Enter"){
 
               searchDomain();
 
@@ -307,8 +315,6 @@ export default function DomainSearch() {
 
           flex-1
 
-          overflow-hidden
-
           rounded-xl
 
           px-5
@@ -319,8 +325,6 @@ export default function DomainSearch() {
 
           text-black
 
-          placeholder:text-gray-400
-
           outline-none
 
           md:text-lg
@@ -328,7 +332,9 @@ export default function DomainSearch() {
           "
 
 
+
         />
+
 
 
 
@@ -363,13 +369,9 @@ export default function DomainSearch() {
 
           font-medium
 
-          whitespace-nowrap
-
           text-white
 
           md:text-base
-
-          disabled:opacity-50
 
           "
 
@@ -381,12 +383,15 @@ export default function DomainSearch() {
 
             loading
 
-              ? "Searching"
+            ?
 
-              : "Search"
+            "Searching"
+
+            :
+
+            "Search"
 
           }
-
 
 
         </button>
@@ -404,10 +409,10 @@ export default function DomainSearch() {
 
 
 
+
       {
 
         error && (
-
 
 
           <p
@@ -430,7 +435,6 @@ export default function DomainSearch() {
 
 
         )
-
 
       }
 
@@ -478,63 +482,79 @@ export default function DomainSearch() {
 
 
 
-            <h2
+
+            <div
 
               className="
 
-              text-3xl
+              flex
 
-              font-bold
+              items-center
+
+              justify-between
 
               "
 
             >
 
-              {result.domain}
 
-            </h2>
-
-
-
-
-
-
-
-            <p className="mt-5">
-
-
-              Status:
-
-
-              <span
+              <h2
 
                 className="
 
-                ml-2
+                text-3xl
 
-                text-[#22D3EE]
+                font-bold
 
                 "
 
               >
 
+                {result.domain}
 
-                {
-
-                  result.available
-
-                    ? "Available"
-
-                    : "Registered"
-
-                }
-
-
-              </span>
+              </h2>
 
 
 
-            </p>
+              {
+
+                result.available
+
+                &&
+
+                (
+
+                  <span
+
+                    className="
+
+                    rounded-full
+
+                    bg-green-500/20
+
+                    px-4
+
+                    py-2
+
+                    text-sm
+
+                    text-green-400
+
+                    "
+
+                  >
+
+                    Available
+
+                  </span>
+
+                )
+
+              }
+
+
+            </div>
+
 
 
 
@@ -545,38 +565,39 @@ export default function DomainSearch() {
 
             {
 
-              result.registrar && (
+              !result.available && (
 
 
-                <p className="mt-5">
+                <span
 
+                  className="
 
-                  Registrar:
+                  mt-4
 
+                  inline-block
 
-                  <span
+                  rounded-full
 
-                    className="
+                  bg-white/10
 
-                    ml-2
+                  px-4
 
-                    text-white/70
+                  py-2
 
-                    "
+                  text-sm
 
-                  >
+                  text-white/70
 
-                    {result.registrar}
+                  "
 
-                  </span>
+                >
 
+                  Registered
 
-
-                </p>
+                </span>
 
 
               )
-
 
             }
 
@@ -590,10 +611,7 @@ export default function DomainSearch() {
 
             {
 
-              result.nameservers &&
-
-              result.nameservers.length > 0 && (
-
+              result.registrar && (
 
 
                 <div className="mt-8">
@@ -601,43 +619,88 @@ export default function DomainSearch() {
 
                   <h3 className="text-xl font-bold">
 
-                    Nameservers
+                    Registrar
 
                   </h3>
 
 
 
+                  <p className="mt-2 text-white/60">
+
+                    {result.registrar}
+
+                  </p>
+
+
+                </div>
+
+
+              )
+
+            }
+
+
+
+
+
+
+
+
+
+            {
+
+              result.events &&
+
+              result.events.length>0 && (
+
+
+                <div className="mt-8">
+
+
+                  <h3 className="text-xl font-bold">
+
+                    Domain Dates
+
+                  </h3>
+
+
+
+
                   {
 
-                    result.nameservers.map(
+                    result.events.map(
 
-                      (server)=>(
+                      (event,index)=>(
 
 
                         <p
 
-                          key={server}
+                          key={index}
 
-                          className="
-
-                          mt-2
-
-                          text-white/60
-
-                          "
+                          className="mt-2 text-white/60"
 
                         >
 
-                          {server}
+                          {event.eventAction}
+
+                          :
+
+                          {" "}
+
+                          {event.eventDate}
+
 
                         </p>
 
 
                       )
 
+
                     )
 
+
                   }
+
 
 
 
@@ -659,10 +722,73 @@ export default function DomainSearch() {
 
             {
 
+              result.nameservers &&
+
+              result.nameservers.length>0 && (
+
+
+                <div className="mt-8">
+
+
+                  <h3 className="text-xl font-bold">
+
+                    Nameservers
+
+                  </h3>
+
+
+
+
+                  {
+
+                    result.nameservers.map(
+
+                      (server)=>(
+
+
+                        <p
+
+                          key={server}
+
+                          className="mt-2 text-white/60"
+
+                        >
+
+                          {server}
+
+                        </p>
+
+
+                      )
+
+
+                    )
+
+
+                  }
+
+
+
+                </div>
+
+
+              )
+
+            }
+
+
+
+
+
+
+
+
+
+            {
+
               result.dns &&
 
-              result.dns.length > 0 && (
-
+              result.dns.length>0 && (
 
 
                 <div className="mt-8">
@@ -695,6 +821,10 @@ export default function DomainSearch() {
 
                           rounded-xl
 
+                          border
+
+                          border-white/10
+
                           bg-white/5
 
                           p-4
@@ -705,20 +835,11 @@ export default function DomainSearch() {
 
 
 
-                          <p
-
-                            className="
-
-                            text-[#22D3EE]
-
-                            "
-
-                          >
+                          <p className="text-[#22D3EE]">
 
                             {record.type}
 
                           </p>
-
 
 
 
@@ -742,11 +863,13 @@ export default function DomainSearch() {
 
 
 
+
                         </div>
 
 
 
                       )
+
 
                     )
 
@@ -755,9 +878,7 @@ export default function DomainSearch() {
 
 
 
-
                 </div>
-
 
 
               )
@@ -778,42 +899,40 @@ export default function DomainSearch() {
               result.secureDNS && (
 
 
-
-                <p className="mt-8">
-
-
-                  DNSSEC:
+                <div className="mt-8">
 
 
-                  <span
+                  <h3 className="text-xl font-bold">
 
-                    className="
+                    DNSSEC
 
-                    ml-2
+                  </h3>
 
-                    text-white/70
 
-                    "
 
-                  >
+                  <p className="mt-2 text-white/60">
 
 
                     {
 
                       result.secureDNS.delegationSigned
 
-                        ? "Enabled"
+                      ?
 
-                        : "Disabled"
+                      "Enabled"
+
+                      :
+
+                      "Disabled"
 
                     }
 
 
-                  </span>
+                  </p>
 
 
-                </p>
 
+                </div>
 
 
               )
@@ -827,14 +946,67 @@ export default function DomainSearch() {
 
 
 
+
+
+            {
+
+              !result.available && (
+
+
+                <a
+
+                  href={
+
+                    `https://www.spaceship.com/domain-search/${result.domain}`
+
+                  }
+
+                  target="_blank"
+
+                  rel="noopener noreferrer"
+
+                  className="
+
+                  mt-10
+
+                  inline-block
+
+                  rounded-xl
+
+                  bg-white
+
+                  px-6
+
+                  py-3
+
+                  font-medium
+
+                  text-black
+
+                  "
+
+                >
+
+                  Register on Spaceship
+
+                </a>
+
+
+              )
+
+            }
+
+
+
+
+
+
           </div>
 
 
         )
 
-
       }
-
 
 
 
