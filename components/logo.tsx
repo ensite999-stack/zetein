@@ -11,17 +11,19 @@ export default function Logo() {
       href="/"
 
       className="
-      text-3xl
+      text-4xl
       font-black
       tracking-[-0.05em]
       text-white
       transition
       hover:opacity-80
+      md:text-5xl
       "
 
     >
 
       Zetein
+
       <span
         className="text-white"
       >
