@@ -1,7 +1,16 @@
 import type { MetadataRoute } from "next";
 
 
-const posts = [
+
+const baseUrl =
+
+  "https://zetein.xyz";
+
+
+
+
+
+const blogPosts = [
 
   "why-xyz-domains-are-popular",
 
@@ -17,95 +26,84 @@ const posts = [
 
 
 
+
+
+
+
 export default function sitemap():
 
 MetadataRoute.Sitemap {
 
 
-  const baseUrl =
-
-    "https://zetein.xyz";
-
-
 
   const pages = [
 
-    "",
 
-    "/about",
-
-    "/why-zetein",
-
-    "/xyz-world",
-
-    "/blog",
-
-    "/privacy",
-
-    "/terms",
-
-    "/contact",
-
-  ];
-
-
-
-  return [
-
-
-    ...pages.map((page) => ({
+    {
 
 
       url:
 
-        `${baseUrl}${page}`,
-
+        baseUrl,
 
 
       lastModified:
 
         new Date(),
-
 
 
       changeFrequency:
 
-        page === ""
-
-        ? ("weekly" as const)
-
-        : ("monthly" as const),
-
+        "weekly" as const,
 
 
       priority:
 
-        page === ""
-
-        ? 1
-
-        : 0.7,
+        1,
 
 
-    })),
+    },
 
 
 
-
-
-    ...posts.map((slug) => ({
+    {
 
 
       url:
 
-        `${baseUrl}/blog/${slug}`,
-
+        `${baseUrl}/xyz-domain`,
 
 
       lastModified:
 
         new Date(),
 
+
+      changeFrequency:
+
+        "weekly" as const,
+
+
+      priority:
+
+        0.9,
+
+
+    },
+
+
+
+    {
+
+
+      url:
+
+        `${baseUrl}/xyz-history`,
+
+
+      lastModified:
+
+        new Date(),
 
 
       changeFrequency:
@@ -113,14 +111,130 @@ MetadataRoute.Sitemap {
         "monthly" as const,
 
 
+      priority:
+
+        0.8,
+
+
+    },
+
+
+
+    {
+
+
+      url:
+
+        `${baseUrl}/guides`,
+
+
+      lastModified:
+
+        new Date(),
+
+
+      changeFrequency:
+
+        "weekly" as const,
+
 
       priority:
 
-        0.6,
+        0.8,
 
 
-    })),
+    },
 
+
+
+    {
+
+
+      url:
+
+        `${baseUrl}/blog`,
+
+
+      lastModified:
+
+        new Date(),
+
+
+      changeFrequency:
+
+        "weekly" as const,
+
+
+      priority:
+
+        0.8,
+
+
+    },
+
+
+
+  ];
+
+
+
+
+
+
+
+  const blogs =
+
+
+    blogPosts.map(
+
+      (slug)=>(
+
+
+        {
+
+
+          url:
+
+            `${baseUrl}/blog/${slug}`,
+
+
+
+          lastModified:
+
+            new Date(),
+
+
+
+          changeFrequency:
+
+            "monthly" as const,
+
+
+
+          priority:
+
+            0.7,
+
+
+        }
+
+
+      )
+
+    );
+
+
+
+
+
+
+
+
+  return [
+
+    ...pages,
+
+    ...blogs,
 
   ];
 
